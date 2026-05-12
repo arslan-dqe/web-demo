@@ -37,6 +37,27 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/faq': RouteRecordInfo<
+      '/faq',
+      '/faq',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/legal/privacy': RouteRecordInfo<
+      '/legal/privacy',
+      '/legal/privacy',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/legal/terms': RouteRecordInfo<
+      '/legal/terms',
+      '/legal/terms',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/web/1': RouteRecordInfo<
       '/web/1',
       '/web/1',
@@ -102,6 +123,24 @@ declare module 'vue-router/auto-routes' {
     'src/pages/index.vue': {
       routes:
         | '/'
+      views:
+        | never
+    }
+    'src/pages/faq.vue': {
+      routes:
+        | '/faq'
+      views:
+        | never
+    }
+    'src/pages/legal/privacy.vue': {
+      routes:
+        | '/legal/privacy'
+      views:
+        | never
+    }
+    'src/pages/legal/terms.vue': {
+      routes:
+        | '/legal/terms'
       views:
         | never
     }

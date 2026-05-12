@@ -163,12 +163,13 @@ const switchers = [
           <UIcon name="i-lucide-swords" class="w-3.5 h-3.5" />
           DQE vs Smarty
         </div>
-        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 leading-tight">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Smarty does one thing.<br/>
           <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
             DQE does everything.
           </span>
         </h2>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">How does DQE compare to Smarty for US address validation?</h3>
         <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto">
           Same self-serve speed. Same credit card billing. But DQE adds
           email and phone validation so you can drop 2–3 vendors — including

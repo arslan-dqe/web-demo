@@ -186,9 +186,10 @@ const emit = defineEmits<{ cta: [plan: string] }>()
         class="text-center mb-12"
       >
         <UBadge color="primary" variant="soft" label="Pricing" size="md" class="mb-4" />
-        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 leading-tight">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Start free. Buy credits.<br/>Scale when ready.
         </h2>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">How much does address, email, and phone validation cost?</h3>
         <p class="text-(--ui-text-muted) text-lg max-w-lg mx-auto mb-8">
           No monthly commitment for validation.
           Buy credits when you need them — they never expire.
@@ -560,6 +561,16 @@ const emit = defineEmits<{ cta: [plan: string] }>()
         v-motion
         :initial="{ opacity: 0 }"
         :visible="{ opacity: 1, transition: { delay: 400, duration: 500 } }"
+        class="text-center text-sm text-(--ui-text-muted) mb-4"
+      >
+        <a href="/faq" class="text-primary font-semibold hover:underline">
+          See all FAQs →
+        </a>
+      </div>
+      <div
+        v-motion
+        :initial="{ opacity: 0 }"
+        :visible="{ opacity: 1, transition: { delay: 450, duration: 500 } }"
         class="text-center text-sm text-(--ui-text-muted)"
       >
         $500K+ volume or need on-premise deployment?

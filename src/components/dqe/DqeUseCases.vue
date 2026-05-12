@@ -1,6 +1,6 @@
 <!-- src/components/dqe/DqeUseCases.vue -->
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 type Industry = 'retail' | 'logistics' | 'hospitality' | 'developers'
 const active = ref<Industry>('retail')
@@ -202,9 +202,10 @@ const colorActiveTab: Record<string, string> = {
         class="text-center mb-12"
       >
         <UBadge color="primary" variant="soft" label="Use cases" size="md" class="mb-4" />
-        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 leading-tight">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Built for your industry.
         </h2>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">Which industries use DQE for contact data quality?</h3>
         <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto">
           DQE solves different problems for different teams.
           Pick your industry to see exactly how it works for you.

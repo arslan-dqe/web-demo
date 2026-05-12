@@ -4,6 +4,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useColorMode } from '@vueuse/core'
 import { useRouter } from 'vue-router'
 
+const emit = defineEmits<{ startFree: [] }>()
+
 const colorMode = useColorMode()
 const router    = useRouter()
 const scrolled  = ref(false)
@@ -197,6 +199,7 @@ const mobileOpen = ref(false)
             label="Start free"
             trailing-icon="i-lucide-arrow-right"
             class="shadow-sm shadow-primary/20"
+            @click="emit('startFree')"
           />
         </div>
 
@@ -267,7 +270,7 @@ const mobileOpen = ref(false)
           <!-- CTA -->
           <div class="pt-3 mt-3 border-t border-(--ui-border) flex flex-col gap-2">
             <UButton block variant="ghost"  label="Sign in"    />
-            <UButton block label="Start free — 100 validations" trailing-icon="i-lucide-arrow-right" />
+            <UButton block label="Start free — 100 validations" trailing-icon="i-lucide-arrow-right" @click="emit('startFree')" />
           </div>
         </div>
       </div>

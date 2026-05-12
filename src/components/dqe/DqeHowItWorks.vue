@@ -145,12 +145,13 @@ const steps = [
         class="text-center mb-10"
       >
         <UBadge color="primary" variant="soft" label="How it works" size="md" class="mb-4" />
-        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 leading-tight">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Clean data in
           <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
             under 5 minutes.
           </span>
         </h2>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">How quickly can I integrate address, email, and phone validation into my app?</h3>
         <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto mb-8">
           Two paths, same result: accurate addresses, deliverable emails,
           and verified phone numbers — without a sales call.

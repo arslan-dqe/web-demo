@@ -607,7 +607,7 @@ const plans = [
         </div>
 
         <div class="footer-bottom">
-          <span class="mono">© {{ new Date().getFullYear() }} DQE Software Inc. All rights reserved.</span>
+          <span class="mono">© {{ new Date().getFullYear() }} DQE USA. All rights reserved.</span>
           <span class="mono footer-certs">
             USPS CASS Certified · SOC 2 Type II · GDPR · CCPA · US data residency
           </span>

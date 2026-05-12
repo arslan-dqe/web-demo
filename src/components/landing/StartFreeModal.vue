@@ -347,12 +347,6 @@ const strengthTextColor = computed(() => ['', 'text-error', 'text-warning', 'tex
                 </p>
               </div>
 
-              <p class="text-xs text-(--ui-text-dimmed) leading-relaxed">
-                By creating an account you agree to our
-                <a href="/terms"   class="text-primary hover:underline">Terms of Service</a>
-                and
-                <a href="/privacy" class="text-primary hover:underline">Privacy Policy</a>.
-              </p>
             </div>
 
             <!-- Success ────────────────────────────────────────────── -->
@@ -421,34 +415,45 @@ const strengthTextColor = computed(() => ['', 'text-error', 'text-warning', 'tex
         </div>
 
         <!-- ── Footer ───────────────────────────────────────────────── -->
-        <div
-          v-if="!submitted"
-          class="px-6 pb-6 flex items-center justify-between gap-3"
-        >
-          <p class="text-xs text-(--ui-text-dimmed)">
-            Already have an account?
-            <a href="/login" class="text-primary font-semibold hover:underline">Sign in</a>
-          </p>
+        <div v-if="!submitted" class="px-6 pb-6 space-y-3">
 
-          <!-- Step 1 CTA -->
-          <UButton
-            v-if="step === 1"
-            label="Continue"
-            trailing-icon="i-lucide-arrow-right"
-            :disabled="!isBusinessEmail"
-            @click="nextStep"
-          />
+          <!-- Legal consent — shown only on step 2, just above the CTA -->
+          <Transition name="fade">
+            <p v-if="step === 2" class="text-[11px] text-(--ui-text-dimmed) leading-relaxed text-center px-1">
+              By clicking "Create free account" you agree to the DQE
+              <a href="/legal/subscription" class="text-primary hover:underline font-medium">Subscription&nbsp;Agreement</a>,
+              <a href="/legal/terms"        class="text-primary hover:underline font-medium">Terms&nbsp;of&nbsp;Service</a>,
+              and
+              <a href="/legal/privacy"      class="text-primary hover:underline font-medium">Privacy&nbsp;Policy</a>.
+            </p>
+          </Transition>
 
-          <!-- Step 2 CTA -->
-          <UButton
-            v-else
-            label="Create free account"
-            leading-icon="i-lucide-shield-check"
-            :loading="submitting"
-            :disabled="!state.firstName || !state.lastName || !state.company || !state.password"
-            class="shadow-lg shadow-primary/20"
-            @click="submit"
-          />
+          <div class="flex items-center justify-between gap-3">
+            <p class="text-xs text-(--ui-text-dimmed)">
+              Already have an account?
+              <a href="/login" class="text-primary font-semibold hover:underline">Sign in</a>
+            </p>
+
+            <!-- Step 1 CTA -->
+            <UButton
+              v-if="step === 1"
+              label="Continue"
+              trailing-icon="i-lucide-arrow-right"
+              :disabled="!isBusinessEmail"
+              @click="nextStep"
+            />
+
+            <!-- Step 2 CTA -->
+            <UButton
+              v-else
+              label="Create free account"
+              leading-icon="i-lucide-shield-check"
+              :loading="submitting"
+              :disabled="!state.firstName || !state.lastName || !state.company || !state.password"
+              class="shadow-lg shadow-primary/20"
+              @click="submit"
+            />
+          </div>
         </div>
 
       </div>

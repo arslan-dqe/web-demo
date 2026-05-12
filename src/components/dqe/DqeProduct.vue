@@ -170,10 +170,11 @@ const colorGradMap: Record<string, string> = {
         class="text-center mb-14"
       >
         <UBadge color="primary" variant="soft" label="The Platform" size="md" class="mb-4" />
-        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 leading-tight">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Three validations.
           <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"> One platform.</span>
         </h2>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">Can I validate US addresses, emails, and phones in a single API call?</h3>
         <p class="text-(--ui-text-muted) text-lg max-w-2xl mx-auto">
           Stop duct-taping three separate tools together.
           DQE gives you address, email, and phone validation in a single API call.

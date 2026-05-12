@@ -131,10 +131,11 @@ const problems = [
           The hidden cost of bad data
         </div>
 
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-3 leading-tight">
           Your data is quietly
           <span class="bg-gradient-to-r from-rose-400 to-amber-400 bg-clip-text text-transparent"> costing you millions.</span>
         </h2>
+        <h3 class="text-base font-medium text-white/40 mb-4">Why does bad contact data cost US companies billions of dollars?</h3>
         <p class="text-white/50 text-lg max-w-2xl mx-auto">
           US companies lose an estimated
           <strong class="text-white">$3.1 trillion per year</strong>

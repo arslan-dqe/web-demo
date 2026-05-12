@@ -117,12 +117,13 @@ const trustItems = [
         class="text-center mb-14"
       >
         <UBadge color="primary" variant="soft" label="Customer stories" size="md" class="mb-4" />
-        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 leading-tight">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Trusted by teams who
           <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
             can't afford bad data.
           </span>
         </h2>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">What results do DQE customers see after fixing their data quality?</h3>
         <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto">
           From checkout to last-mile delivery — real results from real teams
           across retail, logistics, hospitality, and engineering.

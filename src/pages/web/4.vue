@@ -58,8 +58,8 @@ const demoOpen   = ref(false)
 <template>
   <div class="min-h-screen bg-(--ui-bg) text-(--ui-text) font-sans overflow-x-hidden">
 
-    <DqeNavbar />
-    <DqeHero />
+    <DqeNavbar @start-free="signupOpen = true" />
+    <DqeHero @primary-cta="signupOpen = true" />
 
     <Suspense>
       <DqeMarquee />

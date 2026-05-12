@@ -26,6 +26,7 @@ const columns = [
     links: [
       { label: 'About',   href: '/about'   },
       { label: 'Blog',    href: '/blog'    },
+      { label: 'FAQ',     href: '/faq'     },
       { label: 'Careers', href: '/careers' },
       { label: 'Press',   href: '/press'   },
       { label: 'Contact', href: '/contact' },
@@ -34,8 +35,8 @@ const columns = [
   {
     heading: 'Legal',
     links: [
-      { label: 'Privacy Policy', href: '/privacy' },
-      { label: 'Terms of Use',   href: '/terms'   },
+      { label: 'Privacy Policy', href: '/legal/privacy' },
+      { label: 'Terms of Use',   href: '/legal/terms'   },
       { label: 'Security',       href: '/security'},
       { label: 'DPA',            href: '/dpa'     },
       { label: 'Cookie Policy',  href: '/cookies' },
@@ -164,7 +165,7 @@ const socials = [
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-(--ui-text-dimmed)">
 
         <div class="flex flex-wrap items-center gap-4">
-          <span>© {{ new Date().getFullYear() }} DQE Inc. All rights reserved.</span>
+          <span>© {{ new Date().getFullYear() }} DQE USA. All rights reserved.</span>
           <span class="hidden md:block">·</span>
           <span>Powered by USPS CASS via Melissa OEM partnership</span>
         </div>

@@ -116,6 +116,46 @@ function submitCapture() {
   captureDone.value = true
 }
 
+// ── Free-records modal ─────────────────────────────────────────────────────
+const showFreeModal     = ref(false)
+const freeFormSubmitted = ref(false)
+const freeForm = ref({
+  firstName: '',
+  lastName:  '',
+  company:   '',
+  email:     '',
+  terms:     false,
+})
+const freeFormTouched = ref({
+  firstName: false,
+  lastName:  false,
+  company:   false,
+  email:     false,
+})
+
+const freeEmailValid = computed(() =>
+  freeForm.value.email.includes('@') && freeForm.value.email.includes('.')
+)
+const freeFormValid = computed(() =>
+  freeForm.value.firstName.trim() !== '' &&
+  freeForm.value.lastName.trim()  !== '' &&
+  freeForm.value.company.trim()   !== '' &&
+  freeEmailValid.value &&
+  freeForm.value.terms
+)
+
+function openFreeModal() {
+  showFreeModal.value     = true
+  freeFormSubmitted.value = false
+  freeForm.value = { firstName: '', lastName: '', company: '', email: '', terms: false }
+  freeFormTouched.value = { firstName: false, lastName: false, company: false, email: false }
+}
+
+function submitFreeForm() {
+  if (!freeFormValid.value) return
+  freeFormSubmitted.value = true
+}
+
 const stats = [
   { value: '$849.9B', label: 'in US e-commerce returns driven by bad address data', note: 'NRF 2026' },
   { value: '$1.47',   label: 'base cost per failed delivery attempt, before overtime', note: 'Last Mile Consortium' },
@@ -255,6 +295,7 @@ const credentials = [
             size="sm"
             label="100 free records →"
             class="shadow-sm shadow-blue-500/20"
+            @click="openFreeModal"
           />
         </div>
 
@@ -348,6 +389,7 @@ const credentials = [
                 label="Get 100 free records"
                 trailing-icon="i-lucide-arrow-right"
                 class="shadow-lg shadow-blue-500/20 dark:shadow-blue-500/30 font-semibold"
+                @click="openFreeModal"
               />
               <UButton
                 size="lg"
@@ -1321,7 +1363,7 @@ const credentials = [
 
         <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span class="font-mono text-xs text-slate-600">
-            © {{ new Date().getFullYear() }} DQE Software Inc. All rights reserved.
+            © {{ new Date().getFullYear() }} DQE USA. All rights reserved.
           </span>
           <div class="flex items-center gap-4">
             <span class="flex items-center gap-1.5 font-mono text-xs text-slate-600">
@@ -1336,6 +1378,186 @@ const credentials = [
     </footer>
 
   </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       FREE RECORDS MODAL
+  ════════════════════════════════════════════════════════════════════ -->
+  <UModal v-model:open="showFreeModal" :ui="{ content: 'max-w-lg' }">
+    <template #content>
+      <div class="bg-white">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between px-7 pt-7 pb-5 border-b border-slate-100">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-blue-600 flex items-center justify-center flex-shrink-0">
+              <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-white" />
+            </div>
+            <div>
+              <p class="font-bold text-slate-900 text-base leading-tight">Get 100 free records</p>
+              <p class="font-mono text-[11px] text-slate-400 mt-0.5">No credit card · API key delivered instantly</p>
+            </div>
+          </div>
+          <button
+            class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+            @click="showFreeModal = false"
+          >
+            <UIcon name="i-lucide-x" class="w-4 h-4" />
+          </button>
+        </div>
+
+        <!-- Body -->
+        <Transition name="result-fade" mode="out-in">
+
+          <!-- Success state -->
+          <div v-if="freeFormSubmitted" key="success" class="px-7 py-10 flex flex-col items-center text-center gap-4">
+            <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
+              <UIcon name="i-lucide-check" class="w-7 h-7 text-emerald-500" />
+            </div>
+            <div>
+              <p class="text-xl font-bold text-slate-900 mb-1">You're in!</p>
+              <p class="text-sm text-slate-500 leading-relaxed">
+                Check your inbox — your API key and 100 free credits are on their way to<br />
+                <span class="font-mono text-slate-700 font-semibold">{{ freeForm.email }}</span>
+              </p>
+            </div>
+            <button
+              class="mt-2 px-6 py-2.5 bg-slate-900 text-white text-sm font-semibold hover:bg-blue-600 transition-colors"
+              @click="showFreeModal = false"
+            >
+              Close
+            </button>
+          </div>
+
+          <!-- Form state -->
+          <form v-else key="form" class="px-7 py-6 space-y-4" @submit.prevent="submitFreeForm">
+
+            <!-- First / Last name row -->
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block font-mono text-[11px] text-slate-500 uppercase tracking-wider mb-1.5">
+                  First name <span class="text-red-400">*</span>
+                </label>
+                <input
+                  v-model="freeForm.firstName"
+                  type="text"
+                  autocomplete="given-name"
+                  placeholder="Jane"
+                  class="w-full border text-sm px-3 py-2.5 outline-none transition-all"
+                  :class="freeFormTouched.firstName && !freeForm.firstName.trim()
+                    ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-500/10'
+                    : 'border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-500/10'"
+                  @blur="freeFormTouched.firstName = true"
+                />
+                <p v-if="freeFormTouched.firstName && !freeForm.firstName.trim()" class="font-mono text-[10px] text-red-400 mt-1">Required</p>
+              </div>
+              <div>
+                <label class="block font-mono text-[11px] text-slate-500 uppercase tracking-wider mb-1.5">
+                  Last name <span class="text-red-400">*</span>
+                </label>
+                <input
+                  v-model="freeForm.lastName"
+                  type="text"
+                  autocomplete="family-name"
+                  placeholder="Smith"
+                  class="w-full border text-sm px-3 py-2.5 outline-none transition-all"
+                  :class="freeFormTouched.lastName && !freeForm.lastName.trim()
+                    ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-500/10'
+                    : 'border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-500/10'"
+                  @blur="freeFormTouched.lastName = true"
+                />
+                <p v-if="freeFormTouched.lastName && !freeForm.lastName.trim()" class="font-mono text-[10px] text-red-400 mt-1">Required</p>
+              </div>
+            </div>
+
+            <!-- Company -->
+            <div>
+              <label class="block font-mono text-[11px] text-slate-500 uppercase tracking-wider mb-1.5">
+                Company name <span class="text-red-400">*</span>
+              </label>
+              <input
+                v-model="freeForm.company"
+                type="text"
+                autocomplete="organization"
+                placeholder="Acme Corp"
+                class="w-full border text-sm px-3 py-2.5 outline-none transition-all"
+                :class="freeFormTouched.company && !freeForm.company.trim()
+                  ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-500/10'
+                  : 'border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-500/10'"
+                @blur="freeFormTouched.company = true"
+              />
+              <p v-if="freeFormTouched.company && !freeForm.company.trim()" class="font-mono text-[10px] text-red-400 mt-1">Required</p>
+            </div>
+
+            <!-- Work email -->
+            <div>
+              <label class="block font-mono text-[11px] text-slate-500 uppercase tracking-wider mb-1.5">
+                Work email <span class="text-red-400">*</span>
+              </label>
+              <input
+                v-model="freeForm.email"
+                type="email"
+                autocomplete="email"
+                placeholder="jane@yourcompany.com"
+                class="w-full border font-mono text-sm px-3 py-2.5 outline-none transition-all"
+                :class="freeFormTouched.email && !freeEmailValid
+                  ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-500/10'
+                  : 'border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-500/10'"
+                @blur="freeFormTouched.email = true"
+              />
+              <p v-if="freeFormTouched.email && !freeEmailValid" class="font-mono text-[10px] text-red-400 mt-1">Enter a valid email address</p>
+            </div>
+
+            <!-- Terms -->
+            <div class="pt-1">
+              <label class="flex items-start gap-3 cursor-pointer group">
+                <div class="flex-shrink-0 mt-0.5">
+                  <div
+                    class="w-4 h-4 border-2 flex items-center justify-center transition-colors"
+                    :class="freeForm.terms
+                      ? 'bg-blue-600 border-blue-600'
+                      : 'border-slate-300 group-hover:border-blue-400'"
+                    @click="freeForm.terms = !freeForm.terms"
+                  >
+                    <UIcon v-if="freeForm.terms" name="i-lucide-check" class="w-2.5 h-2.5 text-white" />
+                  </div>
+                  <input v-model="freeForm.terms" type="checkbox" class="sr-only" />
+                </div>
+                <span class="text-xs text-slate-500 leading-relaxed">
+                  I agree to the
+                  <a href="/legal/terms" target="_blank" class="text-blue-600 hover:text-blue-700 underline underline-offset-2">Terms of Use</a>
+                  and
+                  <a href="/legal/privacy" target="_blank" class="text-blue-600 hover:text-blue-700 underline underline-offset-2">Privacy Policy</a>.
+                  I understand that my data will be processed in accordance with DQE's data practices.
+                  <span class="text-red-400">*</span>
+                </span>
+              </label>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-slate-100 pt-4 flex flex-col gap-3">
+              <button
+                type="submit"
+                class="w-full py-3 font-semibold text-sm transition-all"
+                :class="freeFormValid
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20'
+                  : 'bg-slate-100 text-slate-300 cursor-not-allowed'"
+                :disabled="!freeFormValid"
+              >
+                Claim 100 free records →
+              </button>
+              <p class="font-mono text-[10px] text-slate-300 text-center">
+                We verify your email before sending your API key · No spam
+              </p>
+            </div>
+
+          </form>
+
+        </Transition>
+
+      </div>
+    </template>
+  </UModal>
+
 </template>
 
 <style scoped>

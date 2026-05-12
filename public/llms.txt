@@ -1,0 +1,55 @@
+# DQE — Address, Email & Phone Validation API
+
+> DQE is a self-serve US data validation platform that validates addresses, email addresses, and phone numbers in a single API call. USPS CASS-certified. SOC 2 Type II. No SFTP. No sales cycle. Set up in 5 minutes. Results in under 150ms.
+
+## Product
+
+- [Address Validation](https://dqe.io/product/address): USPS CASS-certified address validation with DPV confirmation, ZIP+4 appending, county and RDI enrichment. Available as a real-time REST API (<150ms) and CASS-certified batch processing for CSV files.
+- [Email Validation](https://dqe.io/product/email): MX record lookup, live SMTP handshake, disposable domain detection, role-based address flagging, and risk scoring (Low / Medium / High).
+- [Phone Validation](https://dqe.io/product/phone): Carrier identification, line type detection (mobile / landline / VoIP), active/ported status, and TCPA compliance flag.
+
+## Pricing
+
+- [Validate Plan](https://dqe.io/#pricing): Free forever — 100 validations total, all 3 channels, REST API + CSV upload. No credit card required.
+- [Verify Plan](https://dqe.io/#pricing): $99/month — 25,000 validations per month, webhooks, batch processing, credits never expire.
+- [Advanced Plan](https://dqe.io/#pricing): Custom pricing — unlimited validations, CRM integrations, dedicated CSM, SLA guarantee, SOC 2 BAA.
+
+## Key Facts
+
+- One API call validates address + email + phone simultaneously (1 credit consumed)
+- USPS CASS Certified via Melissa OEM partnership
+- SOC 2 Type II certified
+- <150ms p95 API response time
+- 99.99% uptime SLA
+- US data residency
+- GDPR and CCPA compliant
+- TCPA compliance flag included in phone validation
+- 10 billion+ validation queries processed per year
+- Self-serve signup: business email or Google SSO, no credit card, account live immediately
+
+## Industry Data
+
+- $849.9B lost annually in US e-commerce returns driven by bad address data (NRF 2026)
+- $1.47 average base cost per failed delivery attempt (Last Mile Consortium)
+- 19.3% of all US online orders are returned — many preventable with address validation (US Census)
+- $3.1T lost annually in the US due to poor data quality (IBM / Gartner)
+- DQE customers see 43% fewer undelivered parcels
+
+## Compare
+
+- [DQE vs Smarty](https://dqe.io/vs-smarty): DQE matches Smarty's self-serve speed and pricing model, then adds email and phone validation — replacing 2–3 vendors with one API key. Migration from Smarty takes under 10 minutes (API-compatible address endpoint).
+- DQE vs Melissa: Melissa requires a procurement cycle and SFTP setup. DQE is self-serve with credit card billing.
+- DQE vs ZeroBounce: DQE adds address and phone to email validation in a single call.
+
+## Legal
+
+- [Terms of Use](https://dqe.io/legal/terms): Effective May 11, 2026
+- [Privacy Policy](https://dqe.io/legal/privacy): Effective May 11, 2026
+
+## Contact
+
+- Website: https://dqe.io
+- Support: support@dqe.io
+- Legal: legal@dqe.io
+- Security: security@dqe.io
+- Address: DQE USA, 1200 Brickell Ave, Ste 1960, Miami, FL 33131, United States
