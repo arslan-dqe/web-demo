@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useClipboard } from '@vueuse/core'
 
-const props = defineProps<{ text: string; size?: string }>()
+const props = defineProps<{ text: string; size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' }>()
 
 const { copy, copied, isSupported } = useClipboard({ source: () => props.text })
 </script>

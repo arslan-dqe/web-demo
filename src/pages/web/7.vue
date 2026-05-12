@@ -1591,7 +1591,7 @@ function onHueSlider(e: Event) {
                     <div class="p-3">
                       <UColorPicker
                         :model-value="customColors[role.key] ?? '#7c3aed'"
-                        @update:model-value="(v: string) => applyHexToRole(role.key, v)"
+                        @update:model-value="(v: string | undefined) => applyHexToRole(role.key, v ?? '')"
                       />
                     </div>
                   </template>

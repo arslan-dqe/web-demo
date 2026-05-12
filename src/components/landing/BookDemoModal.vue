@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
+import { type DateValue, CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
 
 const open = defineModel<boolean>('open', { default: false })
 
@@ -9,14 +9,15 @@ const step = ref<1 | 2 | 3>(1)
 
 // ── Step 1 — Pick a date ──────────────────────────────────────────────────
 const todayDate = today(getLocalTimeZone())
-const selectedDate = ref<CalendarDate | undefined>(undefined)
+const selectedDate = ref<DateValue | undefined>(undefined)
 
 // Disable past dates + weekends
-function isDateDisabled(date: CalendarDate) {
-  if (date.compare(todayDate) < 0) return true
-  const jsDate = new Date(date.year, date.month - 1, date.day)
+function isDateDisabled(date: DateValue) {
+  const d = date as CalendarDate
+  if (d.compare(todayDate) < 0) return true
+  const jsDate = new Date(d.year, d.month - 1, d.day)
   const day = jsDate.getDay()
-  return day === 0 || day === 6 // Sunday = 0, Saturday = 6
+  return day === 0 || day === 6
 }
 
 // ── Step 2 — Pick a time slot ─────────────────────────────────────────────
@@ -198,12 +199,13 @@ const steps = [
               </p>
               <div class="flex justify-center">
                 <UCalendar
-                  v-model="selectedDate"
+                  :model-value="(selectedDate as DateValue | null | undefined)"
                   :min-value="todayDate"
                   :is-date-disabled="isDateDisabled"
                   color="primary"
                   size="md"
                   class="w-full"
+                  @update:model-value="(v) => (selectedDate = v as CalendarDate | undefined)"
                 />
               </div>
               <div

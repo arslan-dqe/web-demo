@@ -12,6 +12,8 @@ const props = withDefaults(defineProps<{
   platform: 'youtube',
 })
 
+defineEmits<{ bookDemo: []; startFree: [] }>()
+
 const open = defineModel<boolean>('open', { default: false })
 
 // Stop video when modal closes

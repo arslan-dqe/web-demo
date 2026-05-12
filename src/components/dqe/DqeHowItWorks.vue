@@ -300,10 +300,10 @@ const steps = [
                         class="w-8 h-8 text-primary/40 mx-auto mb-2"
                       />
                       <p class="text-sm font-semibold text-(--ui-text-highlighted)">
-                        {{ step.csv.mockup.filename }}
+                        {{ step.csv.mockup?.filename }}
                       </p>
                       <p class="text-xs text-primary mt-1">
-                        {{ step.csv.mockup.rows }}
+                        {{ step.csv.mockup?.rows }}
                       </p>
                     </div>
                     <!-- Detected columns -->
@@ -312,7 +312,7 @@ const steps = [
                     </p>
                     <div class="flex flex-wrap gap-2 mb-4">
                       <div
-                        v-for="col in step.csv.mockup.columns"
+                        v-for="col in step.csv.mockup?.columns"
                         :key="col"
                         class="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-primary/8 text-primary border border-primary/15"
                       >
