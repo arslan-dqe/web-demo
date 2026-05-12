@@ -63,21 +63,25 @@ const socials = [
 <template>
   <footer class="border-t border-(--ui-border) bg-(--ui-bg-muted) px-6 pt-16 pb-8">
     <div class="max-w-6xl mx-auto">
-
       <!-- ── Top section ───────────────────────────────────────────────── -->
       <div class="grid grid-cols-2 md:grid-cols-6 gap-10 mb-12">
-
         <!-- Brand (2 cols) -->
         <div class="col-span-2">
-
           <!-- Logo -->
           <div class="flex items-center gap-2.5 mb-4">
             <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-teal-500 flex items-center justify-center shadow-md shadow-blue-500/20">
-              <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-white" />
+              <UIcon
+                name="i-lucide-shield-check"
+                class="w-4 h-4 text-white"
+              />
             </div>
             <div class="leading-none">
-              <div class="font-extrabold text-(--ui-text-highlighted) tracking-tight">DQE</div>
-              <div class="text-[10px] text-(--ui-text-dimmed) uppercase tracking-wider font-medium">Validate</div>
+              <div class="font-extrabold text-(--ui-text-highlighted) tracking-tight">
+                DQE
+              </div>
+              <div class="text-[10px] text-(--ui-text-dimmed) uppercase tracking-wider font-medium">
+                Validate
+              </div>
             </div>
           </div>
 
@@ -95,7 +99,10 @@ const socials = [
               :aria-label="s.label"
               class="w-8 h-8 rounded-lg flex items-center justify-center border border-(--ui-border) text-(--ui-text-muted) hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all"
             >
-              <UIcon :name="s.icon" class="w-3.5 h-3.5" />
+              <UIcon
+                :name="s.icon"
+                class="w-3.5 h-3.5"
+              />
             </a>
           </div>
 
@@ -110,7 +117,10 @@ const socials = [
                 size="xs"
                 class="flex-1"
               />
-              <UButton size="xs" label="Subscribe" />
+              <UButton
+                size="xs"
+                label="Subscribe"
+              />
             </div>
           </div>
         </div>
@@ -125,7 +135,10 @@ const socials = [
             {{ col.heading }}
           </div>
           <ul class="space-y-2.5">
-            <li v-for="link in col.links" :key="link.label">
+            <li
+              v-for="link in col.links"
+              :key="link.label"
+            >
               <a
                 :href="link.href"
                 class="text-sm transition-colors flex items-center gap-1.5"
@@ -143,7 +156,6 @@ const socials = [
             </li>
           </ul>
         </div>
-
       </div>
 
       <!-- ── Certification badges ──────────────────────────────────────── -->
@@ -154,7 +166,10 @@ const socials = [
           class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border"
           :class="cert.color"
         >
-          <UIcon :name="cert.icon" class="w-3.5 h-3.5" />
+          <UIcon
+            :name="cert.icon"
+            class="w-3.5 h-3.5"
+          />
           {{ cert.label }}
         </div>
       </div>
@@ -163,7 +178,6 @@ const socials = [
 
       <!-- ── Bottom bar ────────────────────────────────────────────────── -->
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-(--ui-text-dimmed)">
-
         <div class="flex flex-wrap items-center gap-4">
           <span>© {{ new Date().getFullYear() }} DQE USA. All rights reserved.</span>
           <span class="hidden md:block">·</span>
@@ -172,11 +186,17 @@ const socials = [
 
         <div class="flex items-center gap-5">
           <span class="flex items-center gap-1.5">
-            <UIcon name="i-lucide-server" class="w-3.5 h-3.5 text-primary" />
+            <UIcon
+              name="i-lucide-server"
+              class="w-3.5 h-3.5 text-primary"
+            />
             US data residency
           </span>
           <span class="flex items-center gap-1.5">
-            <UIcon name="i-lucide-shield-check" class="w-3.5 h-3.5 text-success" />
+            <UIcon
+              name="i-lucide-shield-check"
+              class="w-3.5 h-3.5 text-success"
+            />
             SOC 2 Certified
           </span>
           <span class="flex items-center gap-1.5">
@@ -184,9 +204,7 @@ const socials = [
             All systems operational
           </span>
         </div>
-
       </div>
-
     </div>
   </footer>
 </template>

@@ -38,9 +38,11 @@ const stars = computed(() => {
 
 <template>
   <div class="inline-flex items-center gap-1">
-
     <!-- Stars -->
-    <div class="flex items-center" :style="{ gap: '2px' }">
+    <div
+      class="flex items-center"
+      :style="{ gap: '2px' }"
+    >
       <svg
         v-for="(star, i) in stars"
         :key="i"
@@ -53,11 +55,21 @@ const stars = computed(() => {
         <defs>
           <!-- Half clip: only left 50% shows -->
           <clipPath :id="`half-${i}-${$.uid}`">
-            <rect :x="0" :y="0" :width="px / 2" :height="px" />
+            <rect
+              :x="0"
+              :y="0"
+              :width="px / 2"
+              :height="px"
+            />
           </clipPath>
           <!-- Full clip: full star shows -->
           <clipPath :id="`full-${i}-${$.uid}`">
-            <rect :x="0" :y="0" :width="px" :height="px" />
+            <rect
+              :x="0"
+              :y="0"
+              :width="px"
+              :height="px"
+            />
           </clipPath>
         </defs>
 

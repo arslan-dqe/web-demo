@@ -20,9 +20,10 @@ const pages = Object.keys(modules).map((path) => {
 
 <template>
   <div class="p-8 max-w-5xl mx-auto">
-
     <div class="mb-10">
-      <h1 class="text-3xl font-black text-(--ui-text-highlighted) mb-2">Web Pages</h1>
+      <h1 class="text-3xl font-black text-(--ui-text-highlighted) mb-2">
+        Web Pages
+      </h1>
       <p class="text-sm text-(--ui-text-muted)">
         {{ pages.length }} pages · click any card to open in a new tab
       </p>
@@ -39,9 +40,17 @@ const pages = Object.keys(modules).map((path) => {
       >
         <div class="flex items-start justify-between gap-3">
           <div class="w-10 h-10 rounded-xl bg-primary-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-500/20 transition-colors">
-            <UIcon :name="page.icon" class="w-5 h-5 text-primary-400" />
+            <UIcon
+              :name="page.icon"
+              class="w-5 h-5 text-primary-400"
+            />
           </div>
-          <UBadge color="neutral" variant="soft" size="xs" class="font-semibold flex-shrink-0 mt-1">
+          <UBadge
+            color="neutral"
+            variant="soft"
+            size="xs"
+            class="font-semibold flex-shrink-0 mt-1"
+          >
             {{ page.badge }}
           </UBadge>
         </div>
@@ -57,11 +66,13 @@ const pages = Object.keys(modules).map((path) => {
         <div class="flex items-center justify-between">
           <span class="text-xs font-mono text-(--ui-text-dimmed)">{{ page.route }}</span>
           <span class="flex items-center gap-1 text-xs text-primary-400 font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-            <UIcon name="i-lucide-external-link" class="w-3.5 h-3.5" />Open
+            <UIcon
+              name="i-lucide-external-link"
+              class="w-3.5 h-3.5"
+            />Open
           </span>
         </div>
       </a>
     </div>
-
   </div>
 </template>

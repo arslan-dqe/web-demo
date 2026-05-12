@@ -47,69 +47,6 @@ const stats = [
   { value: '$420K', label: 'Avg. revenue recovered / year' },
 ]
 
-const testimonials = [
-  {
-    name: 'Alicia Torres',
-    role: 'VP of Revenue Operations',
-    company: 'Meridian SaaS',
-    avatar: 'AT',
-    color: 'primary',
-    quote: 'We had 34% duplicate rate in Salesforce before Deduply. Cleaned 180K records in a weekend. Our reps stopped complaining about bad data overnight.',
-    stars: 5,
-  },
-  {
-    name: 'James Whitfield',
-    role: 'Head of Growth',
-    company: 'Stackline Inc.',
-    avatar: 'JW',
-    color: 'secondary',
-    quote: "Other tools missed 'Jon Smith' vs 'Jonathan Smith' at the same company. Deduply caught it. That alone was worth the price.",
-    stars: 5,
-  },
-  {
-    name: 'Priya Nair',
-    role: 'Sales Ops Manager',
-    company: 'Cloudify',
-    avatar: 'PN',
-    color: 'success',
-    quote: "Setup took 20 minutes. Within an hour it found 12,000 dupes our team had been ignoring for two years. The ROI was instant.",
-    stars: 5,
-  },
-]
-
-const plans = [
-  {
-    name: 'Starter',
-    price: '$149',
-    period: '/mo',
-    desc: 'Perfect for small sales teams cleaning up their CRM for the first time.',
-    color: 'neutral',
-    features: ['Up to 25,000 records', '1 CRM integration', 'AI deduplication', 'Merge history (30 days)', 'Email support'],
-    cta: 'Start free trial',
-    popular: false,
-  },
-  {
-    name: 'Growth',
-    price: '$399',
-    period: '/mo',
-    desc: 'For RevOps teams who need automation and deeper integrations.',
-    color: 'primary',
-    features: ['Up to 250,000 records', '3 CRM integrations', 'Real-time duplicate prevention', 'Custom matching rules', 'Full audit trail', 'Slack alerts', 'Priority support'],
-    cta: 'Start free trial',
-    popular: true,
-  },
-  {
-    name: 'Enterprise',
-    price: 'Custom',
-    period: '',
-    desc: 'Dedicated infrastructure, SSO, and SLAs for large organizations.',
-    color: 'neutral',
-    features: ['Unlimited records', 'Unlimited integrations', 'Custom AI model fine-tuning', 'SOC 2 Type II', 'Dedicated CSM', 'SLA guarantee', 'On-premise option'],
-    cta: 'Talk to sales',
-    popular: false,
-  },
-]
-
 const navLinks = [
   { label: 'How it works', href: '#how' },
   { label: 'Features', href: '#features' },
@@ -129,12 +66,6 @@ const colorMap: Record<string, string> = {
   neutral: 'bg-muted text-muted',
 }
 
-const avatarColorMap: Record<string, string> = {
-  primary: 'bg-primary/15 text-primary',
-  secondary: 'bg-secondary/15 text-secondary',
-  success: 'bg-success/15 text-success',
-}
-
 const groupColorMap: Record<string, string> = {
   A: 'bg-primary/10 text-primary border-primary/20',
   B: 'bg-secondary/10 text-secondary border-secondary/20',
@@ -144,26 +75,42 @@ const groupColorMap: Record<string, string> = {
 
 <template>
   <div class="min-h-screen bg-white dark:bg-zinc-950 font-sans overflow-x-hidden">
-
     <nav class="sticky top-0 z-50 border-b border-zinc-200/80 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <div class="flex items-center gap-2.5">
           <div class="size-8 rounded-xl bg-gradient-to-br from-violet-500 to-violet-700 flex items-center justify-center shadow-lg shadow-violet-500/30">
-            <UIcon name="i-lucide-git-merge" class="size-4 text-white" />
+            <UIcon
+              name="i-lucide-git-merge"
+              class="size-4 text-white"
+            />
           </div>
           <span class="text-lg font-bold text-zinc-900 dark:text-white tracking-tight">Deduply</span>
         </div>
 
         <div class="hidden md:flex items-center gap-6">
-          <a v-for="link in navLinks" :key="link.label" :href="link.href"
-             class="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors font-medium">
+          <a
+            v-for="link in navLinks"
+            :key="link.label"
+            :href="link.href"
+            class="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors font-medium"
+          >
             {{ link.label }}
           </a>
         </div>
 
         <div class="flex items-center gap-3">
-          <UButton label="Log in" variant="ghost" color="neutral" size="sm" class="hidden sm:flex" />
-          <UButton label="Start free trial" size="sm" trailing-icon="i-lucide-arrow-right" />
+          <UButton
+            label="Log in"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            class="hidden sm:flex"
+          />
+          <UButton
+            label="Start free trial"
+            size="sm"
+            trailing-icon="i-lucide-arrow-right"
+          />
         </div>
       </div>
     </nav>
@@ -188,17 +135,35 @@ const groupColorMap: Record<string, string> = {
           Your CRM is full of
           <span class="relative inline-block">
             <span class="bg-gradient-to-r from-violet-600 to-cyan-500 bg-clip-text text-transparent">duplicates.</span>
-            <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none">
-              <path d="M2 9C50 3 100 1 150 5C200 9 250 7 298 3" stroke="url(#grad)" stroke-width="3" stroke-linecap="round"/>
+            <svg
+              class="absolute -bottom-2 left-0 w-full"
+              viewBox="0 0 300 12"
+              fill="none"
+            >
+              <path
+                d="M2 9C50 3 100 1 150 5C200 9 250 7 298 3"
+                stroke="url(#grad)"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
               <defs>
-                <linearGradient id="grad" x1="0" y1="0" x2="300" y2="0">
-                  <stop stop-color="#7c3aed"/>
-                  <stop offset="1" stop-color="#06b6d4"/>
+                <linearGradient
+                  id="grad"
+                  x1="0"
+                  y1="0"
+                  x2="300"
+                  y2="0"
+                >
+                  <stop stop-color="#7c3aed" />
+                  <stop
+                    offset="1"
+                    stop-color="#06b6d4"
+                  />
                 </linearGradient>
               </defs>
             </svg>
           </span>
-          <br />AI finds them all.
+          <br>AI finds them all.
         </h1>
 
         <p class="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -221,7 +186,9 @@ const groupColorMap: Record<string, string> = {
           />
         </div>
 
-        <p class="mt-4 text-sm text-zinc-400">Free 14-day trial · No setup fees · Cancel anytime</p>
+        <p class="mt-4 text-sm text-zinc-400">
+          Free 14-day trial · No setup fees · Cancel anytime
+        </p>
       </div>
 
       <div class="relative max-w-4xl mx-auto mt-16">
@@ -234,7 +201,10 @@ const groupColorMap: Record<string, string> = {
               <div class="size-3 rounded-full bg-emerald-400" />
             </div>
             <div class="flex items-center gap-2 text-xs text-zinc-400 font-medium">
-              <UIcon name="i-lucide-sparkles" class="size-3.5 text-violet-500" />
+              <UIcon
+                name="i-lucide-sparkles"
+                class="size-3.5 text-violet-500"
+              />
               AI Duplicate Scanner — Live Preview
             </div>
             <div class="flex items-center gap-1.5">
@@ -245,12 +215,24 @@ const groupColorMap: Record<string, string> = {
           </div>
 
           <div class="grid grid-cols-12 gap-2 px-4 py-2.5 bg-zinc-50 dark:bg-zinc-800/60 border-b border-zinc-100 dark:border-zinc-800 text-xs font-semibold text-zinc-400 uppercase tracking-wider">
-            <div class="col-span-1">Group</div>
-            <div class="col-span-3">Name</div>
-            <div class="col-span-3">Email</div>
-            <div class="col-span-2">Company</div>
-            <div class="col-span-1">Score</div>
-            <div class="col-span-2 text-right">Status</div>
+            <div class="col-span-1">
+              Group
+            </div>
+            <div class="col-span-3">
+              Name
+            </div>
+            <div class="col-span-3">
+              Email
+            </div>
+            <div class="col-span-2">
+              Company
+            </div>
+            <div class="col-span-1">
+              Score
+            </div>
+            <div class="col-span-2 text-right">
+              Status
+            </div>
           </div>
 
           <div class="divide-y divide-zinc-100 dark:divide-zinc-800/80">
@@ -262,21 +244,33 @@ const groupColorMap: Record<string, string> = {
                 :class="rec.master ? 'bg-white dark:bg-zinc-900' : 'bg-violet-50/50 dark:bg-violet-950/20'"
               >
                 <div class="col-span-1">
-                  <span class="inline-flex items-center justify-center size-6 rounded-full border text-xs font-bold"
-                        :class="groupColorMap[rec.group]">
+                  <span
+                    class="inline-flex items-center justify-center size-6 rounded-full border text-xs font-bold"
+                    :class="groupColorMap[rec.group]"
+                  >
                     {{ rec.group }}
                   </span>
                 </div>
                 <div class="col-span-3 font-medium text-zinc-800 dark:text-zinc-200 truncate">
                   {{ rec.name }}
-                  <span v-if="rec.master" class="ml-1.5 text-xs font-normal text-violet-500">(master)</span>
+                  <span
+                    v-if="rec.master"
+                    class="ml-1.5 text-xs font-normal text-violet-500"
+                  >(master)</span>
                 </div>
-                <div class="col-span-3 text-zinc-500 dark:text-zinc-400 truncate text-xs">{{ rec.email }}</div>
-                <div class="col-span-2 text-zinc-600 dark:text-zinc-300 truncate text-xs">{{ rec.company }}</div>
+                <div class="col-span-3 text-zinc-500 dark:text-zinc-400 truncate text-xs">
+                  {{ rec.email }}
+                </div>
+                <div class="col-span-2 text-zinc-600 dark:text-zinc-300 truncate text-xs">
+                  {{ rec.company }}
+                </div>
                 <div class="col-span-1">
                   <div class="flex items-center gap-1">
                     <div class="flex-1 h-1.5 rounded-full bg-zinc-100 dark:bg-zinc-700 overflow-hidden">
-                      <div class="h-full rounded-full bg-gradient-to-r from-violet-500 to-cyan-500" :style="`width:${rec.score}%`" />
+                      <div
+                        class="h-full rounded-full bg-gradient-to-r from-violet-500 to-cyan-500"
+                        :style="`width:${rec.score}%`"
+                      />
                     </div>
                     <span class="text-xs font-semibold text-zinc-500">{{ rec.score }}%</span>
                   </div>
@@ -299,14 +293,30 @@ const groupColorMap: Record<string, string> = {
                 class="grid grid-cols-12 gap-2 px-4 py-3 items-center text-sm bg-emerald-50/60 dark:bg-emerald-950/20 animate-pulse-once"
               >
                 <div class="col-span-1">
-                  <UIcon name="i-lucide-check-circle" class="size-5 text-emerald-500" />
+                  <UIcon
+                    name="i-lucide-check-circle"
+                    class="size-5 text-emerald-500"
+                  />
                 </div>
-                <div class="col-span-3 font-medium text-zinc-800 dark:text-zinc-200 truncate">{{ rec.name }}</div>
-                <div class="col-span-3 text-zinc-500 dark:text-zinc-400 truncate text-xs">{{ rec.email }}</div>
-                <div class="col-span-2 text-zinc-600 dark:text-zinc-300 truncate text-xs">{{ rec.company }}</div>
-                <div class="col-span-1 text-xs font-semibold text-emerald-500">100%</div>
+                <div class="col-span-3 font-medium text-zinc-800 dark:text-zinc-200 truncate">
+                  {{ rec.name }}
+                </div>
+                <div class="col-span-3 text-zinc-500 dark:text-zinc-400 truncate text-xs">
+                  {{ rec.email }}
+                </div>
+                <div class="col-span-2 text-zinc-600 dark:text-zinc-300 truncate text-xs">
+                  {{ rec.company }}
+                </div>
+                <div class="col-span-1 text-xs font-semibold text-emerald-500">
+                  100%
+                </div>
                 <div class="col-span-2 text-right">
-                  <UBadge label="✓ Merged" color="success" variant="subtle" size="xs" />
+                  <UBadge
+                    label="✓ Merged"
+                    color="success"
+                    variant="subtle"
+                    size="xs"
+                  />
                 </div>
               </div>
             </template>
@@ -343,10 +353,15 @@ const groupColorMap: Record<string, string> = {
 
     <section class="py-12 border-y border-zinc-100 dark:border-zinc-800/60 bg-zinc-50/60 dark:bg-zinc-900/40 px-4">
       <div class="max-w-5xl mx-auto text-center">
-        <p class="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-8">Integrates with your existing stack</p>
+        <p class="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-8">
+          Integrates with your existing stack
+        </p>
         <div class="flex flex-wrap justify-center gap-x-12 gap-y-4">
-          <div v-for="logo in logoNames" :key="logo"
-               class="text-sm font-bold text-zinc-300 dark:text-zinc-600 tracking-wide hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors">
+          <div
+            v-for="logo in logoNames"
+            :key="logo"
+            class="text-sm font-bold text-zinc-300 dark:text-zinc-600 tracking-wide hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors"
+          >
             {{ logo }}
           </div>
         </div>
@@ -356,7 +371,13 @@ const groupColorMap: Record<string, string> = {
     <section class="py-24 px-4 sm:px-6">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-14">
-          <UBadge label="The Problem" color="error" variant="subtle" size="sm" class="mb-4" />
+          <UBadge
+            label="The Problem"
+            color="error"
+            variant="subtle"
+            size="sm"
+            class="mb-4"
+          />
           <h2 class="text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
             Duplicates are killing your pipeline
           </h2>
@@ -366,87 +387,151 @@ const groupColorMap: Record<string, string> = {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div v-for="pain in [
-            { icon: 'i-lucide-phone-missed', title: 'Reps call the same lead twice', desc: 'Your prospect gets two cold calls from two different reps in the same week. Deal killed.', color: 'error' },
-            { icon: 'i-lucide-chart-no-axes-combined', title: 'Reporting is completely wrong', desc: 'Inflated lead counts, broken attribution, and a pipeline dashboard nobody trusts anymore.', color: 'warning' },
-            { icon: 'i-lucide-dollar-sign', title: 'Youre paying for ghost contacts', desc: `Most CRMs charge per record. Duplicates mean you're paying for data you'll never close.`, color: 'primary' },
-          ]"
-                :key="pain.title"
-          class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
-          <div class="p-3 rounded-xl w-fit mb-4" :class="colorMap[pain.color]">
-            <UIcon :name="pain.icon" class="size-5" />
-          </div>
-          <h3 class="font-semibold text-zinc-900 dark:text-white mb-2">{{ pain.title }}</h3>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{{ pain.desc }}</p>
-        </div>
-      </div>
-  </div>
-  </section>
-
-  <section id="how" class="py-24 px-4 sm:px-6 bg-zinc-50 dark:bg-zinc-900/60">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-14">
-        <UBadge label="How it works" color="primary" variant="subtle" size="sm" class="mb-4" />
-        <h2 class="text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
-          Clean data in 3 steps
-        </h2>
-        <p class="text-lg text-zinc-500 dark:text-zinc-400">From messy CRM to clean pipeline in under an hour.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-        <div class="hidden md:block absolute top-10 left-1/3 right-1/3 h-px bg-gradient-to-r from-violet-300 to-cyan-300 dark:from-violet-700 dark:to-cyan-700" />
-        <div class="hidden md:block absolute top-10 left-2/3 right-0 h-px bg-gradient-to-r from-cyan-300 to-zinc-200 dark:from-cyan-700 dark:to-zinc-700" />
-
-        <div v-for="step in steps" :key="step.num" class="relative flex flex-col items-center text-center p-6">
-          <div class="relative mb-5">
-            <div class="size-16 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-700 flex items-center justify-center shadow-xl shadow-violet-500/30">
-              <UIcon :name="step.icon" class="size-7 text-white" />
+          <div
+            v-for="pain in [
+              { icon: 'i-lucide-phone-missed', title: 'Reps call the same lead twice', desc: 'Your prospect gets two cold calls from two different reps in the same week. Deal killed.', color: 'error' },
+              { icon: 'i-lucide-chart-no-axes-combined', title: 'Reporting is completely wrong', desc: 'Inflated lead counts, broken attribution, and a pipeline dashboard nobody trusts anymore.', color: 'warning' },
+              { icon: 'i-lucide-dollar-sign', title: 'Youre paying for ghost contacts', desc: `Most CRMs charge per record. Duplicates mean you're paying for data you'll never close.`, color: 'primary' },
+            ]"
+            :key="pain.title"
+            class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+          >
+            <div
+              class="p-3 rounded-xl w-fit mb-4"
+              :class="colorMap[pain.color]"
+            >
+              <UIcon
+                :name="pain.icon"
+                class="size-5"
+              />
             </div>
-            <div class="absolute -top-2 -right-2 size-6 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-bold flex items-center justify-center">
-              {{ step.num }}
+            <h3 class="font-semibold text-zinc-900 dark:text-white mb-2">
+              {{ pain.title }}
+            </h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              {{ pain.desc }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="how"
+      class="py-24 px-4 sm:px-6 bg-zinc-50 dark:bg-zinc-900/60"
+    >
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <UBadge
+            label="How it works"
+            color="primary"
+            variant="subtle"
+            size="sm"
+            class="mb-4"
+          />
+          <h2 class="text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
+            Clean data in 3 steps
+          </h2>
+          <p class="text-lg text-zinc-500 dark:text-zinc-400">
+            From messy CRM to clean pipeline in under an hour.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+          <div class="hidden md:block absolute top-10 left-1/3 right-1/3 h-px bg-gradient-to-r from-violet-300 to-cyan-300 dark:from-violet-700 dark:to-cyan-700" />
+          <div class="hidden md:block absolute top-10 left-2/3 right-0 h-px bg-gradient-to-r from-cyan-300 to-zinc-200 dark:from-cyan-700 dark:to-zinc-700" />
+
+          <div
+            v-for="step in steps"
+            :key="step.num"
+            class="relative flex flex-col items-center text-center p-6"
+          >
+            <div class="relative mb-5">
+              <div class="size-16 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-700 flex items-center justify-center shadow-xl shadow-violet-500/30">
+                <UIcon
+                  :name="step.icon"
+                  class="size-7 text-white"
+                />
+              </div>
+              <div class="absolute -top-2 -right-2 size-6 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-bold flex items-center justify-center">
+                {{ step.num }}
+              </div>
             </div>
+            <h3 class="font-bold text-zinc-900 dark:text-white mb-2 text-lg">
+              {{ step.title }}
+            </h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              {{ step.desc }}
+            </p>
           </div>
-          <h3 class="font-bold text-zinc-900 dark:text-white mb-2 text-lg">{{ step.title }}</h3>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{{ step.desc }}</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="features" class="py-24 px-4 sm:px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-14">
-        <UBadge label="Features" color="secondary" variant="subtle" size="sm" class="mb-4" />
-        <h2 class="text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
-          Built for RevOps & Sales teams
-        </h2>
-        <p class="text-lg text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto">
-          Everything you need to keep your CRM permanently clean — not just once.
-        </p>
-      </div>
+    <section
+      id="features"
+      class="py-24 px-4 sm:px-6"
+    >
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <UBadge
+            label="Features"
+            color="secondary"
+            variant="subtle"
+            size="sm"
+            class="mb-4"
+          />
+          <h2 class="text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
+            Built for RevOps & Sales teams
+          </h2>
+          <p class="text-lg text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto">
+            Everything you need to keep your CRM permanently clean — not just once.
+          </p>
+        </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div v-for="feat in features" :key="feat.title"
-             class="group p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-violet-300 dark:hover:border-violet-700 hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-1 transition-all duration-200">
-          <div class="p-2.5 rounded-xl w-fit mb-4" :class="colorMap[feat.color]">
-            <UIcon :name="feat.icon" class="size-5" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div
+            v-for="feat in features"
+            :key="feat.title"
+            class="group p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-violet-300 dark:hover:border-violet-700 hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-1 transition-all duration-200"
+          >
+            <div
+              class="p-2.5 rounded-xl w-fit mb-4"
+              :class="colorMap[feat.color]"
+            >
+              <UIcon
+                :name="feat.icon"
+                class="size-5"
+              />
+            </div>
+            <h3 class="font-semibold text-zinc-900 dark:text-white mb-2">
+              {{ feat.title }}
+            </h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              {{ feat.desc }}
+            </p>
           </div>
-          <h3 class="font-semibold text-zinc-900 dark:text-white mb-2">{{ feat.title }}</h3>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{{ feat.desc }}</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="py-20 px-4 sm:px-6 bg-gradient-to-br from-violet-600 to-violet-800 dark:from-violet-800 dark:to-violet-950">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div v-for="stat in stats" :key="stat.label" class="space-y-2">
-          <p class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">{{ stat.value }}</p>
-          <p class="text-sm text-violet-200 font-medium">{{ stat.label }}</p>
+    <section class="py-20 px-4 sm:px-6 bg-gradient-to-br from-violet-600 to-violet-800 dark:from-violet-800 dark:to-violet-950">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div
+            v-for="stat in stats"
+            :key="stat.label"
+            class="space-y-2"
+          >
+            <p class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+              {{ stat.value }}
+            </p>
+            <p class="text-sm text-violet-200 font-medium">
+              {{ stat.label }}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   </div>
 </template>

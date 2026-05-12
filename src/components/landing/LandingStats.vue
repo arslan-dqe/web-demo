@@ -76,7 +76,6 @@ withDefaults(defineProps<{
 
 <template>
   <section class="py-24 px-4 relative overflow-hidden">
-
     <!-- Dark background -->
     <div class="absolute inset-0 bg-gradient-to-br from-zinc-950 via-violet-950/60 to-zinc-950" />
 
@@ -91,7 +90,6 @@ withDefaults(defineProps<{
     <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-secondary/15 rounded-full blur-3xl pointer-events-none" />
 
     <div class="relative z-10 max-w-6xl mx-auto">
-
       <!-- Header -->
       <div
         v-motion
@@ -104,7 +102,9 @@ withDefaults(defineProps<{
             <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             {{ badge }}
           </div>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-white">{{ headline }}</h2>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white">
+            {{ headline }}
+          </h2>
         </slot>
       </div>
 
@@ -126,11 +126,21 @@ withDefaults(defineProps<{
 
           <!-- Icon + trend -->
           <div class="flex items-start justify-between mb-6">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" :class="stat.iconBg">
-              <UIcon :name="stat.icon" class="w-5 h-5" :class="stat.iconColor" />
+            <div
+              class="w-10 h-10 rounded-xl flex items-center justify-center"
+              :class="stat.iconBg"
+            >
+              <UIcon
+                :name="stat.icon"
+                class="w-5 h-5"
+                :class="stat.iconColor"
+              />
             </div>
             <div class="flex items-center gap-1 text-xs font-semibold text-success bg-success/15 px-2 py-1 rounded-full">
-              <UIcon name="i-lucide-trending-up" class="w-3 h-3" />
+              <UIcon
+                name="i-lucide-trending-up"
+                class="w-3 h-3"
+              />
               {{ stat.trend }}
             </div>
           </div>
@@ -149,7 +159,9 @@ withDefaults(defineProps<{
                 :delay="i * 120"
               />
             </span>
-            <div class="text-sm text-white/50 font-medium mt-1 mb-4">{{ stat.label }}</div>
+            <div class="text-sm text-white/50 font-medium mt-1 mb-4">
+              {{ stat.label }}
+            </div>
             <div class="h-1 w-full rounded-full bg-white/10 overflow-hidden">
               <div
                 v-motion
@@ -171,9 +183,10 @@ withDefaults(defineProps<{
         :visible="{ opacity: 1, transition: { delay: 600, duration: 600 } }"
         class="text-center mt-10 text-xs text-white/30"
       >
-        <slot name="footnote">{{ footnote }}</slot>
+        <slot name="footnote">
+          {{ footnote }}
+        </slot>
       </div>
-
     </div>
   </section>
 </template>

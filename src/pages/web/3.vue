@@ -74,7 +74,6 @@ const LandingFooter       = defineAsyncComponent(() => import('@/components/land
 
 <template>
   <div class="min-h-screen bg-(--ui-bg) text-(--ui-text) font-sans overflow-x-hidden">
-
     <LandingNavbar />
     <LandingHero />
 
@@ -84,56 +83,80 @@ const LandingFooter       = defineAsyncComponent(() => import('@/components/land
     <Suspense>
       <LandingMarquee />
       <template #fallback>
-        <div class="py-16 border-y border-(--ui-border) bg-(--ui-bg-muted)" aria-hidden="true" />
+        <div
+          class="py-16 border-y border-(--ui-border) bg-(--ui-bg-muted)"
+          aria-hidden="true"
+        />
       </template>
     </Suspense>
 
     <Suspense>
       <LandingStats />
       <template #fallback>
-        <div class="py-24 bg-zinc-950" aria-hidden="true" />
+        <div
+          class="py-24 bg-zinc-950"
+          aria-hidden="true"
+        />
       </template>
     </Suspense>
 
     <Suspense>
       <LandingHowItWorks />
       <template #fallback>
-        <div class="py-28 bg-(--ui-bg-muted)" aria-hidden="true" />
+        <div
+          class="py-28 bg-(--ui-bg-muted)"
+          aria-hidden="true"
+        />
       </template>
     </Suspense>
 
     <Suspense>
       <LandingFeatures />
       <template #fallback>
-        <div class="py-28 bg-(--ui-bg)" aria-hidden="true" />
+        <div
+          class="py-28 bg-(--ui-bg)"
+          aria-hidden="true"
+        />
       </template>
     </Suspense>
 
     <Suspense>
       <LandingTestimonials />
       <template #fallback>
-        <div class="py-24 bg-(--ui-bg-muted)" aria-hidden="true" />
+        <div
+          class="py-24 bg-(--ui-bg-muted)"
+          aria-hidden="true"
+        />
       </template>
     </Suspense>
 
     <Suspense>
       <LandingPricing />
       <template #fallback>
-        <div class="py-24 bg-(--ui-bg)" aria-hidden="true" />
+        <div
+          class="py-24 bg-(--ui-bg)"
+          aria-hidden="true"
+        />
       </template>
     </Suspense>
 
     <Suspense>
       <LandingCTA />
       <template #fallback>
-        <div class="py-24 bg-(--ui-bg)" aria-hidden="true" />
+        <div
+          class="py-24 bg-(--ui-bg)"
+          aria-hidden="true"
+        />
       </template>
     </Suspense>
 
     <Suspense>
       <LandingFooter />
       <template #fallback>
-        <div class="py-12 border-t border-(--ui-border) bg-(--ui-bg-muted)" aria-hidden="true" />
+        <div
+          class="py-12 border-t border-(--ui-border) bg-(--ui-bg-muted)"
+          aria-hidden="true"
+        />
       </template>
     </Suspense>
 

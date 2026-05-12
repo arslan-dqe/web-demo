@@ -55,9 +55,11 @@ const avatarColorMap: Record<string, string> = {
 </script>
 
 <template>
-  <section id="testimonials" class="py-24 px-4 bg-(--ui-bg-muted) overflow-hidden">
+  <section
+    id="testimonials"
+    class="py-24 px-4 bg-(--ui-bg-muted) overflow-hidden"
+  >
     <div class="max-w-6xl mx-auto">
-
       <!-- Header -->
       <div
         v-motion
@@ -66,7 +68,13 @@ const avatarColorMap: Record<string, string> = {
         class="text-center mb-16"
       >
         <slot name="header">
-          <UBadge color="secondary" variant="soft" :label="badge" size="md" class="mb-4" />
+          <UBadge
+            color="secondary"
+            variant="soft"
+            :label="badge"
+            size="md"
+            class="mb-4"
+          />
           <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 whitespace-pre-line">
             {{ headline }}
           </h2>
@@ -85,13 +93,16 @@ const avatarColorMap: Record<string, string> = {
         >
           <!-- Stars -->
           <div class="flex gap-1 mb-5">
-            <StarRating :rating="t.stars" size="sm" />
-<!--            <UIcon-->
-<!--              v-for="s in t.stars"-->
-<!--              :key="s"-->
-<!--              name="i-lucide-star"-->
-<!--              class="w-4 h-4 text-warning fill-warning"-->
-<!--            />-->
+            <StarRating
+              :rating="t.stars"
+              size="sm"
+            />
+            <!--            <UIcon-->
+            <!--              v-for="s in t.stars"-->
+            <!--              :key="s"-->
+            <!--              name="i-lucide-star"-->
+            <!--              class="w-4 h-4 text-warning fill-warning"-->
+            <!--            />-->
           </div>
 
           <!-- Quote -->
@@ -104,10 +115,16 @@ const avatarColorMap: Record<string, string> = {
             <div
               class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
               :class="avatarColorMap[t.color]"
-            >{{ t.avatar }}</div>
+            >
+              {{ t.avatar }}
+            </div>
             <div>
-              <div class="text-sm font-bold text-(--ui-text-highlighted)">{{ t.name }}</div>
-              <div class="text-xs text-(--ui-text-muted)">{{ t.role }} · {{ t.company }}</div>
+              <div class="text-sm font-bold text-(--ui-text-highlighted)">
+                {{ t.name }}
+              </div>
+              <div class="text-xs text-(--ui-text-muted)">
+                {{ t.role }} · {{ t.company }}
+              </div>
             </div>
           </div>
         </div>
@@ -126,12 +143,14 @@ const avatarColorMap: Record<string, string> = {
             :key="item.label"
             class="flex items-center gap-2 text-sm text-(--ui-text-muted)"
           >
-            <UIcon :name="item.icon" class="w-4 h-4 text-success" />
+            <UIcon
+              :name="item.icon"
+              class="w-4 h-4 text-success"
+            />
             <span class="font-medium">{{ item.label }}</span>
           </div>
         </slot>
       </div>
-
     </div>
   </section>
 </template>

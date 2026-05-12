@@ -53,9 +53,11 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <section id="pricing" class="py-24 px-4">
+  <section
+    id="pricing"
+    class="py-24 px-4"
+  >
     <div class="max-w-6xl mx-auto">
-
       <!-- Header -->
       <div
         v-motion
@@ -64,11 +66,19 @@ const emit = defineEmits<{
         class="text-center mb-16"
       >
         <slot name="header">
-          <UBadge color="success" variant="soft" :label="badge" size="md" class="mb-4" />
+          <UBadge
+            color="success"
+            variant="soft"
+            :label="badge"
+            size="md"
+            class="mb-4"
+          />
           <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 whitespace-pre-line">
             {{ headline }}
           </h2>
-          <p class="text-(--ui-text-muted) text-lg max-w-lg mx-auto">{{ subline }}</p>
+          <p class="text-(--ui-text-muted) text-lg max-w-lg mx-auto">
+            {{ subline }}
+          </p>
         </slot>
       </div>
 
@@ -86,14 +96,26 @@ const emit = defineEmits<{
             : 'border-(--ui-border) bg-(--ui-bg) hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5'"
         >
           <!-- Popular badge -->
-          <div v-if="plan.popular" class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-            <UBadge color="primary" label="Most popular" size="sm" class="shadow-lg shadow-primary/30 px-4" />
+          <div
+            v-if="plan.popular"
+            class="absolute -top-3.5 left-1/2 -translate-x-1/2"
+          >
+            <UBadge
+              color="primary"
+              label="Most popular"
+              size="sm"
+              class="shadow-lg shadow-primary/30 px-4"
+            />
           </div>
 
           <!-- Plan header -->
           <div class="mb-6">
-            <h3 class="text-lg font-bold text-(--ui-text-highlighted) mb-2">{{ plan.name }}</h3>
-            <p class="text-sm text-(--ui-text-muted) mb-4 leading-relaxed">{{ plan.desc }}</p>
+            <h3 class="text-lg font-bold text-(--ui-text-highlighted) mb-2">
+              {{ plan.name }}
+            </h3>
+            <p class="text-sm text-(--ui-text-muted) mb-4 leading-relaxed">
+              {{ plan.desc }}
+            </p>
             <div class="flex items-end gap-1">
               <span class="text-4xl font-extrabold text-(--ui-text-highlighted)">{{ plan.price }}</span>
               <span class="text-sm text-(--ui-text-muted) mb-1.5">{{ plan.period }}</span>
@@ -141,10 +163,12 @@ const emit = defineEmits<{
       >
         <slot name="faq">
           {{ faqText }}
-          <a :href="faqHref" class="text-primary font-semibold hover:underline ml-1">{{ faqLink }}</a>
+          <a
+            :href="faqHref"
+            class="text-primary font-semibold hover:underline ml-1"
+          >{{ faqLink }}</a>
         </slot>
       </div>
-
     </div>
   </section>
 </template>

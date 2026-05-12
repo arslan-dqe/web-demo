@@ -14,7 +14,7 @@ interface DemoRecord {
   master: boolean
 }
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   badge?:       string
   headline?:    string[]   // array of lines
   highlight?:   string     // the gradient word/phrase
@@ -82,21 +82,20 @@ const avatarColors = [
 <template>
   <VideoModal
     v-model:open="videoOpen"
-    @start-free="signupOpen = true"
     video-id="aqz-KE-bpKQ"
+    @start-free="signupOpen = true"
   />
   <StartFreeModal v-model:open="signupOpen" />
 
 
   <!--  <VideoModal-->
-<!--    v-model:open="videoOpen"-->
-<!--    platform="mp4"-->
-<!--    video-url="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"-->
-<!--    title="See Deduply in action — 2 min"-->
-<!--  />-->
+  <!--    v-model:open="videoOpen"-->
+  <!--    platform="mp4"-->
+  <!--    video-url="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"-->
+  <!--    title="See Deduply in action — 2 min"-->
+  <!--  />-->
 
   <section class="relative min-h-screen flex flex-col items-center justify-center px-4 pt-28 pb-20 overflow-hidden">
-
     <!-- Animated background orbs -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div
@@ -121,7 +120,6 @@ const avatarColors = [
 
     <!-- Content -->
     <div class="relative z-10 text-center max-w-4xl mx-auto">
-
       <!-- Badge slot or default -->
       <slot name="badge">
         <div
@@ -132,7 +130,10 @@ const avatarColors = [
         >
           <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           {{ badge }}
-          <UIcon name="i-lucide-arrow-right" class="w-3 h-3" />
+          <UIcon
+            name="i-lucide-arrow-right"
+            class="w-3 h-3"
+          />
         </div>
       </slot>
 
@@ -144,19 +145,45 @@ const avatarColors = [
           :enter="{ opacity: 1, y: 0, transition: { delay: 200, duration: 700 } }"
           class="text-5xl md:text-7xl font-extrabold leading-[1.1] text-(--ui-text-highlighted) mb-6"
         >
-          <span v-for="(line, i) in headline" :key="i">
-            {{ line }}<br />
+          <span
+            v-for="(line, i) in headline"
+            :key="i"
+          >
+            {{ line }}<br>
           </span>
           <span class="relative inline-block">
             <span class="bg-gradient-to-r from-primary via-violet-400 to-secondary bg-clip-text text-transparent">
               {{ highlight }}
             </span>
-            <svg class="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 300 6" preserveAspectRatio="none">
-              <path d="M0 3 Q37.5 0 75 3 Q112.5 6 150 3 Q187.5 0 225 3 Q262.5 6 300 3" stroke="url(#hero-grad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <svg
+              class="absolute -bottom-2 left-0 w-full"
+              height="6"
+              viewBox="0 0 300 6"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0 3 Q37.5 0 75 3 Q112.5 6 150 3 Q187.5 0 225 3 Q262.5 6 300 3"
+                stroke="url(#hero-grad)"
+                stroke-width="2.5"
+                fill="none"
+                stroke-linecap="round"
+              />
               <defs>
-                <linearGradient id="hero-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stop-color="#8b5cf6"/>
-                  <stop offset="100%" stop-color="#06b6d4"/>
+                <linearGradient
+                  id="hero-grad"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="#8b5cf6"
+                  />
+                  <stop
+                    offset="100%"
+                    stop-color="#06b6d4"
+                  />
                 </linearGradient>
               </defs>
             </svg>
@@ -171,7 +198,9 @@ const avatarColors = [
         :enter="{ opacity: 1, y: 0, transition: { delay: 350, duration: 600 } }"
         class="text-lg md:text-xl text-(--ui-text-muted) max-w-2xl mx-auto mb-10 leading-relaxed"
       >
-        <slot name="description">{{ description }}</slot>
+        <slot name="description">
+          {{ description }}
+        </slot>
       </p>
 
       <!-- CTAs slot or default -->
@@ -209,14 +238,20 @@ const avatarColors = [
         <slot name="social-proof">
           <div class="flex -space-x-2">
             <div
-              v-for="(av, i) in trustAvatars" :key="i"
+              v-for="(av, i) in trustAvatars"
+              :key="i"
               class="w-7 h-7 rounded-full border-2 border-(--ui-bg) flex items-center justify-center text-[10px] font-bold"
               :class="avatarColors[i % avatarColors.length]"
-            >{{ av }}</div>
+            >
+              {{ av }}
+            </div>
           </div>
           <!-- eslint-disable-next-line vue/no-v-html -->
           <span v-html="trustText" />
-          <USeparator orientation="vertical" class="h-4" />
+          <USeparator
+            orientation="vertical"
+            class="h-4"
+          />
           <div class="flex items-center gap-1">
             <StarRating :rating="rating" />
             <span class="ml-1"><strong class="text-(--ui-text)">{{ rating }}</strong> / 5 on {{ ratingSource }}</span>
@@ -240,18 +275,36 @@ const avatarColors = [
             <span class="w-3 h-3 rounded-full bg-amber-400" />
             <span class="w-3 h-3 rounded-full bg-emerald-400" />
             <span class="flex-1 text-center text-xs text-(--ui-text-muted) font-medium">Deduply — Live Merge Preview</span>
-            <UBadge v-if="!merged" size="xs" color="warning" variant="soft" label="6 duplicates detected" />
-            <UBadge v-else          size="xs" color="success" variant="soft" label="✓ 3 records merged" />
+            <UBadge
+              v-if="!merged"
+              size="xs"
+              color="warning"
+              variant="soft"
+              label="6 duplicates detected"
+            />
+            <UBadge
+              v-else
+              size="xs"
+              color="success"
+              variant="soft"
+              label="✓ 3 records merged"
+            />
           </div>
 
           <div class="p-4">
-            <Transition name="fade-slide" mode="out-in">
-
+            <Transition
+              name="fade-slide"
+              mode="out-in"
+            >
               <!-- Before -->
-              <div v-if="!merged" key="before">
+              <div
+                v-if="!merged"
+                key="before"
+              >
                 <div class="space-y-2 mb-4">
                   <div
-                    v-for="rec in demoRecords" :key="rec.id"
+                    v-for="rec in demoRecords"
+                    :key="rec.id"
                     class="flex items-center gap-3 p-3 rounded-xl border transition-all duration-300"
                     :class="[
                       rec.master
@@ -263,18 +316,38 @@ const avatarColors = [
                     <div
                       class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
                       :class="groupColorMap[rec.group]"
-                    >{{ rec.group }}</div>
+                    >
+                      {{ rec.group }}
+                    </div>
                     <div class="flex-1 min-w-0">
                       <div class="flex items-center gap-2">
                         <span class="text-sm font-semibold text-(--ui-text-highlighted) truncate">{{ rec.name }}</span>
-                        <UBadge v-if="rec.master" size="xs" color="primary" variant="soft" label="Master" />
-                        <UBadge v-else             size="xs" color="error"   variant="soft" label="Dupe"   />
+                        <UBadge
+                          v-if="rec.master"
+                          size="xs"
+                          color="primary"
+                          variant="soft"
+                          label="Master"
+                        />
+                        <UBadge
+                          v-else
+                          size="xs"
+                          color="error"
+                          variant="soft"
+                          label="Dupe"
+                        />
                       </div>
-                      <p class="text-xs text-(--ui-text-muted) truncate">{{ rec.email }} · {{ rec.company }}</p>
+                      <p class="text-xs text-(--ui-text-muted) truncate">
+                        {{ rec.email }} · {{ rec.company }}
+                      </p>
                     </div>
                     <div class="text-right flex-shrink-0">
-                      <div class="text-xs font-bold text-primary">{{ rec.score }}%</div>
-                      <div class="text-[10px] text-(--ui-text-dimmed)">match</div>
+                      <div class="text-xs font-bold text-primary">
+                        {{ rec.score }}%
+                      </div>
+                      <div class="text-[10px] text-(--ui-text-dimmed)">
+                        match
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -288,16 +361,23 @@ const avatarColors = [
               </div>
 
               <!-- After -->
-              <div v-else key="after">
+              <div
+                v-else
+                key="after"
+              >
                 <div class="text-center py-3 mb-4">
                   <div class="inline-flex items-center gap-2 text-success bg-success/10 px-4 py-2 rounded-full text-sm font-semibold">
-                    <UIcon name="i-lucide-check-circle-2" class="w-4 h-4" />
+                    <UIcon
+                      name="i-lucide-check-circle-2"
+                      class="w-4 h-4"
+                    />
                     Merge complete — 6 records → 3 clean contacts
                   </div>
                 </div>
                 <div class="space-y-2 mb-4">
                   <div
-                    v-for="rec in masterRecords" :key="rec.id"
+                    v-for="rec in masterRecords"
+                    :key="rec.id"
                     v-motion
                     :initial="{ opacity: 0, x: -20 }"
                     :enter="{ opacity: 1, x: 0, transition: { delay: rec.id * 100, duration: 400 } }"
@@ -306,26 +386,42 @@ const avatarColors = [
                     <div
                       class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
                       :class="groupColorMap[rec.group]"
-                    >{{ rec.group }}</div>
+                    >
+                      {{ rec.group }}
+                    </div>
                     <div class="flex-1 min-w-0">
                       <div class="flex items-center gap-2">
                         <span class="text-sm font-semibold text-(--ui-text-highlighted) truncate">{{ rec.name }}</span>
-                        <UBadge size="xs" color="success" variant="soft" label="✓ Clean" />
+                        <UBadge
+                          size="xs"
+                          color="success"
+                          variant="soft"
+                          label="✓ Clean"
+                        />
                       </div>
-                      <p class="text-xs text-(--ui-text-muted) truncate">{{ rec.email }} · {{ rec.company }}</p>
+                      <p class="text-xs text-(--ui-text-muted) truncate">
+                        {{ rec.email }} · {{ rec.company }}
+                      </p>
                     </div>
-                    <UIcon name="i-lucide-check-circle-2" class="w-4 h-4 text-success flex-shrink-0" />
+                    <UIcon
+                      name="i-lucide-check-circle-2"
+                      class="w-4 h-4 text-success flex-shrink-0"
+                    />
                   </div>
                 </div>
-                <UButton block variant="soft" label="Reset demo" leading-icon="i-lucide-rotate-ccw" @click="reset" />
+                <UButton
+                  block
+                  variant="soft"
+                  label="Reset demo"
+                  leading-icon="i-lucide-rotate-ccw"
+                  @click="reset"
+                />
               </div>
-
             </Transition>
           </div>
         </div>
       </slot>
     </div>
-
   </section>
 </template>
 

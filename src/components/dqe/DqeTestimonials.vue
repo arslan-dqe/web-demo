@@ -99,8 +99,10 @@ const trustItems = [
 </script>
 
 <template>
-  <section id="testimonials" class="py-28 px-4 relative overflow-hidden bg-(--ui-bg-muted)">
-
+  <section
+    id="testimonials"
+    class="py-28 px-4 relative overflow-hidden bg-(--ui-bg-muted)"
+  >
     <!-- Background -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-500/5 rounded-full blur-3xl" />
@@ -108,7 +110,6 @@ const trustItems = [
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto">
-
       <!-- ── Header ───────────────────────────────────────────────────── -->
       <div
         v-motion
@@ -116,14 +117,22 @@ const trustItems = [
         :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
         class="text-center mb-14"
       >
-        <UBadge color="primary" variant="soft" label="Customer stories" size="md" class="mb-4" />
+        <UBadge
+          color="primary"
+          variant="soft"
+          label="Customer stories"
+          size="md"
+          class="mb-4"
+        />
         <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Trusted by teams who
           <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
             can't afford bad data.
           </span>
         </h2>
-        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">What results do DQE customers see after fixing their data quality?</h3>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">
+          What results do DQE customers see after fixing their data quality?
+        </h3>
         <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto">
           From checkout to last-mile delivery — real results from real teams
           across retail, logistics, hospitality, and engineering.
@@ -140,14 +149,16 @@ const trustItems = [
           :visible="{ opacity: 1, y: 0, transition: { delay: i * 80, duration: 600 } }"
           class="group flex flex-col p-6 rounded-2xl border border-(--ui-border) bg-(--ui-bg) hover:border-primary/25 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300"
         >
-
           <!-- Industry + Stars row -->
           <div class="flex items-center justify-between mb-4">
             <div
               class="flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full border"
               :class="industryBgMap[t.color]"
             >
-              <UIcon :name="t.icon" class="w-3 h-3" />
+              <UIcon
+                :name="t.icon"
+                class="w-3 h-3"
+              />
               {{ t.industry }}
             </div>
             <div class="flex gap-0.5">
@@ -165,7 +176,10 @@ const trustItems = [
             class="inline-flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-lg mb-4 w-fit"
             :class="industryBgMap[t.color]"
           >
-            <UIcon name="i-lucide-trending-up" class="w-3.5 h-3.5" />
+            <UIcon
+              name="i-lucide-trending-up"
+              class="w-3.5 h-3.5"
+            />
             {{ t.stat }}
           </div>
 
@@ -179,13 +193,18 @@ const trustItems = [
             <div
               class="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
               :class="colorMap[t.color]"
-            >{{ t.avatar }}</div>
+            >
+              {{ t.avatar }}
+            </div>
             <div class="min-w-0">
-              <div class="text-sm font-bold text-(--ui-text-highlighted) truncate">{{ t.name }}</div>
-              <div class="text-xs text-(--ui-text-muted) truncate">{{ t.role }} · {{ t.company }}</div>
+              <div class="text-sm font-bold text-(--ui-text-highlighted) truncate">
+                {{ t.name }}
+              </div>
+              <div class="text-xs text-(--ui-text-muted) truncate">
+                {{ t.role }} · {{ t.company }}
+              </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -197,7 +216,6 @@ const trustItems = [
         class="rounded-2xl border border-(--ui-border) bg-(--ui-bg) p-6"
       >
         <div class="flex flex-col md:flex-row items-center gap-6">
-
           <!-- G2 score -->
           <div class="flex items-center gap-4 flex-shrink-0">
             <div class="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
@@ -213,11 +231,16 @@ const trustItems = [
                 />
                 <span class="font-extrabold text-(--ui-text-highlighted) ml-1">4.9</span>
               </div>
-              <p class="text-xs text-(--ui-text-muted)">Based on 340+ verified reviews</p>
+              <p class="text-xs text-(--ui-text-muted)">
+                Based on 340+ verified reviews
+              </p>
             </div>
           </div>
 
-          <USeparator orientation="vertical" class="hidden md:block h-12" />
+          <USeparator
+            orientation="vertical"
+            class="hidden md:block h-12"
+          />
           <USeparator class="md:hidden w-full" />
 
           <!-- Trust items -->
@@ -227,14 +250,16 @@ const trustItems = [
               :key="item.label"
               class="flex items-center gap-2 text-sm text-(--ui-text-muted)"
             >
-              <UIcon :name="item.icon" class="w-4 h-4 flex-shrink-0" :class="item.color" />
+              <UIcon
+                :name="item.icon"
+                class="w-4 h-4 flex-shrink-0"
+                :class="item.color"
+              />
               <span class="font-medium">{{ item.label }}</span>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
   </section>
 </template>

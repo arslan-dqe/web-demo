@@ -41,12 +41,14 @@ const embedUrl = computed(() => {
   >
     <template #content>
       <div class="flex flex-col">
-
         <!-- ── Header ───────────────────────────────────────────────── -->
         <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
           <div class="flex items-center gap-3">
             <div class="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
-              <UIcon name="i-lucide-git-merge" class="w-4 h-4 text-white" />
+              <UIcon
+                name="i-lucide-git-merge"
+                class="w-4 h-4 text-white"
+              />
             </div>
             <span class="text-sm font-semibold text-white">{{ title }}</span>
           </div>
@@ -54,7 +56,10 @@ const embedUrl = computed(() => {
           <div class="flex items-center gap-2">
             <!-- Duration badge -->
             <div class="flex items-center gap-1.5 text-xs text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">
-              <UIcon name="i-lucide-clock" class="w-3 h-3" />
+              <UIcon
+                name="i-lucide-clock"
+                class="w-3 h-3"
+              />
               2 min
             </div>
             <!-- Close -->
@@ -62,14 +67,19 @@ const embedUrl = computed(() => {
               class="w-8 h-8 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-all"
               @click="open = false"
             >
-              <UIcon name="i-lucide-x" class="w-4 h-4" />
+              <UIcon
+                name="i-lucide-x"
+                class="w-4 h-4"
+              />
             </button>
           </div>
         </div>
 
         <!-- ── Video ─────────────────────────────────────────────────── -->
-        <div class="relative w-full bg-black" style="padding-bottom: 56.25%">
-
+        <div
+          class="relative w-full bg-black"
+          style="padding-bottom: 56.25%"
+        >
           <!-- Iframe embed (YouTube / Vimeo) -->
           <iframe
             v-if="platform !== 'mp4'"
@@ -115,7 +125,6 @@ const embedUrl = computed(() => {
             />
           </div>
         </div>
-
       </div>
     </template>
   </UModal>

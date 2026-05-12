@@ -30,9 +30,15 @@ const navLinks = props.links ?? defaultLinks
     >
       <!-- Logo slot or default -->
       <slot name="logo">
-        <a href="#" class="flex items-center gap-2 mr-2">
+        <a
+          href="#"
+          class="flex items-center gap-2 mr-2"
+        >
           <div class="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-            <UIcon name="i-lucide-git-merge" class="w-4 h-4 text-white" />
+            <UIcon
+              name="i-lucide-git-merge"
+              class="w-4 h-4 text-white"
+            />
           </div>
           <span class="font-bold text-sm text-(--ui-text-highlighted) tracking-tight">Deduply</span>
         </a>
@@ -41,7 +47,8 @@ const navLinks = props.links ?? defaultLinks
       <!-- Links -->
       <div class="hidden md:flex items-center gap-5">
         <a
-          v-for="link in navLinks" :key="link.label"
+          v-for="link in navLinks"
+          :key="link.label"
           :href="link.href"
           class="text-xs font-medium text-(--ui-text-muted) hover:text-(--ui-text-highlighted) transition-colors"
         >{{ link.label }}</a>
@@ -56,8 +63,15 @@ const navLinks = props.links ?? defaultLinks
             :icon="colorMode === 'dark' ? 'i-lucide-sun' : 'i-lucide-moon'"
             @click="colorMode = colorMode === 'dark' ? 'light' : 'dark'"
           />
-          <UButton size="xs" variant="soft" label="Sign in" />
-          <UButton size="xs" label="Get started" />
+          <UButton
+            size="xs"
+            variant="soft"
+            label="Sign in"
+          />
+          <UButton
+            size="xs"
+            label="Get started"
+          />
         </slot>
       </div>
     </nav>

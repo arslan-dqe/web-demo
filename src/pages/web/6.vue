@@ -156,13 +156,6 @@ function submitFreeForm() {
   freeFormSubmitted.value = true
 }
 
-const stats = [
-  { value: '$849.9B', label: 'in US e-commerce returns driven by bad address data', note: 'NRF 2026' },
-  { value: '$1.47',   label: 'base cost per failed delivery attempt, before overtime', note: 'Last Mile Consortium' },
-  { value: '19.3%',   label: 'of all US online orders are returned — many preventable', note: 'US Census' },
-  { value: '$3.1T',   label: 'lost annually in the US due to poor data quality', note: 'IBM / Gartner' },
-]
-
 const features = [
   {
     icon: 'i-lucide-map-pin',
@@ -261,7 +254,6 @@ const credentials = [
 
 <template>
   <div class="bg-white text-slate-900 font-sans antialiased overflow-x-hidden">
-
     <!-- ══════════════════════════════════════════════════════════════════
          NAV
     ════════════════════════════════════════════════════════════════════ -->
@@ -272,10 +264,15 @@ const credentials = [
         : 'bg-transparent'"
     >
       <div class="max-w-6xl mx-auto px-6 h-16 flex items-center gap-8">
-
-        <a href="/" class="flex items-center gap-2.5 flex-shrink-0">
+        <a
+          href="/"
+          class="flex items-center gap-2.5 flex-shrink-0"
+        >
           <div class="w-8 h-8 bg-blue-600 flex items-center justify-center">
-            <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-white" />
+            <UIcon
+              name="i-lucide-shield-check"
+              class="w-4 h-4 text-white"
+            />
           </div>
           <span class="font-bold text-slate-900 tracking-tight">DQE</span>
         </a>
@@ -290,7 +287,12 @@ const credentials = [
         </nav>
 
         <div class="flex items-center gap-2 ml-auto">
-          <UButton size="sm" variant="ghost" color="neutral" label="Sign in" />
+          <UButton
+            size="sm"
+            variant="ghost"
+            color="neutral"
+            label="Sign in"
+          />
           <UButton
             size="sm"
             label="100 free records →"
@@ -298,7 +300,6 @@ const credentials = [
             @click="openFreeModal"
           />
         </div>
-
       </div>
     </header>
 
@@ -310,9 +311,7 @@ const credentials = [
       HERO — light default · dark mode aware
  ════════════════════════════════════════════════════════════════════ -->
     <section class="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden bg-white dark:bg-[#04080F] transition-colors duration-300">
-
       <div class="absolute inset-0 pointer-events-none">
-
         <!-- Light mode: subtle warm grid -->
         <div
           class="absolute inset-0 opacity-[0.5] dark:opacity-0 transition-opacity duration-300"
@@ -335,9 +334,7 @@ const credentials = [
 
       <div class="relative z-10 max-w-6xl mx-auto w-full">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
           <div>
-
             <div
               v-motion
               :initial="{ opacity: 0, y: 12 }"
@@ -359,11 +356,11 @@ const credentials = [
               class="text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.08] tracking-tight mb-6
                  text-slate-900 dark:text-white transition-colors duration-300"
             >
-              Validate every<br />
-              address, email<br />
+              Validate every<br>
+              address, email<br>
               <span class="text-blue-600 dark:text-blue-400 transition-colors duration-300">
-            and phone.
-          </span>
+                and phone.
+              </span>
             </h1>
 
             <p
@@ -411,10 +408,10 @@ const credentials = [
             >
               <div
                 v-for="t in [
-              { icon: 'i-lucide-credit-card',  text: 'No card required' },
-              { icon: 'i-lucide-clock',         text: '5-min setup'      },
-              { icon: 'i-lucide-shield-check',  text: 'SOC 2 Type II'    },
-            ]"
+                  { icon: 'i-lucide-credit-card', text: 'No card required' },
+                  { icon: 'i-lucide-clock', text: '5-min setup' },
+                  { icon: 'i-lucide-shield-check', text: 'SOC 2 Type II' },
+                ]"
                 :key="t.text"
                 class="flex items-center gap-1.5 text-xs
                    text-slate-400 dark:text-white/30 transition-colors duration-300"
@@ -426,7 +423,6 @@ const credentials = [
                 {{ t.text }}
               </div>
             </div>
-
           </div>
 
           <div
@@ -439,7 +435,6 @@ const credentials = [
                  border border-slate-200 bg-white shadow-2xl shadow-slate-200/80
                  dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none dark:backdrop-blur-sm"
             >
-
               <div
                 class="flex items-center gap-2 px-4 py-3 border-b transition-colors duration-300
                    border-slate-100 bg-slate-50
@@ -454,8 +449,8 @@ const credentials = [
                   class="flex-1 text-center font-mono text-[11px] transition-colors duration-300
                      text-slate-400 dark:text-white/20"
                 >
-              api.dqe.io / v1 / validate
-            </span>
+                  api.dqe.io / v1 / validate
+                </span>
                 <div
                   class="flex items-center gap-1.5 font-mono text-[10px] transition-colors duration-300
                      text-emerald-600 dark:text-emerald-400/70"
@@ -474,8 +469,8 @@ const credentials = [
                   :key="t"
                   class="flex-1 flex items-center justify-center gap-2 py-3 text-xs font-semibold transition-all duration-200 border-b-2"
                   :class="vTab === t
-                ? 'border-blue-500 text-blue-600 bg-blue-50/50 dark:text-blue-400 dark:bg-white/[0.04]'
-                : 'border-transparent text-slate-400 hover:text-slate-700 dark:text-white/30 dark:hover:text-white/60'"
+                    ? 'border-blue-500 text-blue-600 bg-blue-50/50 dark:text-blue-400 dark:bg-white/[0.04]'
+                    : 'border-transparent text-slate-400 hover:text-slate-700 dark:text-white/30 dark:hover:text-white/60'"
                   @click="switchVTab(t)"
                 >
                   <UIcon
@@ -500,7 +495,7 @@ const credentials = [
                        dark:bg-white/[0.06] dark:border-white/10 dark:text-white dark:placeholder-white/20
                        dark:focus:border-blue-500/50 dark:focus:bg-white/[0.08] dark:focus:ring-0"
                     @keyup.enter="runValidation"
-                  />
+                  >
                   <button
                     class="px-4 py-2.5 text-sm font-semibold transition-colors duration-200 disabled:opacity-40
                        bg-blue-600 hover:bg-blue-700 text-white
@@ -509,40 +504,49 @@ const credentials = [
                     @click="runValidation"
                   >
                     <span v-if="!vLoading">Run</span>
-                    <UIcon v-else name="i-lucide-loader-2" class="w-4 h-4 animate-spin" />
+                    <UIcon
+                      v-else
+                      name="i-lucide-loader-2"
+                      class="w-4 h-4 animate-spin"
+                    />
                   </button>
                 </div>
 
                 <div class="flex flex-wrap gap-1.5">
-              <span
-                class="text-[10px] self-center font-mono transition-colors duration-300
+                  <span
+                    class="text-[10px] self-center font-mono transition-colors duration-300
                        text-slate-300 dark:text-white/20"
-              >try:</span>
+                  >try:</span>
                   <button
                     v-for="ex in (vTab === 'address'
-                  ? ['350 5th Ave, New York NY', '1 Infinite Loop, Cupertino CA']
-                  : vTab === 'email'
-                    ? ['test@company.com', 'admin@shopify.com']
-                    : ['+1 (212) 555-0101', '+1 (800) 275-8777'])"
+                      ? ['350 5th Ave, New York NY', '1 Infinite Loop, Cupertino CA']
+                      : vTab === 'email'
+                        ? ['test@company.com', 'admin@shopify.com']
+                        : ['+1 (212) 555-0101', '+1 (800) 275-8777'])"
                     :key="ex"
                     class="font-mono text-[10px] px-2 py-1 border transition-colors duration-200 truncate max-w-[180px]
                        border-slate-200 text-slate-400 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50
                        dark:border-white/10 dark:text-white/30 dark:hover:border-blue-500/40 dark:hover:text-blue-400 dark:hover:bg-transparent"
                     @click="vInput = ex; vResult = null"
-                  >{{ ex }}</button>
+                  >
+                    {{ ex }}
+                  </button>
                 </div>
               </div>
 
               <div class="min-h-[200px]">
                 <Transition name="result-fade">
-
-                  <div v-if="vResult" key="result" class="p-4">
+                  <div
+                    v-if="vResult"
+                    key="result"
+                    class="p-4"
+                  >
                     <div class="flex items-center gap-2 mb-4">
-                  <span
-                    class="font-mono text-[10px] px-2 py-1 border transition-colors duration-300
+                      <span
+                        class="font-mono text-[10px] px-2 py-1 border transition-colors duration-300
                            text-emerald-700 bg-emerald-50 border-emerald-200
                            dark:text-emerald-400 dark:bg-emerald-400/10 dark:border-emerald-400/20"
-                  >200 OK</span>
+                      >200 OK</span>
                       <span
                         class="font-mono text-[10px] transition-colors duration-300
                            text-slate-300 dark:text-white/20"
@@ -556,33 +560,42 @@ const credentials = [
                            border-slate-50 last:border-0
                            dark:border-white/5"
                         :class="idx % 2 === 0
-                      ? 'bg-transparent'
-                      : 'bg-slate-50/50 dark:bg-white/[0.02]'"
+                          ? 'bg-transparent'
+                          : 'bg-slate-50/50 dark:bg-white/[0.02]'"
                       >
-                    <span
-                      class="font-mono text-[11px] transition-colors duration-300
+                        <span
+                          class="font-mono text-[11px] transition-colors duration-300
                              text-slate-400 dark:text-white/30"
-                    >{{ key }}</span>
+                        >{{ key }}</span>
                         <span
                           class="font-mono text-[11px] font-semibold transition-colors duration-300"
                           :class="String(val).startsWith('✓')
-                        ? 'text-emerald-600 dark:text-emerald-400'
-                        : 'text-slate-700 dark:text-white/70'"
+                            ? 'text-emerald-600 dark:text-emerald-400'
+                            : 'text-slate-700 dark:text-white/70'"
                         >{{ val }}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div v-else-if="vLoading" key="loading" class="p-4 flex flex-col gap-2.5">
+                  <div
+                    v-else-if="vLoading"
+                    key="loading"
+                    class="p-4 flex flex-col gap-2.5"
+                  >
                     <div
-                      v-for="i in 6" :key="i"
+                      v-for="i in 6"
+                      :key="i"
                       class="h-5 animate-pulse transition-colors duration-300
                          bg-slate-100 dark:bg-white/5"
                       :style="{ width: `${55 + (i * 7) % 35}%`, animationDelay: `${i * 80}ms` }"
                     />
                   </div>
 
-                  <div v-else key="idle" class="p-4 flex flex-col items-center justify-center h-[200px] gap-3">
+                  <div
+                    v-else
+                    key="idle"
+                    class="p-4 flex flex-col items-center justify-center h-[200px] gap-3"
+                  >
                     <div
                       class="w-12 h-12 flex items-center justify-center border transition-colors duration-300
                          border-slate-100 bg-slate-50
@@ -601,10 +614,8 @@ const credentials = [
                       Enter a value above and click Run
                     </p>
                   </div>
-
                 </Transition>
               </div>
-
             </div>
 
             <div class="flex items-center justify-between mt-3 px-1">
@@ -612,19 +623,21 @@ const credentials = [
                 class="flex items-center gap-1.5 font-mono text-[10px] transition-colors duration-300
                    text-slate-400 dark:text-slate-600"
               >
-                <UIcon name="i-lucide-zap" class="w-3 h-3 text-blue-500/50" />
+                <UIcon
+                  name="i-lucide-zap"
+                  class="w-3 h-3 text-blue-500/50"
+                />
                 1 credit · all 3 channels
               </div>
               <div class="flex items-center gap-3">
-            <span
-              v-for="badge in ['USPS CASS', 'SOC 2', 'GDPR']"
-              :key="badge"
-              class="font-mono text-[9px] uppercase tracking-wider transition-colors duration-300
+                <span
+                  v-for="badge in ['USPS CASS', 'SOC 2', 'GDPR']"
+                  :key="badge"
+                  class="font-mono text-[9px] uppercase tracking-wider transition-colors duration-300
                      text-slate-300 dark:text-slate-700"
-            >{{ badge }}</span>
+                >{{ badge }}</span>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -651,7 +664,6 @@ const credentials = [
          STATS  (light)
     ════════════════════════════════════════════════════════════════════ -->
     <section class="relative bg-[#04080F] overflow-hidden border-y border-slate-800">
-
       <div class="absolute inset-0 pointer-events-none">
         <div
           class="absolute inset-0 opacity-[0.12]"
@@ -662,7 +674,6 @@ const credentials = [
       </div>
 
       <div class="relative z-10 max-w-6xl mx-auto px-6 py-24">
-
         <div
           v-motion
           :initial="{ opacity: 0, y: 20 }"
@@ -671,11 +682,14 @@ const credentials = [
         >
           <div>
             <div class="inline-flex items-center gap-2 border border-rose-500/20 bg-rose-500/8 text-rose-400 font-mono text-xs px-3 py-1.5 mb-5">
-              <UIcon name="i-lucide-triangle-alert" class="w-3.5 h-3.5" />
+              <UIcon
+                name="i-lucide-triangle-alert"
+                class="w-3.5 h-3.5"
+              />
               The cost of bad data
             </div>
             <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
-              Bad data is a<br />P&amp;L problem.
+              Bad data is a<br>P&amp;L problem.
             </h2>
           </div>
           <p class="text-slate-500 text-sm max-w-sm leading-relaxed md:text-right">
@@ -685,7 +699,6 @@ const credentials = [
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-px bg-slate-800">
-
           <div
             v-motion
             :initial="{ opacity: 0, x: -24 }"
@@ -695,14 +708,20 @@ const credentials = [
             <div>
               <div class="flex items-center gap-2 mb-6">
                 <div class="w-8 h-8 bg-rose-500/15 border border-rose-500/20 flex items-center justify-center">
-                  <UIcon name="i-lucide-package-x" class="w-4 h-4 text-rose-400" />
+                  <UIcon
+                    name="i-lucide-package-x"
+                    class="w-4 h-4 text-rose-400"
+                  />
                 </div>
                 <span class="font-mono text-xs text-slate-500 uppercase tracking-widest">
-              E-commerce returns · US · 2026
-            </span>
+                  E-commerce returns · US · 2026
+                </span>
               </div>
 
-              <div ref="counterRef" class="mb-4">
+              <div
+                ref="counterRef"
+                class="mb-4"
+              >
                 <div class="font-mono text-[4rem] md:text-[5rem] font-bold leading-none tracking-tight text-white group-hover:text-rose-50 transition-colors">
                   ${{ counterValue.toFixed(1) }}<span class="text-rose-400">B</span>
                 </div>
@@ -717,14 +736,16 @@ const credentials = [
             <div class="flex items-center justify-between pt-6 border-t border-slate-800">
               <span class="font-mono text-[10px] text-slate-600 uppercase tracking-widest">Source: NRF 2026</span>
               <div class="flex items-center gap-1.5 text-xs text-rose-400/70 font-mono">
-                <UIcon name="i-lucide-trending-down" class="w-3.5 h-3.5" />
+                <UIcon
+                  name="i-lucide-trending-down"
+                  class="w-3.5 h-3.5"
+                />
                 Year-over-year ↑
               </div>
             </div>
           </div>
 
           <div class="lg:col-span-7 grid grid-rows-3 gap-px bg-slate-800">
-
             <div
               v-motion
               :initial="{ opacity: 0, x: 24 }"
@@ -753,8 +774,8 @@ const credentials = [
                   :style="{ height: `${h * 0.3}px` }"
                 />
                 <span class="font-mono text-[9px] text-slate-700 mt-1 uppercase tracking-wider">
-              Cost / attempt
-            </span>
+                  Cost / attempt
+                </span>
               </div>
             </div>
 
@@ -779,10 +800,23 @@ const credentials = [
                 </p>
               </div>
               <div class="flex-shrink-0 hidden sm:flex flex-col items-center gap-1.5">
-                <svg width="52" height="52" viewBox="0 0 52 52">
-                  <circle cx="26" cy="26" r="20" fill="none" stroke="rgba(139,92,246,0.12)" stroke-width="5" />
+                <svg
+                  width="52"
+                  height="52"
+                  viewBox="0 0 52 52"
+                >
                   <circle
-                    cx="26" cy="26" r="20"
+                    cx="26"
+                    cy="26"
+                    r="20"
+                    fill="none"
+                    stroke="rgba(139,92,246,0.12)"
+                    stroke-width="5"
+                  />
+                  <circle
+                    cx="26"
+                    cy="26"
+                    r="20"
                     fill="none"
                     stroke="#7c3aed"
                     stroke-width="5"
@@ -820,20 +854,22 @@ const credentials = [
               <div class="flex-shrink-0 hidden sm:flex flex-col gap-1">
                 <div
                   v-for="(item, idx) in [
-                { label: 'AI fails',    color: 'bg-blue-500/25'   },
-                { label: 'Mktg waste', color: 'bg-blue-500/40'   },
-                { label: 'Lost sales', color: 'bg-blue-500/60'   },
-              ]"
+                    { label: 'AI fails', color: 'bg-blue-500/25' },
+                    { label: 'Mktg waste', color: 'bg-blue-500/40' },
+                    { label: 'Lost sales', color: 'bg-blue-500/60' },
+                  ]"
                   :key="idx"
                   class="flex items-center gap-1.5"
                 >
-                  <div class="h-1.5 rounded-sm" :class="[item.color, `w-${8 + idx * 4}`]" />
+                  <div
+                    class="h-1.5 rounded-sm"
+                    :class="[item.color, `w-${8 + idx * 4}`]"
+                  />
                   <span class="font-mono text-[9px] text-slate-700 whitespace-nowrap">{{ item.label }}</span>
                 </div>
                 <span class="font-mono text-[9px] text-slate-700 mt-1 uppercase tracking-wider">IBM / Gartner</span>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -850,11 +886,13 @@ const credentials = [
             href="#capture"
             class="flex items-center gap-2 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors"
           >
-            <UIcon name="i-lucide-shield-check" class="w-3.5 h-3.5" />
+            <UIcon
+              name="i-lucide-shield-check"
+              class="w-3.5 h-3.5"
+            />
             DQE customers see 43% fewer undelivered parcels →
           </a>
         </div>
-
       </div>
     </section>
 
@@ -862,19 +900,26 @@ const credentials = [
     <!-- ══════════════════════════════════════════════════════════════════
          FEATURES  (white, bento)
     ════════════════════════════════════════════════════════════════════ -->
-    <section id="product" class="py-24 px-6 bg-slate-50 border-b border-slate-200">
+    <section
+      id="product"
+      class="py-24 px-6 bg-slate-50 border-b border-slate-200"
+    >
       <div class="max-w-6xl mx-auto">
-
         <div
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
           class="mb-16"
         >
-          <UBadge color="primary" variant="soft" label="The platform" class="mb-4" />
+          <UBadge
+            color="primary"
+            variant="soft"
+            label="The platform"
+            class="mb-4"
+          />
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight max-w-lg">
-              Three validations.<br />One platform. One price.
+              Three validations.<br>One platform. One price.
             </h2>
             <p class="text-slate-500 max-w-xs text-sm leading-relaxed">
               Stop paying for Smarty + an email tool + a phone tool.
@@ -896,10 +941,17 @@ const credentials = [
               class="w-10 h-10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
               :class="feat.color"
             >
-              <UIcon :name="feat.icon" class="w-5 h-5" />
+              <UIcon
+                :name="feat.icon"
+                class="w-5 h-5"
+              />
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">{{ feat.title }}</h3>
-            <p class="text-sm text-slate-500 leading-relaxed mb-5">{{ feat.desc }}</p>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">
+              {{ feat.title }}
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-5">
+              {{ feat.desc }}
+            </p>
             <ul class="space-y-2">
               <li
                 v-for="b in feat.bullets"
@@ -920,24 +972,30 @@ const credentials = [
           class="mt-8 bg-slate-900 p-6 flex flex-col md:flex-row items-center gap-6"
         >
           <div class="flex-shrink-0 text-center md:text-left">
-            <p class="font-mono text-xs text-slate-400 uppercase tracking-widest mb-1">Single API call</p>
-            <p class="text-2xl font-bold text-white">3 results. 1 request.</p>
+            <p class="font-mono text-xs text-slate-400 uppercase tracking-widest mb-1">
+              Single API call
+            </p>
+            <p class="text-2xl font-bold text-white">
+              3 results. 1 request.
+            </p>
           </div>
           <div class="w-px h-12 bg-slate-700 hidden md:block" />
           <div class="flex-1 overflow-x-auto w-full">
-            <pre class="font-mono text-xs text-slate-300 leading-relaxed"><code
-            ><span class="text-blue-400">POST</span> <span class="text-slate-400">https://api.dqe.io/v1/validate</span>
+            <pre class="font-mono text-xs text-slate-300 leading-relaxed"><code><span class="text-blue-400">POST</span> <span class="text-slate-400">https://api.dqe.io/v1/validate</span>
 <span class="text-slate-600">{</span> <span class="text-teal-400">"address"</span><span class="text-slate-600">:</span> <span class="text-amber-300">"350 5th Ave, New York NY"</span><span class="text-slate-600">,</span>
   <span class="text-teal-400">"email"</span><span class="text-slate-600">:</span>   <span class="text-amber-300">"john@company.com"</span><span class="text-slate-600">,</span>
   <span class="text-teal-400">"phone"</span><span class="text-slate-600">:</span>   <span class="text-amber-300">"+1 212 555 0101"</span> <span class="text-slate-600">}</span>
 <span class="text-slate-600">→</span> <span class="text-emerald-400">{ address: valid, email: deliverable, phone: active }</span>  <span class="text-slate-500">// 112ms</span></code></pre>
           </div>
           <div class="flex-shrink-0 text-center border border-slate-700 px-5 py-3">
-            <p class="text-2xl font-mono font-bold text-white">3×</p>
-            <p class="text-xs text-slate-500 mt-0.5">fewer vendors</p>
+            <p class="text-2xl font-mono font-bold text-white">
+              3×
+            </p>
+            <p class="text-xs text-slate-500 mt-0.5">
+              fewer vendors
+            </p>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -945,9 +1003,11 @@ const credentials = [
     <!-- ══════════════════════════════════════════════════════════════════
          vs SMARTY  (dark)
     ════════════════════════════════════════════════════════════════════ -->
-    <section id="compare" class="py-24 px-6 bg-slate-900 border-b border-slate-800">
+    <section
+      id="compare"
+      class="py-24 px-6 bg-slate-900 border-b border-slate-800"
+    >
       <div class="max-w-5xl mx-auto">
-
         <div
           v-motion
           :initial="{ opacity: 0, y: 20 }"
@@ -955,12 +1015,15 @@ const credentials = [
           class="mb-12"
         >
           <div class="inline-flex items-center gap-2 border border-slate-700 text-slate-400 font-mono text-xs px-3 py-1.5 rounded mb-5">
-            <UIcon name="i-lucide-swords" class="w-3.5 h-3.5 text-blue-400" />
+            <UIcon
+              name="i-lucide-swords"
+              class="w-3.5 h-3.5 text-blue-400"
+            />
             DQE vs. Smarty vs. Melissa
           </div>
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
-              Smarty is fast.<br />
+              Smarty is fast.<br>
               <span class="text-slate-500">But it only does addresses.</span>
             </h2>
             <p class="text-slate-400 text-sm max-w-xs leading-relaxed">
@@ -978,47 +1041,49 @@ const credentials = [
         >
           <table class="w-full text-sm">
             <thead>
-            <tr class="border-b border-slate-700">
-              <th class="text-left px-5 py-4 font-mono text-[11px] text-slate-500 uppercase tracking-wider w-[45%]">
-                Feature
-              </th>
-              <th class="px-5 py-4 text-center bg-blue-600/10 border-x border-blue-500/20">
-                <span class="font-bold text-blue-400 font-mono text-sm">DQE</span>
-              </th>
-              <th class="px-5 py-4 text-center">
-                <span class="font-mono text-xs text-slate-500">Smarty</span>
-              </th>
-              <th class="px-5 py-4 text-center">
-                <span class="font-mono text-xs text-slate-500">Melissa</span>
-              </th>
-            </tr>
+              <tr class="border-b border-slate-700">
+                <th class="text-left px-5 py-4 font-mono text-[11px] text-slate-500 uppercase tracking-wider w-[45%]">
+                  Feature
+                </th>
+                <th class="px-5 py-4 text-center bg-blue-600/10 border-x border-blue-500/20">
+                  <span class="font-bold text-blue-400 font-mono text-sm">DQE</span>
+                </th>
+                <th class="px-5 py-4 text-center">
+                  <span class="font-mono text-xs text-slate-500">Smarty</span>
+                </th>
+                <th class="px-5 py-4 text-center">
+                  <span class="font-mono text-xs text-slate-500">Melissa</span>
+                </th>
+              </tr>
             </thead>
             <tbody>
-            <tr
-              v-for="(row, i) in compRows"
-              :key="row.label"
-              class="border-b border-slate-800 last:border-0 transition-colors hover:bg-white/[0.02]"
-            >
-              <td class="px-5 py-3.5 text-slate-300 text-sm">{{ row.label }}</td>
-              <td class="px-5 py-3.5 text-center bg-blue-600/5 border-x border-blue-500/10">
+              <tr
+                v-for="row in compRows"
+                :key="row.label"
+                class="border-b border-slate-800 last:border-0 transition-colors hover:bg-white/[0.02]"
+              >
+                <td class="px-5 py-3.5 text-slate-300 text-sm">
+                  {{ row.label }}
+                </td>
+                <td class="px-5 py-3.5 text-center bg-blue-600/5 border-x border-blue-500/10">
                   <span
                     class="font-mono font-bold text-base"
                     :class="row.dqe ? 'text-emerald-400' : 'text-slate-700'"
                   >{{ row.dqe ? '✓' : '·' }}</span>
-              </td>
-              <td class="px-5 py-3.5 text-center">
+                </td>
+                <td class="px-5 py-3.5 text-center">
                   <span
                     class="font-mono font-bold text-base"
                     :class="row.smarty ? 'text-slate-400' : 'text-slate-700'"
                   >{{ row.smarty ? '✓' : '✕' }}</span>
-              </td>
-              <td class="px-5 py-3.5 text-center">
+                </td>
+                <td class="px-5 py-3.5 text-center">
                   <span
                     class="font-mono font-bold text-base"
                     :class="row.melissa ? 'text-slate-400' : 'text-slate-700'"
                   >{{ row.melissa ? '✓' : '✕' }}</span>
-              </td>
-            </tr>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -1045,7 +1110,6 @@ const credentials = [
             class="border-slate-600 text-slate-300 hover:border-blue-500 hover:text-blue-400 flex-shrink-0"
           />
         </div>
-
       </div>
     </section>
 
@@ -1055,14 +1119,18 @@ const credentials = [
     ════════════════════════════════════════════════════════════════════ -->
     <section class="py-24 px-6 bg-white border-b border-slate-100">
       <div class="max-w-5xl mx-auto">
-
         <div
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
           class="text-center mb-16"
         >
-          <UBadge color="primary" variant="soft" label="How it works" class="mb-4" />
+          <UBadge
+            color="primary"
+            variant="soft"
+            label="How it works"
+            class="mb-4"
+          />
           <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
             Three steps. Under five minutes.
           </h2>
@@ -1083,12 +1151,21 @@ const credentials = [
 
             <div class="relative z-10">
               <div class="w-10 h-10 bg-blue-600 flex items-center justify-center mb-5 group-hover:bg-blue-700 transition-colors">
-                <UIcon :name="step.icon" class="w-5 h-5 text-white" />
+                <UIcon
+                  :name="step.icon"
+                  class="w-5 h-5 text-white"
+                />
               </div>
 
-              <p class="font-mono text-xs text-blue-500 uppercase tracking-widest mb-3">Step {{ step.n }}</p>
-              <h3 class="text-lg font-bold text-slate-900 mb-2">{{ step.title }}</h3>
-              <p class="text-sm text-slate-500 leading-relaxed mb-5">{{ step.desc }}</p>
+              <p class="font-mono text-xs text-blue-500 uppercase tracking-widest mb-3">
+                Step {{ step.n }}
+              </p>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">
+                {{ step.title }}
+              </h3>
+              <p class="text-sm text-slate-500 leading-relaxed mb-5">
+                {{ step.desc }}
+              </p>
 
               <div class="bg-slate-900 px-4 py-3 border-l-2 border-blue-500">
                 <code class="font-mono text-xs text-teal-400 whitespace-pre">{{ step.code }}</code>
@@ -1096,7 +1173,6 @@ const credentials = [
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -1104,16 +1180,23 @@ const credentials = [
     <!-- ══════════════════════════════════════════════════════════════════
          PRICING  (light)
     ════════════════════════════════════════════════════════════════════ -->
-    <section id="pricing" class="py-24 px-6 bg-slate-50 border-b border-slate-200">
+    <section
+      id="pricing"
+      class="py-24 px-6 bg-slate-50 border-b border-slate-200"
+    >
       <div class="max-w-5xl mx-auto">
-
         <div
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
           class="text-center mb-14"
         >
-          <UBadge color="success" variant="soft" label="Pricing" class="mb-4" />
+          <UBadge
+            color="success"
+            variant="soft"
+            label="Pricing"
+            class="mb-4"
+          />
           <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
             Start free. Scale when ready.
           </h2>
@@ -1147,7 +1230,9 @@ const credentials = [
             <p
               class="font-mono text-xs font-bold uppercase tracking-widest mb-4"
               :class="plan.highlight ? 'text-blue-200' : 'text-slate-400'"
-            >{{ plan.name }}</p>
+            >
+              {{ plan.name }}
+            </p>
 
             <div class="mb-2">
               <span
@@ -1163,7 +1248,9 @@ const credentials = [
             <p
               class="text-sm mb-6"
               :class="plan.highlight ? 'text-blue-100' : 'text-slate-500'"
-            >{{ plan.desc }}</p>
+            >
+              {{ plan.desc }}
+            </p>
 
             <div
               class="h-px mb-6"
@@ -1194,7 +1281,6 @@ const credentials = [
             >
               {{ plan.cta }} →
             </button>
-
           </div>
         </div>
 
@@ -1206,18 +1292,20 @@ const credentials = [
         >
           <div
             v-for="note in [
-              { icon: 'i-lucide-infinity',     text: 'Credits never expire on Verify' },
-              { icon: 'i-lucide-layers',       text: '1 credit = 1 validation, any channel' },
+              { icon: 'i-lucide-infinity', text: 'Credits never expire on Verify' },
+              { icon: 'i-lucide-layers', text: '1 credit = 1 validation, any channel' },
               { icon: 'i-lucide-shield-check', text: 'Business email required for free trial' },
             ]"
             :key="note.text"
             class="flex items-center gap-2.5 text-xs text-slate-400"
           >
-            <UIcon :name="note.icon" class="w-4 h-4 text-slate-300 flex-shrink-0" />
+            <UIcon
+              :name="note.icon"
+              class="w-4 h-4 text-slate-300 flex-shrink-0"
+            />
             {{ note.text }}
           </div>
         </div>
-
       </div>
     </section>
 
@@ -1238,14 +1326,13 @@ const credentials = [
           </div>
 
           <div class="relative z-10 flex flex-col md:flex-row gap-12 items-center">
-
             <div class="flex-1">
               <div class="inline-flex items-center gap-2 font-mono text-xs text-blue-400/70 mb-5">
                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                 Free · No card · Results in minutes
               </div>
               <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
-                Claim 100 free records.<br />
+                Claim 100 free records.<br>
                 <span class="text-blue-400">Right now.</span>
               </h2>
               <p class="text-sm text-white/40 leading-relaxed">
@@ -1255,9 +1342,15 @@ const credentials = [
             </div>
 
             <div class="w-full md:w-80 flex-shrink-0">
-              <Transition name="result-fade" mode="out-in">
-
-                <div v-if="!captureDone" key="form" class="space-y-3">
+              <Transition
+                name="result-fade"
+                mode="out-in"
+              >
+                <div
+                  v-if="!captureDone"
+                  key="form"
+                  class="space-y-3"
+                >
                   <div>
                     <input
                       v-model="captureEmail"
@@ -1265,7 +1358,7 @@ const credentials = [
                       placeholder="you@yourcompany.com"
                       class="w-full bg-white/[0.06] border border-white/10 text-white placeholder-white/20 font-mono text-sm px-4 py-3 outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all"
                       @keyup.enter="submitCapture"
-                    />
+                    >
                     <Transition name="result-fade">
                       <p
                         v-if="captureEmail.includes('@') && isPersonal"
@@ -1292,17 +1385,26 @@ const credentials = [
                   </p>
                 </div>
 
-                <div v-else key="done" class="text-center py-4">
+                <div
+                  v-else
+                  key="done"
+                  class="text-center py-4"
+                >
                   <div class="w-12 h-12 bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4">
-                    <UIcon name="i-lucide-check" class="w-6 h-6 text-emerald-400" />
+                    <UIcon
+                      name="i-lucide-check"
+                      class="w-6 h-6 text-emerald-400"
+                    />
                   </div>
-                  <p class="font-semibold text-white mb-1">You're in.</p>
-                  <p class="font-mono text-xs text-white/30">Check your inbox — API key incoming.</p>
+                  <p class="font-semibold text-white mb-1">
+                    You're in.
+                  </p>
+                  <p class="font-mono text-xs text-white/30">
+                    Check your inbox — API key incoming.
+                  </p>
                 </div>
-
               </Transition>
             </div>
-
           </div>
         </div>
       </div>
@@ -1314,13 +1416,14 @@ const credentials = [
     ════════════════════════════════════════════════════════════════════ -->
     <footer class="bg-slate-900 border-t border-slate-800 px-6 py-16">
       <div class="max-w-6xl mx-auto">
-
         <div class="grid grid-cols-2 md:grid-cols-6 gap-10 mb-12">
-
           <div class="col-span-2">
             <div class="flex items-center gap-2.5 mb-4">
               <div class="w-7 h-7 bg-blue-600 flex items-center justify-center">
-                <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-white" />
+                <UIcon
+                  name="i-lucide-shield-check"
+                  class="w-4 h-4 text-white"
+                />
               </div>
               <span class="font-bold text-white tracking-tight">DQE</span>
             </div>
@@ -1339,10 +1442,10 @@ const credentials = [
 
           <div
             v-for="col in [
-              { heading: 'Product',  links: ['Address Validation','Email Validation','Phone Validation','API Reference','Changelog'] },
-              { heading: 'Compare',  links: ['vs Smarty','vs Melissa','vs Loqate','vs ZeroBounce'] },
-              { heading: 'Company',  links: ['About','Blog','Careers','Contact'] },
-              { heading: 'Legal',    links: ['Privacy','Terms','Security','DPA'] },
+              { heading: 'Product', links: ['Address Validation','Email Validation','Phone Validation','API Reference','Changelog'] },
+              { heading: 'Compare', links: ['vs Smarty','vs Melissa','vs Loqate','vs ZeroBounce'] },
+              { heading: 'Company', links: ['About','Blog','Careers','Contact'] },
+              { heading: 'Legal', links: ['Privacy','Terms','Security','DPA'] },
             ]"
             :key="col.heading"
           >
@@ -1358,7 +1461,6 @@ const credentials = [
               >{{ link }}</a>
             </div>
           </div>
-
         </div>
 
         <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -1373,50 +1475,71 @@ const credentials = [
             <span class="font-mono text-xs text-slate-600">US data residency</span>
           </div>
         </div>
-
       </div>
     </footer>
-
   </div>
 
   <!-- ══════════════════════════════════════════════════════════════════
        FREE RECORDS MODAL
   ════════════════════════════════════════════════════════════════════ -->
-  <UModal v-model:open="showFreeModal" :ui="{ content: 'max-w-lg' }">
+  <UModal
+    v-model:open="showFreeModal"
+    :ui="{ content: 'max-w-lg' }"
+  >
     <template #content>
       <div class="bg-white">
-
         <!-- Header -->
         <div class="flex items-center justify-between px-7 pt-7 pb-5 border-b border-slate-100">
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 bg-blue-600 flex items-center justify-center flex-shrink-0">
-              <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-white" />
+              <UIcon
+                name="i-lucide-shield-check"
+                class="w-4 h-4 text-white"
+              />
             </div>
             <div>
-              <p class="font-bold text-slate-900 text-base leading-tight">Get 100 free records</p>
-              <p class="font-mono text-[11px] text-slate-400 mt-0.5">No credit card · API key delivered instantly</p>
+              <p class="font-bold text-slate-900 text-base leading-tight">
+                Get 100 free records
+              </p>
+              <p class="font-mono text-[11px] text-slate-400 mt-0.5">
+                No credit card · API key delivered instantly
+              </p>
             </div>
           </div>
           <button
             class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
             @click="showFreeModal = false"
           >
-            <UIcon name="i-lucide-x" class="w-4 h-4" />
+            <UIcon
+              name="i-lucide-x"
+              class="w-4 h-4"
+            />
           </button>
         </div>
 
         <!-- Body -->
-        <Transition name="result-fade" mode="out-in">
-
+        <Transition
+          name="result-fade"
+          mode="out-in"
+        >
           <!-- Success state -->
-          <div v-if="freeFormSubmitted" key="success" class="px-7 py-10 flex flex-col items-center text-center gap-4">
+          <div
+            v-if="freeFormSubmitted"
+            key="success"
+            class="px-7 py-10 flex flex-col items-center text-center gap-4"
+          >
             <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
-              <UIcon name="i-lucide-check" class="w-7 h-7 text-emerald-500" />
+              <UIcon
+                name="i-lucide-check"
+                class="w-7 h-7 text-emerald-500"
+              />
             </div>
             <div>
-              <p class="text-xl font-bold text-slate-900 mb-1">You're in!</p>
+              <p class="text-xl font-bold text-slate-900 mb-1">
+                You're in!
+              </p>
               <p class="text-sm text-slate-500 leading-relaxed">
-                Check your inbox — your API key and 100 free credits are on their way to<br />
+                Check your inbox — your API key and 100 free credits are on their way to<br>
                 <span class="font-mono text-slate-700 font-semibold">{{ freeForm.email }}</span>
               </p>
             </div>
@@ -1429,8 +1552,12 @@ const credentials = [
           </div>
 
           <!-- Form state -->
-          <form v-else key="form" class="px-7 py-6 space-y-4" @submit.prevent="submitFreeForm">
-
+          <form
+            v-else
+            key="form"
+            class="px-7 py-6 space-y-4"
+            @submit.prevent="submitFreeForm"
+          >
             <!-- First / Last name row -->
             <div class="grid grid-cols-2 gap-3">
               <div>
@@ -1447,8 +1574,13 @@ const credentials = [
                     ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-500/10'
                     : 'border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-500/10'"
                   @blur="freeFormTouched.firstName = true"
-                />
-                <p v-if="freeFormTouched.firstName && !freeForm.firstName.trim()" class="font-mono text-[10px] text-red-400 mt-1">Required</p>
+                >
+                <p
+                  v-if="freeFormTouched.firstName && !freeForm.firstName.trim()"
+                  class="font-mono text-[10px] text-red-400 mt-1"
+                >
+                  Required
+                </p>
               </div>
               <div>
                 <label class="block font-mono text-[11px] text-slate-500 uppercase tracking-wider mb-1.5">
@@ -1464,8 +1596,13 @@ const credentials = [
                     ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-500/10'
                     : 'border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-500/10'"
                   @blur="freeFormTouched.lastName = true"
-                />
-                <p v-if="freeFormTouched.lastName && !freeForm.lastName.trim()" class="font-mono text-[10px] text-red-400 mt-1">Required</p>
+                >
+                <p
+                  v-if="freeFormTouched.lastName && !freeForm.lastName.trim()"
+                  class="font-mono text-[10px] text-red-400 mt-1"
+                >
+                  Required
+                </p>
               </div>
             </div>
 
@@ -1484,8 +1621,13 @@ const credentials = [
                   ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-500/10'
                   : 'border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-500/10'"
                 @blur="freeFormTouched.company = true"
-              />
-              <p v-if="freeFormTouched.company && !freeForm.company.trim()" class="font-mono text-[10px] text-red-400 mt-1">Required</p>
+              >
+              <p
+                v-if="freeFormTouched.company && !freeForm.company.trim()"
+                class="font-mono text-[10px] text-red-400 mt-1"
+              >
+                Required
+              </p>
             </div>
 
             <!-- Work email -->
@@ -1503,8 +1645,13 @@ const credentials = [
                   ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-500/10'
                   : 'border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-500/10'"
                 @blur="freeFormTouched.email = true"
-              />
-              <p v-if="freeFormTouched.email && !freeEmailValid" class="font-mono text-[10px] text-red-400 mt-1">Enter a valid email address</p>
+              >
+              <p
+                v-if="freeFormTouched.email && !freeEmailValid"
+                class="font-mono text-[10px] text-red-400 mt-1"
+              >
+                Enter a valid email address
+              </p>
             </div>
 
             <!-- Terms -->
@@ -1518,15 +1665,31 @@ const credentials = [
                       : 'border-slate-300 group-hover:border-blue-400'"
                     @click="freeForm.terms = !freeForm.terms"
                   >
-                    <UIcon v-if="freeForm.terms" name="i-lucide-check" class="w-2.5 h-2.5 text-white" />
+                    <UIcon
+                      v-if="freeForm.terms"
+                      name="i-lucide-check"
+                      class="w-2.5 h-2.5 text-white"
+                    />
                   </div>
-                  <input v-model="freeForm.terms" type="checkbox" class="sr-only" />
+                  <input
+                    v-model="freeForm.terms"
+                    type="checkbox"
+                    class="sr-only"
+                  >
                 </div>
                 <span class="text-xs text-slate-500 leading-relaxed">
                   I agree to the
-                  <a href="/legal/terms" target="_blank" class="text-blue-600 hover:text-blue-700 underline underline-offset-2">Terms of Use</a>
+                  <a
+                    href="/legal/terms"
+                    target="_blank"
+                    class="text-blue-600 hover:text-blue-700 underline underline-offset-2"
+                  >Terms of Use</a>
                   and
-                  <a href="/legal/privacy" target="_blank" class="text-blue-600 hover:text-blue-700 underline underline-offset-2">Privacy Policy</a>.
+                  <a
+                    href="/legal/privacy"
+                    target="_blank"
+                    class="text-blue-600 hover:text-blue-700 underline underline-offset-2"
+                  >Privacy Policy</a>.
                   I understand that my data will be processed in accordance with DQE's data practices.
                   <span class="text-red-400">*</span>
                 </span>
@@ -1549,15 +1712,11 @@ const credentials = [
                 We verify your email before sending your API key · No spam
               </p>
             </div>
-
           </form>
-
         </Transition>
-
       </div>
     </template>
   </UModal>
-
 </template>
 
 <style scoped>

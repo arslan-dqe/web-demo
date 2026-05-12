@@ -40,7 +40,8 @@ const strokeDashoffset = computed(() =>
       >
         <!-- Track -->
         <circle
-          cx="22" cy="22"
+          cx="22"
+          cy="22"
           :r="radius"
           fill="none"
           stroke="currentColor"
@@ -49,7 +50,8 @@ const strokeDashoffset = computed(() =>
         />
         <!-- Progress -->
         <circle
-          cx="22" cy="22"
+          cx="22"
+          cy="22"
           :r="radius"
           fill="none"
           stroke="url(#scroll-grad)"
@@ -60,9 +62,21 @@ const strokeDashoffset = computed(() =>
           class="transition-all duration-150"
         />
         <defs>
-          <linearGradient id="scroll-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%"   stop-color="#8b5cf6" />
-            <stop offset="100%" stop-color="#06b6d4" />
+          <linearGradient
+            id="scroll-grad"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop
+              offset="0%"
+              stop-color="#8b5cf6"
+            />
+            <stop
+              offset="100%"
+              stop-color="#06b6d4"
+            />
           </linearGradient>
         </defs>
       </svg>

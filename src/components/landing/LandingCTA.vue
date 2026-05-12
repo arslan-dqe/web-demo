@@ -20,7 +20,7 @@ withDefaults(defineProps<{
   secondaryCta: 'Book a demo',
 })
 
-const emit = defineEmits<{
+defineEmits<{
   primary:   []
   secondary: []
 }>()
@@ -58,7 +58,6 @@ const emit = defineEmits<{
 
       <!-- Content -->
       <div class="relative z-10 text-center px-8 py-16">
-
         <!-- Badge -->
         <slot name="badge">
           <div class="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
@@ -76,7 +75,9 @@ const emit = defineEmits<{
 
         <!-- Subline -->
         <slot name="subline">
-          <p class="text-white/75 text-lg max-w-xl mx-auto mb-10">{{ subline }}</p>
+          <p class="text-white/75 text-lg max-w-xl mx-auto mb-10">
+            {{ subline }}
+          </p>
         </slot>
 
         <!-- Buttons -->
@@ -100,7 +101,6 @@ const emit = defineEmits<{
             />
           </div>
         </slot>
-
       </div>
     </div>
   </section>

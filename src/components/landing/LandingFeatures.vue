@@ -84,15 +84,16 @@ const borderMap: Record<string, string> = {
 </script>
 
 <template>
-  <section id="features" class="py-28 px-4 relative overflow-hidden">
-
+  <section
+    id="features"
+    class="py-28 px-4 relative overflow-hidden"
+  >
     <!-- Background -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto">
-
       <!-- Header -->
       <div
         v-motion
@@ -101,18 +102,25 @@ const borderMap: Record<string, string> = {
         class="text-center mb-16"
       >
         <slot name="header">
-          <UBadge color="primary" variant="soft" :label="badge" size="md" class="mb-4" />
+          <UBadge
+            color="primary"
+            variant="soft"
+            :label="badge"
+            size="md"
+            class="mb-4"
+          />
           <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 whitespace-pre-line">
             {{ headline }}
           </h2>
-          <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto">{{ subline }}</p>
+          <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto">
+            {{ subline }}
+          </p>
         </slot>
       </div>
 
       <!-- Bento Grid -->
       <slot name="grid">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-
           <!-- ① Large card — first feature (spans 7) -->
           <div
             v-motion
@@ -130,19 +138,26 @@ const borderMap: Record<string, string> = {
                 class="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
                 :class="colorMap[features[0].color]"
               >
-                <UIcon :name="features[0].icon" class="w-5 h-5" />
+                <UIcon
+                  :name="features[0].icon"
+                  class="w-5 h-5"
+                />
               </div>
-              <h3 class="text-xl font-extrabold text-(--ui-text-highlighted) mb-2">{{ features[0].title }}</h3>
-              <p class="text-sm text-(--ui-text-muted) leading-relaxed max-w-xs">{{ features[0].desc }}</p>
+              <h3 class="text-xl font-extrabold text-(--ui-text-highlighted) mb-2">
+                {{ features[0].title }}
+              </h3>
+              <p class="text-sm text-(--ui-text-muted) leading-relaxed max-w-xs">
+                {{ features[0].desc }}
+              </p>
             </div>
 
             <!-- Mini visual: match confidence bars -->
             <div class="relative z-10 mt-6 space-y-2">
               <div
                 v-for="pair in [
-                  { a: 'Jonathan Smith',         b: 'Jon Smith',              score: 97, bar: 'bg-primary'   },
-                  { a: 'sarah.j@globaltech.io',  b: 'sjohnson@global-tech',   score: 89, bar: 'bg-secondary' },
-                  { a: 'Vertex Solutions',        b: 'Vertex',                score: 82, bar: 'bg-success'   },
+                  { a: 'Jonathan Smith', b: 'Jon Smith', score: 97, bar: 'bg-primary' },
+                  { a: 'sarah.j@globaltech.io', b: 'sjohnson@global-tech', score: 89, bar: 'bg-secondary' },
+                  { a: 'Vertex Solutions', b: 'Vertex', score: 82, bar: 'bg-success' },
                 ]"
                 :key="pair.a"
                 class="flex items-center gap-3 p-3 rounded-xl bg-(--ui-bg-elevated) border border-(--ui-border)"
@@ -150,7 +165,11 @@ const borderMap: Record<string, string> = {
                 <span class="text-xs font-medium text-(--ui-text) truncate flex-1">{{ pair.a }}</span>
                 <div class="flex flex-col items-center gap-0.5 flex-shrink-0">
                   <div class="w-16 h-1 rounded-full bg-(--ui-bg-accented) overflow-hidden">
-                    <div class="h-full rounded-full" :class="pair.bar" :style="{ width: pair.score + '%' }" />
+                    <div
+                      class="h-full rounded-full"
+                      :class="pair.bar"
+                      :style="{ width: pair.score + '%' }"
+                    />
                   </div>
                   <span class="text-[10px] font-bold text-primary">{{ pair.score }}%</span>
                 </div>
@@ -176,10 +195,17 @@ const borderMap: Record<string, string> = {
                 class="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
                 :class="colorMap[features[1].color]"
               >
-                <UIcon :name="features[1].icon" class="w-5 h-5" />
+                <UIcon
+                  :name="features[1].icon"
+                  class="w-5 h-5"
+                />
               </div>
-              <h3 class="text-xl font-extrabold text-(--ui-text-highlighted) mb-2">{{ features[1].title }}</h3>
-              <p class="text-sm text-(--ui-text-muted) leading-relaxed">{{ features[1].desc }}</p>
+              <h3 class="text-xl font-extrabold text-(--ui-text-highlighted) mb-2">
+                {{ features[1].title }}
+              </h3>
+              <p class="text-sm text-(--ui-text-muted) leading-relaxed">
+                {{ features[1].desc }}
+              </p>
             </div>
 
             <!-- Field winner table -->
@@ -189,9 +215,9 @@ const borderMap: Record<string, string> = {
               </div>
               <div
                 v-for="row in [
-                  { field: 'Email',   a: 'jon@acme.com', winner: 'jon.smith@acmecorp.com' },
-                  { field: 'Phone',   a: '',             winner: '(212) 555-0101'          },
-                  { field: 'Company', a: 'Acme Inc.',    winner: 'Acme Corp'               },
+                  { field: 'Email', a: 'jon@acme.com', winner: 'jon.smith@acmecorp.com' },
+                  { field: 'Phone', a: '', winner: '(212) 555-0101' },
+                  { field: 'Company', a: 'Acme Inc.', winner: 'Acme Corp' },
                 ]"
                 :key="row.field"
                 class="grid grid-cols-3 items-center px-3 py-2 border-b border-(--ui-border) last:border-0 text-[11px]"
@@ -236,7 +262,10 @@ const borderMap: Record<string, string> = {
                   class="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
                   :class="colorMap[feat.color]"
                 >
-                  <UIcon :name="feat.icon" class="w-5 h-5" />
+                  <UIcon
+                    :name="feat.icon"
+                    class="w-5 h-5"
+                  />
                 </div>
                 <!-- Live badge on last card -->
                 <div
@@ -250,26 +279,40 @@ const borderMap: Record<string, string> = {
               <h3
                 class="text-lg font-extrabold mb-2"
                 :class="i === features.slice(2).length - 1 ? 'text-white' : 'text-(--ui-text-highlighted)'"
-              >{{ feat.title }}</h3>
+              >
+                {{ feat.title }}
+              </h3>
               <p
                 class="text-sm leading-relaxed"
                 :class="i === features.slice(2).length - 1 ? 'text-white/50' : 'text-(--ui-text-muted)'"
-              >{{ feat.desc }}</p>
+              >
+                {{ feat.desc }}
+              </p>
             </div>
 
             <!-- Mini stat for last card -->
-            <div v-if="i === features.slice(2).length - 1" class="relative z-10 mt-4 grid grid-cols-2 gap-2">
+            <div
+              v-if="i === features.slice(2).length - 1"
+              class="relative z-10 mt-4 grid grid-cols-2 gap-2"
+            >
               <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-                <div class="text-2xl font-black text-white">14</div>
-                <div class="text-[10px] text-white/40 mt-0.5">Dupes today</div>
+                <div class="text-2xl font-black text-white">
+                  14
+                </div>
+                <div class="text-[10px] text-white/40 mt-0.5">
+                  Dupes today
+                </div>
               </div>
               <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-                <div class="text-2xl font-black text-primary">0</div>
-                <div class="text-[10px] text-white/40 mt-0.5">Missed</div>
+                <div class="text-2xl font-black text-primary">
+                  0
+                </div>
+                <div class="text-[10px] text-white/40 mt-0.5">
+                  Missed
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </slot>
 
@@ -281,10 +324,14 @@ const borderMap: Record<string, string> = {
         class="mt-10 text-center"
       >
         <slot name="cta">
-          <UButton size="lg" variant="soft" label="See all features" trailing-icon="i-lucide-arrow-right" />
+          <UButton
+            size="lg"
+            variant="soft"
+            label="See all features"
+            trailing-icon="i-lucide-arrow-right"
+          />
         </slot>
       </div>
-
     </div>
   </section>
 </template>

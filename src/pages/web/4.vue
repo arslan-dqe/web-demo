@@ -57,48 +57,63 @@ const demoOpen   = ref(false)
 
 <template>
   <div class="min-h-screen bg-(--ui-bg) text-(--ui-text) font-sans overflow-x-hidden">
-
     <DqeNavbar @start-free="signupOpen = true" />
     <DqeHero @primary-cta="signupOpen = true" />
 
     <Suspense>
       <DqeMarquee />
-      <template #fallback><div class="py-16 bg-(--ui-bg-muted)" /></template>
+      <template #fallback>
+        <div class="py-16 bg-(--ui-bg-muted)" />
+      </template>
     </Suspense>
 
     <Suspense>
       <DqeProblem />
-      <template #fallback><div class="py-28 bg-slate-950" /></template>
+      <template #fallback>
+        <div class="py-28 bg-slate-950" />
+      </template>
     </Suspense>
 
     <Suspense>
       <DqeProduct />
-      <template #fallback><div class="py-28" /></template>
+      <template #fallback>
+        <div class="py-28" />
+      </template>
     </Suspense>
 
     <Suspense>
       <DqeHowItWorks />
-      <template #fallback><div class="py-28 bg-(--ui-bg-muted)" /></template>
+      <template #fallback>
+        <div class="py-28 bg-(--ui-bg-muted)" />
+      </template>
     </Suspense>
 
     <Suspense>
       <DqeVsSmarty />
-      <template #fallback><div class="py-28 bg-(--ui-bg-muted)" /></template>
+      <template #fallback>
+        <div class="py-28 bg-(--ui-bg-muted)" />
+      </template>
     </Suspense>
 
     <Suspense>
       <DqeUseCases />
-      <template #fallback><div class="py-28" /></template>
+      <template #fallback>
+        <div class="py-28" />
+      </template>
     </Suspense>
 
     <Suspense>
       <DqeTestimonials />
-      <template #fallback><div class="py-28 bg-(--ui-bg-muted)" /></template>
+      <template #fallback>
+        <div class="py-28 bg-(--ui-bg-muted)" />
+      </template>
     </Suspense>
 
     <Suspense>
       <DqePricing @cta="signupOpen = true" />
-      <template #fallback><div class="py-28" /></template>
+      <template #fallback>
+        <div class="py-28" />
+      </template>
     </Suspense>
 
     <Suspense>
@@ -106,18 +121,21 @@ const demoOpen   = ref(false)
         @primary="signupOpen = true"
         @secondary="demoOpen = true"
       />
-      <template #fallback><div class="py-24" /></template>
+      <template #fallback>
+        <div class="py-24" />
+      </template>
     </Suspense>
 
     <Suspense>
       <DqeFooter />
-      <template #fallback><div class="py-16 bg-(--ui-bg-muted)" /></template>
+      <template #fallback>
+        <div class="py-16 bg-(--ui-bg-muted)" />
+      </template>
     </Suspense>
 
     <ScrollToTop />
 
     <StartFreeModal v-model:open="signupOpen" />
-    <BookDemoModal  v-model:open="demoOpen"   />
-
+    <BookDemoModal v-model:open="demoOpen" />
   </div>
 </template>

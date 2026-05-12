@@ -260,18 +260,31 @@ const plans = [
 
 <template>
   <div class="page-root">
-
-    <header class="nav-bar" :class="{ 'nav-bar--scrolled': scrolled }">
+    <header
+      class="nav-bar"
+      :class="{ 'nav-bar--scrolled': scrolled }"
+    >
       <div class="nav-inner">
-        <a href="/" class="wordmark">DQE</a>
+        <a
+          href="/"
+          class="wordmark"
+        >DQE</a>
 
         <nav class="nav-links">
-          <a v-for="l in navLinks" :key="l" :href="`#${l.toLowerCase()}`" class="nav-link">
+          <a
+            v-for="l in navLinks"
+            :key="l"
+            :href="`#${l.toLowerCase()}`"
+            class="nav-link"
+          >
             {{ l }}
           </a>
         </nav>
 
-        <a href="#capture" class="cta-btn">
+        <a
+          href="#capture"
+          class="cta-btn"
+        >
           Start free <span class="cta-arrow">→</span>
         </a>
       </div>
@@ -279,15 +292,14 @@ const plans = [
 
     <section class="hero">
       <div class="container">
-
         <p class="kicker">
           <span class="kicker-dot" />
           All-in-one · Self-serve · USPS CASS Certified
         </p>
 
         <h1 class="hero-headline">
-          Validate every address,<br />
-          email, and phone.<br />
+          Validate every address,<br>
+          email, and phone.<br>
           <em>In one call.</em>
         </h1>
 
@@ -298,24 +310,32 @@ const plans = [
         </p>
 
         <div class="hero-ctas">
-          <a href="#capture" class="btn-primary">
+          <a
+            href="#capture"
+            class="btn-primary"
+          >
             Get 100 free records →
           </a>
-          <a href="/developers" class="btn-secondary">
+          <a
+            href="/developers"
+            class="btn-secondary"
+          >
             <span class="mono">View API docs</span>
           </a>
         </div>
 
-        <div ref="heroStatRef" class="hero-stat-box">
+        <div
+          ref="heroStatRef"
+          class="hero-stat-box"
+        >
           <div class="hero-stat-num">
             ${{ displayValue.toFixed(1) }}B
           </div>
           <div class="hero-stat-label">
-            lost annually to bad US e-commerce data.<br />
+            lost annually to bad US e-commerce data.<br>
             <span class="mono text-xs">Address errors alone drive 19.3% of all returns.</span>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -332,15 +352,19 @@ const plans = [
       </div>
     </div>
 
-    <section id="product" class="section">
+    <section
+      id="product"
+      class="section"
+    >
       <div class="container">
-        <div class="section-label">API Terminal</div>
+        <div class="section-label">
+          API Terminal
+        </div>
         <h2 class="section-headline">
-          Three validations.<br /><em>One round trip.</em>
+          Three validations.<br><em>One round trip.</em>
         </h2>
 
         <div class="terminal-wrap">
-
           <div class="term-tabs">
             <button
               v-for="tab in (['address','email','phone'] as TermTab[])"
@@ -356,22 +380,31 @@ const plans = [
           </div>
 
           <div class="term-body">
-
             <div class="term-pane">
-              <div class="term-pane-label mono">request</div>
+              <div class="term-pane-label mono">
+                request
+              </div>
               <div class="term-lines">
                 <div
                   v-for="(line, i) in typedLines"
                   :key="i"
                   class="term-line mono"
-                >{{ line }}<span v-if="i === typedLines.length - 1 && isTyping" class="cursor" /></div>
+                >
+                  {{ line }}<span
+                    v-if="i === typedLines.length - 1 && isTyping"
+                    class="cursor"
+                  />
+                </div>
               </div>
             </div>
 
             <div class="term-divider" />
 
             <Transition name="term-response">
-              <div v-if="showResponse" class="term-pane">
+              <div
+                v-if="showResponse"
+                class="term-pane"
+              >
                 <div class="term-pane-label mono">
                   response
                   <span class="term-ok mono">200 OK · {{ activeTermTab === 'phone' ? '87' : activeTermTab === 'email' ? '98' : '112' }}ms</span>
@@ -380,29 +413,39 @@ const plans = [
               </div>
             </Transition>
 
-            <div v-if="!showResponse" class="term-pane term-pane--waiting">
-              <div class="term-pane-label mono">response</div>
-              <div class="term-waiting mono">waiting...</div>
+            <div
+              v-if="!showResponse"
+              class="term-pane term-pane--waiting"
+            >
+              <div class="term-pane-label mono">
+                response
+              </div>
+              <div class="term-waiting mono">
+                waiting...
+              </div>
             </div>
-
           </div>
 
           <div class="term-footer">
-            <button class="term-replay mono" @click="runTerminal(activeTermTab)">
+            <button
+              class="term-replay mono"
+              @click="runTerminal(activeTermTab)"
+            >
               ↺ replay
             </button>
             <span class="term-credit mono">1 credit · all 3 channels available</span>
           </div>
-
         </div>
       </div>
     </section>
 
     <section class="section section--ink">
       <div class="container">
-        <div class="section-label section-label--paper">The problem</div>
+        <div class="section-label section-label--paper">
+          The problem
+        </div>
         <h2 class="section-headline section-headline--paper">
-          Bad data is a<br /><em>P&amp;L problem.</em>
+          Bad data is a<br><em>P&amp;L problem.</em>
         </h2>
 
         <div class="stats-grid">
@@ -411,19 +454,30 @@ const plans = [
             :key="i"
             class="stat-card"
           >
-            <div class="stat-num">{{ card.num }}</div>
-            <div class="stat-label">{{ card.label }}</div>
-            <div class="stat-src mono">Source: {{ card.src }}</div>
+            <div class="stat-num">
+              {{ card.num }}
+            </div>
+            <div class="stat-label">
+              {{ card.label }}
+            </div>
+            <div class="stat-src mono">
+              Source: {{ card.src }}
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="compare" class="section">
+    <section
+      id="compare"
+      class="section"
+    >
       <div class="container">
-        <div class="section-label">Compare</div>
+        <div class="section-label">
+          Compare
+        </div>
         <h2 class="section-headline">
-          DQE vs. Smarty<br /><em>vs. Melissa.</em>
+          DQE vs. Smarty<br><em>vs. Melissa.</em>
         </h2>
         <p class="section-sub">
           Smarty is fast — but address-only. Melissa is comprehensive — but built for IT procurement.
@@ -433,33 +487,41 @@ const plans = [
         <div class="compare-table-wrap">
           <table class="compare-table">
             <thead>
-            <tr>
-              <th class="compare-th compare-th--feature">Feature</th>
-              <th class="compare-th compare-th--dqe">
-                <span class="compare-brand compare-brand--dqe">DQE</span>
-              </th>
-              <th class="compare-th">Smarty</th>
-              <th class="compare-th">Melissa</th>
-            </tr>
+              <tr>
+                <th class="compare-th compare-th--feature">
+                  Feature
+                </th>
+                <th class="compare-th compare-th--dqe">
+                  <span class="compare-brand compare-brand--dqe">DQE</span>
+                </th>
+                <th class="compare-th">
+                  Smarty
+                </th>
+                <th class="compare-th">
+                  Melissa
+                </th>
+              </tr>
             </thead>
             <tbody>
-            <tr
-              v-for="(row, i) in comparisonRows"
-              :key="row.feature"
-              class="compare-row"
-              :class="{ 'compare-row--alt': i % 2 !== 0 }"
-            >
-              <td class="compare-td compare-td--feature">{{ row.feature }}</td>
-              <td class="compare-td compare-td--dqe">
-                <span :class="row.dqe ? 'check' : 'cross'">{{ row.dqe ? '✓' : '✕' }}</span>
-              </td>
-              <td class="compare-td">
-                <span :class="row.smarty ? 'check' : 'cross'">{{ row.smarty ? '✓' : '✕' }}</span>
-              </td>
-              <td class="compare-td">
-                <span :class="row.melissa ? 'check' : 'cross'">{{ row.melissa ? '✓' : '✕' }}</span>
-              </td>
-            </tr>
+              <tr
+                v-for="(row, i) in comparisonRows"
+                :key="row.feature"
+                class="compare-row"
+                :class="{ 'compare-row--alt': i % 2 !== 0 }"
+              >
+                <td class="compare-td compare-td--feature">
+                  {{ row.feature }}
+                </td>
+                <td class="compare-td compare-td--dqe">
+                  <span :class="row.dqe ? 'check' : 'cross'">{{ row.dqe ? '✓' : '✕' }}</span>
+                </td>
+                <td class="compare-td">
+                  <span :class="row.smarty ? 'check' : 'cross'">{{ row.smarty ? '✓' : '✕' }}</span>
+                </td>
+                <td class="compare-td">
+                  <span :class="row.melissa ? 'check' : 'cross'">{{ row.melissa ? '✓' : '✕' }}</span>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -473,9 +535,11 @@ const plans = [
 
     <section class="section section--tinted">
       <div class="container">
-        <div class="section-label">How it works</div>
+        <div class="section-label">
+          How it works
+        </div>
         <h2 class="section-headline">
-          Three steps.<br /><em>Under five minutes.</em>
+          Three steps.<br><em>Under five minutes.</em>
         </h2>
 
         <div class="steps-grid">
@@ -484,20 +548,31 @@ const plans = [
             :key="step.num"
             class="step-card"
           >
-            <div class="step-num mono">{{ step.num }}</div>
-            <h3 class="step-title">{{ step.title }}</h3>
-            <p class="step-desc">{{ step.desc }}</p>
+            <div class="step-num mono">
+              {{ step.num }}
+            </div>
+            <h3 class="step-title">
+              {{ step.title }}
+            </h3>
+            <p class="step-desc">
+              {{ step.desc }}
+            </p>
             <pre class="step-code mono">{{ step.code }}</pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="pricing" class="section">
+    <section
+      id="pricing"
+      class="section"
+    >
       <div class="container">
-        <div class="section-label">Pricing</div>
+        <div class="section-label">
+          Pricing
+        </div>
         <h2 class="section-headline">
-          Start free.<br /><em>Scale without surprises.</em>
+          Start free.<br><em>Scale without surprises.</em>
         </h2>
         <p class="section-sub">
           One credit = one validation. Address, email, or phone — your choice. Credits never expire.
@@ -510,13 +585,22 @@ const plans = [
             class="plan-card"
             :class="{ 'plan-card--lime': plan.lime }"
           >
-            <div v-if="plan.lime" class="plan-tag mono">{{ plan.tag }}</div>
-            <div class="plan-name mono">{{ plan.name }}</div>
+            <div
+              v-if="plan.lime"
+              class="plan-tag mono"
+            >
+              {{ plan.tag }}
+            </div>
+            <div class="plan-name mono">
+              {{ plan.name }}
+            </div>
             <div class="plan-price">
               {{ plan.price }}
               <span class="plan-sub mono">{{ plan.sub }}</span>
             </div>
-            <p class="plan-desc">{{ plan.desc }}</p>
+            <p class="plan-desc">
+              {{ plan.desc }}
+            </p>
 
             <ul class="plan-features">
               <li
@@ -541,14 +625,18 @@ const plans = [
       </div>
     </section>
 
-    <section id="capture" class="capture-section">
+    <section
+      id="capture"
+      class="capture-section"
+    >
       <div class="container">
         <div class="capture-box">
-
           <div class="capture-copy">
-            <p class="kicker">Free · No card · Results in minutes</p>
+            <p class="kicker">
+              Free · No card · Results in minutes
+            </p>
             <h2 class="capture-headline">
-              Claim 100 free records.<br /><em>Right now.</em>
+              Claim 100 free records.<br><em>Right now.</em>
             </h2>
             <p class="capture-sub">
               Business email required. 100-record cap per organisation.
@@ -557,20 +645,34 @@ const plans = [
           </div>
 
           <div class="capture-form">
-            <Transition name="fade" mode="out-in">
-              <div v-if="!captureSubmitted" key="form" class="capture-input-row">
+            <Transition
+              name="fade"
+              mode="out-in"
+            >
+              <div
+                v-if="!captureSubmitted"
+                key="form"
+                class="capture-input-row"
+              >
                 <input
                   v-model="captureEmail"
                   type="email"
                   placeholder="you@yourcompany.com"
                   class="capture-input mono"
                   @keyup.enter="submitCapture"
-                />
-                <button class="capture-submit" @click="submitCapture">
+                >
+                <button
+                  class="capture-submit"
+                  @click="submitCapture"
+                >
                   Claim free records →
                 </button>
               </div>
-              <div v-else key="done" class="capture-done">
+              <div
+                v-else
+                key="done"
+                class="capture-done"
+              >
                 <span class="capture-check">✓</span>
                 <span class="mono">Check your inbox — API key on the way.</span>
               </div>
@@ -579,7 +681,6 @@ const plans = [
               We validate your email before sending. No personal addresses (gmail, yahoo etc.).
             </p>
           </div>
-
         </div>
       </div>
     </section>
@@ -589,13 +690,19 @@ const plans = [
         <div class="footer-top">
           <span class="wordmark">DQE</span>
           <div class="footer-cols">
-            <div v-for="col in [
-              { heading: 'Product',  links: ['API Reference','Validate','Verify','Advanced'] },
-              { heading: 'Compare',  links: ['vs Smarty','vs Melissa','vs Loqate','vs ZeroBounce'] },
-              { heading: 'Company',  links: ['About','Blog','Careers','Contact'] },
-              { heading: 'Legal',    links: ['Privacy','Terms','Security','DPA'] },
-            ]" :key="col.heading" class="footer-col">
-              <p class="footer-col-heading mono">{{ col.heading }}</p>
+            <div
+              v-for="col in [
+                { heading: 'Product', links: ['API Reference','Validate','Verify','Advanced'] },
+                { heading: 'Compare', links: ['vs Smarty','vs Melissa','vs Loqate','vs ZeroBounce'] },
+                { heading: 'Company', links: ['About','Blog','Careers','Contact'] },
+                { heading: 'Legal', links: ['Privacy','Terms','Security','DPA'] },
+              ]"
+              :key="col.heading"
+              class="footer-col"
+            >
+              <p class="footer-col-heading mono">
+                {{ col.heading }}
+              </p>
               <a
                 v-for="link in col.links"
                 :key="link"
@@ -614,7 +721,6 @@ const plans = [
         </div>
       </div>
     </footer>
-
   </div>
 </template>
 

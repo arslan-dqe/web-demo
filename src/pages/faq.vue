@@ -133,14 +133,16 @@ const signupOpen = ref(false)
 
 <template>
   <div class="min-h-screen bg-(--ui-bg) text-(--ui-text) font-sans overflow-x-hidden">
-
     <DqeNavbar @start-free="signupOpen = true" />
 
     <!-- Hero -->
     <section class="py-20 px-4 text-center bg-(--ui-bg-muted) border-b border-(--ui-border)">
       <div class="max-w-2xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
-          <UIcon name="i-lucide-circle-help" class="w-3.5 h-3.5" />
+          <UIcon
+            name="i-lucide-circle-help"
+            class="w-3.5 h-3.5"
+          />
           Help Center
         </div>
         <h1 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-4 leading-tight">
@@ -149,7 +151,10 @@ const signupOpen = ref(false)
         <p class="text-(--ui-text-muted) text-lg">
           Everything you need to know about DQE's address, email, and phone validation platform.
           Can't find what you're looking for?
-          <a href="mailto:support@dqe.io" class="text-primary font-semibold hover:underline">Contact support →</a>
+          <a
+            href="mailto:support@dqe.io"
+            class="text-primary font-semibold hover:underline"
+          >Contact support →</a>
         </p>
       </div>
     </section>
@@ -171,11 +176,10 @@ const signupOpen = ref(false)
     <!-- FAQ sections -->
     <main class="py-16 px-4">
       <div class="max-w-3xl mx-auto space-y-20">
-
         <section
           v-for="cat in categories"
-          :key="cat.id"
           :id="cat.id"
+          :key="cat.id"
           class="scroll-mt-16"
         >
           <h2 class="text-2xl font-extrabold text-(--ui-text-highlighted) mb-8 pb-3 border-b border-(--ui-border)">
@@ -188,21 +192,29 @@ const signupOpen = ref(false)
               :key="item.q"
             >
               <h3 class="text-lg font-bold text-(--ui-text-highlighted) mb-3 flex items-start gap-2">
-                <UIcon name="i-lucide-chevron-right" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <UIcon
+                  name="i-lucide-chevron-right"
+                  class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                />
                 {{ item.q }}
               </h3>
-              <p class="text-(--ui-text-muted) leading-relaxed pl-7">{{ item.a }}</p>
+              <p class="text-(--ui-text-muted) leading-relaxed pl-7">
+                {{ item.a }}
+              </p>
             </div>
           </div>
         </section>
-
       </div>
     </main>
 
     <!-- Bottom CTA -->
     <section class="py-16 px-4 bg-(--ui-bg-muted) border-t border-(--ui-border) text-center">
-      <h2 class="text-2xl font-extrabold text-(--ui-text-highlighted) mb-3">Still have questions?</h2>
-      <p class="text-(--ui-text-muted) mb-6">Our team typically responds within one business day.</p>
+      <h2 class="text-2xl font-extrabold text-(--ui-text-highlighted) mb-3">
+        Still have questions?
+      </h2>
+      <p class="text-(--ui-text-muted) mb-6">
+        Our team typically responds within one business day.
+      </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
         <UButton
           label="Start for free"
@@ -221,6 +233,5 @@ const signupOpen = ref(false)
     <DqeFooter />
 
     <StartFreeModal v-model:open="signupOpen" />
-
   </div>
 </template>

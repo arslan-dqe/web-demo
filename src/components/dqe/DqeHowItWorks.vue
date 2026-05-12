@@ -127,8 +127,10 @@ const steps = [
 </script>
 
 <template>
-  <section id="how-it-works" class="py-28 px-4 relative overflow-hidden bg-(--ui-bg-muted)">
-
+  <section
+    id="how-it-works"
+    class="py-28 px-4 relative overflow-hidden bg-(--ui-bg-muted)"
+  >
     <!-- Background -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-20 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
@@ -136,7 +138,6 @@ const steps = [
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto">
-
       <!-- ── Header ───────────────────────────────────────────────────── -->
       <div
         v-motion
@@ -144,14 +145,22 @@ const steps = [
         :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
         class="text-center mb-10"
       >
-        <UBadge color="primary" variant="soft" label="How it works" size="md" class="mb-4" />
+        <UBadge
+          color="primary"
+          variant="soft"
+          label="How it works"
+          size="md"
+          class="mb-4"
+        />
         <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Clean data in
           <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
             under 5 minutes.
           </span>
         </h2>
-        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">How quickly can I integrate address, email, and phone validation into my app?</h3>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">
+          How quickly can I integrate address, email, and phone validation into my app?
+        </h3>
         <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto mb-8">
           Two paths, same result: accurate addresses, deliverable emails,
           and verified phone numbers — without a sales call.
@@ -166,7 +175,10 @@ const steps = [
               : 'text-(--ui-text-muted) hover:text-(--ui-text)'"
             @click="activePath = 'csv'"
           >
-            <UIcon name="i-lucide-file-spreadsheet" class="w-4 h-4" />
+            <UIcon
+              name="i-lucide-file-spreadsheet"
+              class="w-4 h-4"
+            />
             CSV Upload
           </button>
           <button
@@ -176,7 +188,10 @@ const steps = [
               : 'text-(--ui-text-muted) hover:text-(--ui-text)'"
             @click="activePath = 'api'"
           >
-            <UIcon name="i-lucide-code-2" class="w-4 h-4" />
+            <UIcon
+              name="i-lucide-code-2"
+              class="w-4 h-4"
+            />
             REST API
           </button>
         </div>
@@ -202,14 +217,15 @@ const steps = [
             class="grid md:grid-cols-2 gap-6 md:gap-12 items-center mb-6 md:mb-16"
             :class="i % 2 !== 0 ? 'md:[direction:rtl]' : ''"
           >
-
             <!-- Text side ─────────────────────────────────────────────── -->
             <div class="md:[direction:ltr]">
               <!-- Decorative number -->
               <div
                 class="absolute font-black text-[7rem] md:text-[9rem] leading-none select-none pointer-events-none text-(--ui-text-highlighted)/[0.04]"
                 :class="i % 2 === 0 ? '-left-4' : '-right-4'"
-              >{{ step.num }}</div>
+              >
+                {{ step.num }}
+              </div>
 
               <div class="relative">
                 <!-- Step indicator -->
@@ -238,7 +254,10 @@ const steps = [
                     class="flex items-center gap-2.5 text-sm text-(--ui-text)"
                   >
                     <div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <UIcon name="i-lucide-check" class="w-3 h-3 text-primary" />
+                      <UIcon
+                        name="i-lucide-check"
+                        class="w-3 h-3 text-primary"
+                      />
                     </div>
                     {{ point }}
                   </li>
@@ -246,7 +265,10 @@ const steps = [
 
                 <!-- Path label pill -->
                 <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-primary/8 text-primary border border-primary/15">
-                  <UIcon :name="activePath === 'csv' ? step.csv.icon : step.api.icon" class="w-3.5 h-3.5" />
+                  <UIcon
+                    :name="activePath === 'csv' ? step.csv.icon : step.api.icon"
+                    class="w-3.5 h-3.5"
+                  />
                   {{ activePath === 'csv' ? step.csv.label : step.api.label }}
                 </div>
               </div>
@@ -254,8 +276,10 @@ const steps = [
 
             <!-- Visual side ────────────────────────────────────────────── -->
             <div class="md:[direction:ltr]">
-              <Transition name="path-switch" mode="out-in">
-
+              <Transition
+                name="path-switch"
+                mode="out-in"
+              >
                 <!-- ── Step 1 CSV ── -->
                 <div
                   v-if="i === 0 && activePath === 'csv'"
@@ -271,23 +295,39 @@ const steps = [
                   <div class="p-5">
                     <!-- Drop zone -->
                     <div class="border-2 border-dashed border-primary/30 bg-primary/5 rounded-xl p-6 text-center mb-4">
-                      <UIcon name="i-lucide-upload-cloud" class="w-8 h-8 text-primary/40 mx-auto mb-2" />
-                      <p class="text-sm font-semibold text-(--ui-text-highlighted)">{{ step.csv.mockup.filename }}</p>
-                      <p class="text-xs text-primary mt-1">{{ step.csv.mockup.rows }}</p>
+                      <UIcon
+                        name="i-lucide-upload-cloud"
+                        class="w-8 h-8 text-primary/40 mx-auto mb-2"
+                      />
+                      <p class="text-sm font-semibold text-(--ui-text-highlighted)">
+                        {{ step.csv.mockup.filename }}
+                      </p>
+                      <p class="text-xs text-primary mt-1">
+                        {{ step.csv.mockup.rows }}
+                      </p>
                     </div>
                     <!-- Detected columns -->
-                    <p class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-2">Detected columns</p>
+                    <p class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-2">
+                      Detected columns
+                    </p>
                     <div class="flex flex-wrap gap-2 mb-4">
                       <div
                         v-for="col in step.csv.mockup.columns"
                         :key="col"
                         class="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-primary/8 text-primary border border-primary/15"
                       >
-                        <UIcon name="i-lucide-check-circle-2" class="w-3 h-3" />
+                        <UIcon
+                          name="i-lucide-check-circle-2"
+                          class="w-3 h-3"
+                        />
                         {{ col }}
                       </div>
                     </div>
-                    <UButton block label="Start validation →" size="sm" />
+                    <UButton
+                      block
+                      label="Start validation →"
+                      size="sm"
+                    />
                   </div>
                 </div>
 
@@ -319,7 +359,13 @@ const steps = [
                     <span class="w-2 h-2 rounded-full bg-amber-400/70" />
                     <span class="w-2 h-2 rounded-full bg-emerald-400/70" />
                     <span class="flex-1 text-center text-[11px] text-(--ui-text-dimmed)">Processing batch…</span>
-                    <UBadge size="xs" color="primary" variant="soft" label="Live" class="animate-pulse" />
+                    <UBadge
+                      size="xs"
+                      color="primary"
+                      variant="soft"
+                      label="Live"
+                      class="animate-pulse"
+                    />
                   </div>
                   <div class="p-5 space-y-3">
                     <!-- Stats row -->
@@ -329,8 +375,12 @@ const steps = [
                         :key="stat.label"
                         class="text-center p-2.5 rounded-lg bg-(--ui-bg-elevated) border border-(--ui-border)"
                       >
-                        <div class="text-sm font-extrabold text-(--ui-text-highlighted)">{{ stat.value }}</div>
-                        <div class="text-[10px] text-(--ui-text-dimmed)">{{ stat.label }}</div>
+                        <div class="text-sm font-extrabold text-(--ui-text-highlighted)">
+                          {{ stat.value }}
+                        </div>
+                        <div class="text-[10px] text-(--ui-text-dimmed)">
+                          {{ stat.label }}
+                        </div>
                       </div>
                     </div>
                     <!-- Progress bars -->
@@ -388,7 +438,9 @@ const steps = [
                     <span class="flex-1 text-center text-[11px] text-(--ui-text-dimmed)">Enriched output ready</span>
                   </div>
                   <div class="p-5">
-                    <p class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-3">Output columns</p>
+                    <p class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-3">
+                      Output columns
+                    </p>
                     <div class="space-y-1.5 mb-4">
                       <div
                         v-for="col in step.csv.columns"
@@ -436,7 +488,10 @@ const steps = [
                   <div class="p-5 space-y-2.5">
                     <!-- Phase 2 banner -->
                     <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-500/8 border border-amber-500/15 mb-3">
-                      <UIcon name="i-lucide-clock" class="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+                      <UIcon
+                        name="i-lucide-clock"
+                        class="w-3.5 h-3.5 text-amber-500 flex-shrink-0"
+                      />
                       <p class="text-xs text-amber-600 dark:text-amber-400 font-medium">
                         CRM integrations launching in Phase 2
                       </p>
@@ -455,19 +510,25 @@ const steps = [
                         class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
                         :class="dest.color"
                       >
-                        <UIcon :name="dest.icon" class="w-4 h-4" />
+                        <UIcon
+                          :name="dest.icon"
+                          class="w-4 h-4"
+                        />
                       </div>
                       <span class="text-sm font-semibold text-(--ui-text-highlighted) flex-1">
-      {{ dest.name }}
-    </span>
-                      <UBadge size="xs" color="neutral" variant="soft" label="Phase 2" />
+                        {{ dest.name }}
+                      </span>
+                      <UBadge
+                        size="xs"
+                        color="neutral"
+                        variant="soft"
+                        label="Phase 2"
+                      />
                     </div>
                   </div>
                 </div>
-
               </Transition>
             </div>
-
           </div>
 
           <!-- Step connector -->
@@ -478,11 +539,13 @@ const steps = [
             <div class="flex flex-col items-center gap-1">
               <div class="w-px h-6 bg-gradient-to-b from-primary/40 to-primary/10" />
               <div class="w-7 h-7 rounded-full border-2 border-primary/25 bg-(--ui-bg-muted) flex items-center justify-center">
-                <UIcon name="i-lucide-chevron-down" class="w-3.5 h-3.5 text-primary/50" />
+                <UIcon
+                  name="i-lucide-chevron-down"
+                  class="w-3.5 h-3.5 text-primary/50"
+                />
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -496,14 +559,24 @@ const steps = [
         <div class="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl border border-(--ui-border) bg-(--ui-bg)">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-success/10 flex items-center justify-center">
-              <UIcon name="i-lucide-timer" class="w-5 h-5 text-success" />
+              <UIcon
+                name="i-lucide-timer"
+                class="w-5 h-5 text-success"
+              />
             </div>
             <div class="text-left">
-              <p class="text-sm font-bold text-(--ui-text-highlighted)">Ready in under 5 minutes</p>
-              <p class="text-xs text-(--ui-text-muted)">No credit card · No sales call · 100 free validations</p>
+              <p class="text-sm font-bold text-(--ui-text-highlighted)">
+                Ready in under 5 minutes
+              </p>
+              <p class="text-xs text-(--ui-text-muted)">
+                No credit card · No sales call · 100 free validations
+              </p>
             </div>
           </div>
-          <USeparator orientation="vertical" class="hidden sm:block h-10" />
+          <USeparator
+            orientation="vertical"
+            class="hidden sm:block h-10"
+          />
           <UButton
             label="Start validating now"
             trailing-icon="i-lucide-arrow-right"
@@ -511,7 +584,6 @@ const steps = [
           />
         </div>
       </div>
-
     </div>
   </section>
 </template>

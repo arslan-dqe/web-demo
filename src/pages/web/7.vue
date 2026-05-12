@@ -316,7 +316,6 @@ function onHueSlider(e: Event) {
 
 <template>
   <div class="min-h-screen bg-(--ui-bg) text-(--ui-text) antialiased">
-
     <header
       :class="[
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
@@ -324,9 +323,15 @@ function onHueSlider(e: Event) {
       ]"
     >
       <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
-        <a href="#" class="flex items-center gap-2.5 flex-shrink-0">
+        <a
+          href="#"
+          class="flex items-center gap-2.5 flex-shrink-0"
+        >
           <div class="relative w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center shadow-lg shadow-primary-500/30">
-            <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-white" />
+            <UIcon
+              name="i-lucide-shield-check"
+              class="w-4 h-4 text-white"
+            />
             <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-success-400 border border-(--ui-bg) animate-pulse" />
           </div>
           <span class="font-extrabold text-lg tracking-tight text-(--ui-text-highlighted)">
@@ -335,11 +340,26 @@ function onHueSlider(e: Event) {
         </a>
 
         <div class="hidden md:flex items-center gap-8 text-sm font-medium text-(--ui-text-muted)">
-          <a href="#how" class="hover:text-(--ui-text-highlighted) transition-colors">Product</a>
-          <a href="#pricing" class="hover:text-(--ui-text-highlighted) transition-colors">Pricing</a>
-          <a href="#developers" class="hover:text-(--ui-text-highlighted) transition-colors">Developers</a>
-          <a href="#compare" class="flex items-center gap-1.5 text-primary-500 font-semibold hover:text-primary-400 transition-colors">
-            <UIcon name="i-lucide-swords" class="w-3.5 h-3.5" />
+          <a
+            href="#how"
+            class="hover:text-(--ui-text-highlighted) transition-colors"
+          >Product</a>
+          <a
+            href="#pricing"
+            class="hover:text-(--ui-text-highlighted) transition-colors"
+          >Pricing</a>
+          <a
+            href="#developers"
+            class="hover:text-(--ui-text-highlighted) transition-colors"
+          >Developers</a>
+          <a
+            href="#compare"
+            class="flex items-center gap-1.5 text-primary-500 font-semibold hover:text-primary-400 transition-colors"
+          >
+            <UIcon
+              name="i-lucide-swords"
+              class="w-3.5 h-3.5"
+            />
             vs Smarty
           </a>
         </div>
@@ -348,24 +368,60 @@ function onHueSlider(e: Event) {
           <span class="text-xs font-bold px-3 py-1 rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20 tracking-wide">
             USPS CASS Certified
           </span>
-          <UButton variant="ghost" size="sm" class="text-(--ui-text-muted) hover:text-(--ui-text-highlighted)">Sign in</UButton>
-          <UButton size="sm" class="bg-primary-500 hover:bg-primary-600 text-white font-bold shadow-lg shadow-primary-500/25 transition-colors">
+          <UButton
+            variant="ghost"
+            size="sm"
+            class="text-(--ui-text-muted) hover:text-(--ui-text-highlighted)"
+          >
+            Sign in
+          </UButton>
+          <UButton
+            size="sm"
+            class="bg-primary-500 hover:bg-primary-600 text-white font-bold shadow-lg shadow-primary-500/25 transition-colors"
+          >
             Start Free
           </UButton>
         </div>
 
-        <button class="md:hidden p-2 text-(--ui-text-muted)" @click="mobileOpen = !mobileOpen">
-          <UIcon :name="mobileOpen ? 'i-lucide-x' : 'i-lucide-menu'" class="w-5 h-5" />
+        <button
+          class="md:hidden p-2 text-(--ui-text-muted)"
+          @click="mobileOpen = !mobileOpen"
+        >
+          <UIcon
+            :name="mobileOpen ? 'i-lucide-x' : 'i-lucide-menu'"
+            class="w-5 h-5"
+          />
         </button>
       </nav>
 
       <Transition name="mobile-menu">
-        <div v-if="mobileOpen" class="md:hidden bg-(--ui-bg) border-t border-(--ui-border) px-6 py-5 flex flex-col gap-4 text-sm font-medium">
-          <a href="#how" class="text-(--ui-text-muted)" @click="mobileOpen = false">Product</a>
-          <a href="#pricing" class="text-(--ui-text-muted)" @click="mobileOpen = false">Pricing</a>
-          <a href="#developers" class="text-(--ui-text-muted)" @click="mobileOpen = false">Developers</a>
-          <a href="#compare" class="text-primary-500 font-semibold" @click="mobileOpen = false">vs Smarty</a>
-          <UButton class="w-full bg-primary-500 text-white font-bold">Start Free</UButton>
+        <div
+          v-if="mobileOpen"
+          class="md:hidden bg-(--ui-bg) border-t border-(--ui-border) px-6 py-5 flex flex-col gap-4 text-sm font-medium"
+        >
+          <a
+            href="#how"
+            class="text-(--ui-text-muted)"
+            @click="mobileOpen = false"
+          >Product</a>
+          <a
+            href="#pricing"
+            class="text-(--ui-text-muted)"
+            @click="mobileOpen = false"
+          >Pricing</a>
+          <a
+            href="#developers"
+            class="text-(--ui-text-muted)"
+            @click="mobileOpen = false"
+          >Developers</a>
+          <a
+            href="#compare"
+            class="text-primary-500 font-semibold"
+            @click="mobileOpen = false"
+          >vs Smarty</a>
+          <UButton class="w-full bg-primary-500 text-white font-bold">
+            Start Free
+          </UButton>
         </div>
       </Transition>
     </header>
@@ -379,8 +435,11 @@ function onHueSlider(e: Event) {
 
       <div class="relative max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-14 items-center">
-
-          <div v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { duration: 650 } }">
+          <div
+            v-motion
+            :initial="{ opacity: 0, y: 30 }"
+            :enter="{ opacity: 1, y: 0, transition: { duration: 650 } }"
+          >
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/25 text-primary-400 text-sm font-semibold mb-7">
               <span class="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse" />
               All-in-one · USPS CASS Certified · 5-min setup
@@ -400,12 +459,25 @@ function onHueSlider(e: Event) {
             </p>
 
             <div class="flex flex-wrap gap-4 mb-10">
-              <UButton size="lg" class="bg-primary-500 hover:bg-primary-600 text-white font-bold shadow-xl shadow-primary-500/30 transition-colors px-8">
-                <UIcon name="i-lucide-zap" class="w-4 h-4 mr-2" />
+              <UButton
+                size="lg"
+                class="bg-primary-500 hover:bg-primary-600 text-white font-bold shadow-xl shadow-primary-500/30 transition-colors px-8"
+              >
+                <UIcon
+                  name="i-lucide-zap"
+                  class="w-4 h-4 mr-2"
+                />
                 Validate 100 Records Free
               </UButton>
-              <UButton size="lg" variant="outline" class="border-(--ui-border) text-(--ui-text-muted) hover:text-(--ui-text-highlighted) hover:border-primary-500/40 transition-all px-7">
-                <UIcon name="i-lucide-code-2" class="w-4 h-4 mr-2" />
+              <UButton
+                size="lg"
+                variant="outline"
+                class="border-(--ui-border) text-(--ui-text-muted) hover:text-(--ui-text-highlighted) hover:border-primary-500/40 transition-all px-7"
+              >
+                <UIcon
+                  name="i-lucide-code-2"
+                  class="w-4 h-4 mr-2"
+                />
                 See API Docs
               </UButton>
             </div>
@@ -417,54 +489,92 @@ function onHueSlider(e: Event) {
                     v-for="(letter, i) in ['S','M','R','A']"
                     :key="i"
                     class="w-7 h-7 rounded-full bg-primary-500/20 border-2 border-(--ui-bg) flex items-center justify-center text-xs font-bold text-primary-400"
-                  >{{ letter }}</div>
+                  >
+                    {{ letter }}
+                  </div>
                 </div>
                 <span>800+ companies worldwide</span>
               </div>
               <div class="flex items-center gap-1.5">
                 <div class="flex">
-                  <UIcon v-for="i in 5" :key="i" name="i-lucide-star" class="w-4 h-4 text-warning-400 fill-warning-400" />
+                  <UIcon
+                    v-for="i in 5"
+                    :key="i"
+                    name="i-lucide-star"
+                    class="w-4 h-4 text-warning-400 fill-warning-400"
+                  />
                 </div>
                 <span>4.9/5 on G2</span>
               </div>
               <div class="flex items-center gap-1.5">
-                <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-success-400" />
+                <UIcon
+                  name="i-lucide-shield-check"
+                  class="w-4 h-4 text-success-400"
+                />
                 <span>SOC 2 Type II</span>
               </div>
             </div>
           </div>
 
-          <div v-motion :initial="{ opacity: 0, x: 40, scale: 0.95 }" :enter="{ opacity: 1, x: 0, scale: 1, transition: { duration: 650, delay: 180 } }" class="relative">
+          <div
+            v-motion
+            :initial="{ opacity: 0, x: 40, scale: 0.95 }"
+            :enter="{ opacity: 1, x: 0, scale: 1, transition: { duration: 650, delay: 180 } }"
+            class="relative"
+          >
             <div class="relative mx-auto max-w-md">
               <div class="absolute -inset-4 rounded-[2rem] bg-primary-500/10 blur-2xl" />
 
               <div class="relative bg-(--ui-bg-elevated) border border-(--ui-border) rounded-3xl overflow-hidden shadow-2xl">
-
                 <div class="bg-primary-500/6 border-b border-(--ui-border) px-6 py-4 flex items-center justify-between">
                   <div class="flex items-center gap-3">
                     <div class="w-9 h-9 rounded-xl bg-primary-500 flex items-center justify-center shadow-lg shadow-primary-500/30">
-                      <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-white" />
+                      <UIcon
+                        name="i-lucide-shield-check"
+                        class="w-4 h-4 text-white"
+                      />
                     </div>
                     <div>
-                      <div class="text-sm font-bold text-(--ui-text-highlighted)">DQE Validation Report</div>
-                      <div class="text-xs text-(--ui-text-dimmed)">3 checks · 47ms · All passed</div>
+                      <div class="text-sm font-bold text-(--ui-text-highlighted)">
+                        DQE Validation Report
+                      </div>
+                      <div class="text-xs text-(--ui-text-dimmed)">
+                        3 checks · 47ms · All passed
+                      </div>
                     </div>
                   </div>
-                  <UBadge color="success" variant="soft" size="xs" class="font-bold tracking-wide">PASSED</UBadge>
+                  <UBadge
+                    color="success"
+                    variant="soft"
+                    size="xs"
+                    class="font-bold tracking-wide"
+                  >
+                    PASSED
+                  </UBadge>
                 </div>
 
                 <div class="px-6 py-5 border-b border-(--ui-border)">
                   <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary-400">
-                      <UIcon name="i-lucide-map-pin" class="w-3.5 h-3.5" />Address
+                      <UIcon
+                        name="i-lucide-map-pin"
+                        class="w-3.5 h-3.5"
+                      />Address
                     </div>
                     <div class="flex items-center gap-1.5 text-xs text-success-400 font-semibold">
-                      <UIcon name="i-lucide-check-circle-2" class="w-3.5 h-3.5" />Corrected & Verified
+                      <UIcon
+                        name="i-lucide-check-circle-2"
+                        class="w-3.5 h-3.5"
+                      />Corrected & Verified
                     </div>
                   </div>
                   <div class="bg-(--ui-bg) rounded-xl px-4 py-3">
-                    <div class="text-sm font-semibold text-(--ui-text-highlighted)">123 Main Street</div>
-                    <div class="text-sm text-(--ui-text-muted)">New York, NY 10001-0001</div>
+                    <div class="text-sm font-semibold text-(--ui-text-highlighted)">
+                      123 Main Street
+                    </div>
+                    <div class="text-sm text-(--ui-text-muted)">
+                      New York, NY 10001-0001
+                    </div>
                     <div class="flex items-center gap-2 mt-2">
                       <span class="text-xs px-2 py-0.5 rounded-full bg-success-500/10 text-success-400 font-semibold border border-success-500/20">DPV Confirmed</span>
                       <span class="text-xs px-2 py-0.5 rounded-full bg-primary-500/10 text-primary-400 font-semibold border border-primary-500/20">USPS CASS</span>
@@ -475,14 +585,22 @@ function onHueSlider(e: Event) {
                 <div class="px-6 py-5 border-b border-(--ui-border)">
                   <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary-400">
-                      <UIcon name="i-lucide-mail" class="w-3.5 h-3.5" />Email
+                      <UIcon
+                        name="i-lucide-mail"
+                        class="w-3.5 h-3.5"
+                      />Email
                     </div>
                     <div class="flex items-center gap-1.5 text-xs text-success-400 font-semibold">
-                      <UIcon name="i-lucide-check-circle-2" class="w-3.5 h-3.5" />Deliverable
+                      <UIcon
+                        name="i-lucide-check-circle-2"
+                        class="w-3.5 h-3.5"
+                      />Deliverable
                     </div>
                   </div>
                   <div class="bg-(--ui-bg) rounded-xl px-4 py-3">
-                    <div class="text-sm font-semibold text-(--ui-text-highlighted)">john.doe@example.com</div>
+                    <div class="text-sm font-semibold text-(--ui-text-highlighted)">
+                      john.doe@example.com
+                    </div>
                     <div class="flex items-center gap-3 mt-2">
                       <span class="text-xs px-2 py-0.5 rounded-full bg-success-500/10 text-success-400 font-semibold border border-success-500/20">Deliverable</span>
                       <span class="text-xs text-(--ui-text-muted)">Score: <span class="text-success-400 font-bold">98/100</span></span>
@@ -493,14 +611,22 @@ function onHueSlider(e: Event) {
                 <div class="px-6 py-5">
                   <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary-400">
-                      <UIcon name="i-lucide-phone" class="w-3.5 h-3.5" />Phone
+                      <UIcon
+                        name="i-lucide-phone"
+                        class="w-3.5 h-3.5"
+                      />Phone
                     </div>
                     <div class="flex items-center gap-1.5 text-xs text-success-400 font-semibold">
-                      <UIcon name="i-lucide-check-circle-2" class="w-3.5 h-3.5" />Active Line
+                      <UIcon
+                        name="i-lucide-check-circle-2"
+                        class="w-3.5 h-3.5"
+                      />Active Line
                     </div>
                   </div>
                   <div class="bg-(--ui-bg) rounded-xl px-4 py-3">
-                    <div class="text-sm font-semibold text-(--ui-text-highlighted)">+1 (212) 555-0198</div>
+                    <div class="text-sm font-semibold text-(--ui-text-highlighted)">
+                      +1 (212) 555-0198
+                    </div>
                     <div class="flex items-center gap-2 mt-2">
                       <span class="text-xs px-2 py-0.5 rounded-full bg-success-500/10 text-success-400 font-semibold border border-success-500/20">Mobile</span>
                       <span class="text-xs px-2 py-0.5 rounded-full bg-(--ui-bg-accented) text-(--ui-text-muted) font-semibold">AT&T</span>
@@ -509,8 +635,14 @@ function onHueSlider(e: Event) {
                 </div>
 
                 <div class="px-6 py-3 bg-(--ui-bg-muted) border-t border-(--ui-border) flex items-center justify-between text-xs text-(--ui-text-dimmed)">
-                  <span class="flex items-center gap-1.5"><UIcon name="i-lucide-credit-card" class="w-3.5 h-3.5" />No credit card for first 100</span>
-                  <span class="flex items-center gap-1.5"><UIcon name="i-lucide-timer" class="w-3.5 h-3.5" />Results in minutes</span>
+                  <span class="flex items-center gap-1.5"><UIcon
+                    name="i-lucide-credit-card"
+                    class="w-3.5 h-3.5"
+                  />No credit card for first 100</span>
+                  <span class="flex items-center gap-1.5"><UIcon
+                    name="i-lucide-timer"
+                    class="w-3.5 h-3.5"
+                  />Results in minutes</span>
                 </div>
               </div>
 
@@ -523,17 +655,26 @@ function onHueSlider(e: Event) {
       </div>
     </section>
 
-    <section ref="statsEl" class="py-16 bg-(--ui-bg-elevated) border-y border-(--ui-border)">
+    <section
+      ref="statsEl"
+      class="py-16 bg-(--ui-bg-elevated) border-y border-(--ui-border)"
+    >
       <div class="max-w-7xl mx-auto px-6">
         <p class="text-center text-xs font-bold uppercase tracking-widest text-(--ui-text-dimmed) mb-10">
           The real cost of bad data in the US
         </p>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x divide-(--ui-border)">
-          <div v-for="(val, i) in statValues" :key="i" class="text-center px-6">
+          <div
+            v-for="(val, i) in statValues"
+            :key="i"
+            class="text-center px-6"
+          >
             <div class="text-4xl lg:text-5xl font-black text-(--ui-text-highlighted) tabular-nums">
               {{ statPrefixes[i] }}{{ val }}{{ statSuffixes[i] }}
             </div>
-            <div class="text-sm text-(--ui-text-dimmed) mt-2">{{ statLabels[i] }}</div>
+            <div class="text-sm text-(--ui-text-dimmed) mt-2">
+              {{ statLabels[i] }}
+            </div>
           </div>
         </div>
       </div>
@@ -541,7 +682,12 @@ function onHueSlider(e: Event) {
 
     <section class="py-24 px-6">
       <div class="max-w-5xl mx-auto text-center">
-        <UBadge color="neutral" variant="soft" size="sm" class="mb-6 font-bold uppercase tracking-widest">
+        <UBadge
+          color="neutral"
+          variant="soft"
+          size="sm"
+          class="mb-6 font-bold uppercase tracking-widest"
+        >
           The fragmentation tax
         </UBadge>
         <h2 class="text-4xl lg:text-5xl font-black text-(--ui-text-highlighted) mb-5 leading-tight">
@@ -563,46 +709,90 @@ function onHueSlider(e: Event) {
           >
             <div class="bg-(--ui-bg-elevated) border border-(--ui-border) rounded-2xl px-6 py-5 w-44 text-center">
               <div class="w-10 h-10 rounded-xl bg-(--ui-bg-accented) flex items-center justify-center mx-auto mb-3">
-                <UIcon :name="tool.icon" class="w-5 h-5 text-(--ui-text-muted)" />
+                <UIcon
+                  :name="tool.icon"
+                  class="w-5 h-5 text-(--ui-text-muted)"
+                />
               </div>
-              <div class="text-sm font-bold text-(--ui-text-highlighted)">{{ tool.name }}</div>
-              <div class="text-xs text-(--ui-text-muted) mt-0.5">{{ tool.sub }}</div>
+              <div class="text-sm font-bold text-(--ui-text-highlighted)">
+                {{ tool.name }}
+              </div>
+              <div class="text-xs text-(--ui-text-muted) mt-0.5">
+                {{ tool.sub }}
+              </div>
               <div class="mt-3 text-xl font-black text-(--ui-text-highlighted)">
                 {{ tool.price }}<span class="text-xs font-normal text-(--ui-text-dimmed)">/mo</span>
               </div>
             </div>
-            <div v-if="i < 2" class="text-2xl font-black text-(--ui-text-dimmed) lg:mx-4 my-1 lg:my-0">+</div>
+            <div
+              v-if="i < 2"
+              class="text-2xl font-black text-(--ui-text-dimmed) lg:mx-4 my-1 lg:my-0"
+            >
+              +
+            </div>
           </template>
 
           <div class="flex flex-col items-center gap-1 text-(--ui-text-dimmed) mx-3">
-            <div class="text-xs uppercase tracking-widest mb-1">vs</div>
-            <UIcon name="i-lucide-arrow-right" class="w-7 h-7 text-primary-400 hidden lg:block" />
-            <UIcon name="i-lucide-arrow-down" class="w-7 h-7 text-primary-400 lg:hidden" />
+            <div class="text-xs uppercase tracking-widest mb-1">
+              vs
+            </div>
+            <UIcon
+              name="i-lucide-arrow-right"
+              class="w-7 h-7 text-primary-400 hidden lg:block"
+            />
+            <UIcon
+              name="i-lucide-arrow-down"
+              class="w-7 h-7 text-primary-400 lg:hidden"
+            />
           </div>
 
           <div class="bg-primary-500/10 border border-primary-500/30 rounded-2xl px-7 py-6 w-52 text-center shadow-xl shadow-primary-500/10">
             <div class="w-11 h-11 rounded-xl bg-primary-500 flex items-center justify-center mx-auto mb-3 shadow-lg shadow-primary-500/30">
-              <UIcon name="i-lucide-shield-check" class="w-5 h-5 text-white" />
+              <UIcon
+                name="i-lucide-shield-check"
+                class="w-5 h-5 text-white"
+              />
             </div>
-            <div class="text-sm font-bold text-(--ui-text-highlighted)">DQE Validate</div>
-            <div class="text-xs text-primary-400 font-semibold mt-0.5">Address + Email + Phone</div>
+            <div class="text-sm font-bold text-(--ui-text-highlighted)">
+              DQE Validate
+            </div>
+            <div class="text-xs text-primary-400 font-semibold mt-0.5">
+              Address + Email + Phone
+            </div>
             <div class="mt-3 text-xl font-black text-success-400">
               From $19<span class="text-xs font-normal text-(--ui-text-dimmed)">/pack</span>
             </div>
             <div class="mt-1.5 text-xs font-bold text-success-400 flex items-center justify-center gap-1">
-              <UIcon name="i-lucide-check" class="w-3 h-3" />One tool. One bill.
+              <UIcon
+                name="i-lucide-check"
+                class="w-3 h-3"
+              />One tool. One bill.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="how" class="py-24 px-6 bg-(--ui-bg-elevated) border-y border-(--ui-border)">
+    <section
+      id="how"
+      class="py-24 px-6 bg-(--ui-bg-elevated) border-y border-(--ui-border)"
+    >
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
-          <UBadge color="primary" variant="soft" size="sm" class="mb-4 font-bold uppercase tracking-widest">How it works</UBadge>
-          <h2 class="text-4xl font-black text-(--ui-text-highlighted) mb-4">From data to results in minutes.</h2>
-          <p class="text-lg text-(--ui-text-muted)">No SFTP. No local software. No procurement cycle for entry tiers.</p>
+          <UBadge
+            color="primary"
+            variant="soft"
+            size="sm"
+            class="mb-4 font-bold uppercase tracking-widest"
+          >
+            How it works
+          </UBadge>
+          <h2 class="text-4xl font-black text-(--ui-text-highlighted) mb-4">
+            From data to results in minutes.
+          </h2>
+          <p class="text-lg text-(--ui-text-muted)">
+            No SFTP. No local software. No procurement cycle for entry tiers.
+          </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
@@ -613,38 +803,66 @@ function onHueSlider(e: Event) {
               { icon: 'i-lucide-download', title: 'Get clean data', desc: 'Download corrected records or receive them via webhook. Results in minutes — not days via SFTP.' },
             ]"
             :key="i"
-            v-motion :initial="{ opacity: 0, y: 20 }" :visible-once="{ opacity: 1, y: 0, transition: { duration: 500, delay: i * 120 } }"
+            v-motion
+            :initial="{ opacity: 0, y: 20 }"
+            :visible-once="{ opacity: 1, y: 0, transition: { duration: 500, delay: i * 120 } }"
             class="relative group"
           >
-            <div class="absolute -top-5 -left-1 text-8xl font-black text-(--ui-text-highlighted)/[0.04] select-none pointer-events-none">{{ i + 1 }}</div>
+            <div class="absolute -top-5 -left-1 text-8xl font-black text-(--ui-text-highlighted)/[0.04] select-none pointer-events-none">
+              {{ i + 1 }}
+            </div>
             <div class="relative bg-(--ui-bg) border border-(--ui-border) rounded-2xl p-7 h-full group-hover:border-primary-500/30 group-hover:shadow-lg group-hover:shadow-primary-500/5 transition-all duration-300">
               <div class="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center mb-5 group-hover:bg-primary-500/20 transition-all">
-                <UIcon :name="step.icon" class="w-6 h-6 text-primary-400" />
+                <UIcon
+                  :name="step.icon"
+                  class="w-6 h-6 text-primary-400"
+                />
               </div>
-              <h3 class="text-lg font-bold text-(--ui-text-highlighted) mb-2">{{ step.title }}</h3>
-              <p class="text-sm text-(--ui-text-muted) leading-relaxed">{{ step.desc }}</p>
+              <h3 class="text-lg font-bold text-(--ui-text-highlighted) mb-2">
+                {{ step.title }}
+              </h3>
+              <p class="text-sm text-(--ui-text-muted) leading-relaxed">
+                {{ step.desc }}
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="compare" class="py-24 px-6">
+    <section
+      id="compare"
+      class="py-24 px-6"
+    >
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
-          <UBadge color="primary" variant="soft" size="sm" class="mb-4 font-bold uppercase tracking-widest">DQE vs Smarty</UBadge>
+          <UBadge
+            color="primary"
+            variant="soft"
+            size="sm"
+            class="mb-4 font-bold uppercase tracking-widest"
+          >
+            DQE vs Smarty
+          </UBadge>
           <h2 class="text-4xl font-black text-(--ui-text-highlighted) mb-4 leading-tight">
             Smarty is a great address tool.<br>But what about the rest?
           </h2>
-          <p class="text-lg text-(--ui-text-muted)">When you need email and phone validation too, Smarty stops. DQE doesn't.</p>
+          <p class="text-lg text-(--ui-text-muted)">
+            When you need email and phone validation too, Smarty stops. DQE doesn't.
+          </p>
         </div>
 
         <div class="bg-(--ui-bg-elevated) border border-(--ui-border) rounded-2xl overflow-hidden shadow-xl">
           <div class="grid grid-cols-3 bg-(--ui-bg-muted) border-b border-(--ui-border)">
-            <div class="px-6 py-4 text-xs font-bold text-(--ui-text-dimmed) uppercase tracking-widest">Feature</div>
+            <div class="px-6 py-4 text-xs font-bold text-(--ui-text-dimmed) uppercase tracking-widest">
+              Feature
+            </div>
             <div class="px-4 py-4 text-center">
               <div class="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/30 rounded-xl px-4 py-1.5">
-                <UIcon name="i-lucide-shield-check" class="w-3.5 h-3.5 text-primary-400" />
+                <UIcon
+                  name="i-lucide-shield-check"
+                  class="w-3.5 h-3.5 text-primary-400"
+                />
                 <span class="text-sm font-black text-primary-400">DQE Validate</span>
               </div>
             </div>
@@ -656,29 +874,51 @@ function onHueSlider(e: Event) {
           </div>
 
           <div class="divide-y divide-(--ui-border)">
-            <div v-for="row in comparison" :key="row.feature" class="grid grid-cols-3 hover:bg-(--ui-bg-muted)/40 transition-colors">
+            <div
+              v-for="row in comparison"
+              :key="row.feature"
+              class="grid grid-cols-3 hover:bg-(--ui-bg-muted)/40 transition-colors"
+            >
               <div class="px-6 py-4">
-                <div class="text-sm font-medium text-(--ui-text-highlighted)">{{ row.feature }}</div>
-                <div class="text-xs text-(--ui-text-dimmed) mt-0.5">{{ row.note }}</div>
+                <div class="text-sm font-medium text-(--ui-text-highlighted)">
+                  {{ row.feature }}
+                </div>
+                <div class="text-xs text-(--ui-text-dimmed) mt-0.5">
+                  {{ row.note }}
+                </div>
               </div>
               <div class="px-4 py-4 flex justify-center items-center">
                 <div :class="['w-8 h-8 rounded-full flex items-center justify-center', row.dqe ? 'bg-success-500/10' : 'bg-error-500/10']">
-                  <UIcon :name="row.dqe ? 'i-lucide-check' : 'i-lucide-x'" :class="['w-4 h-4', row.dqe ? 'text-success-400' : 'text-error-400']" />
+                  <UIcon
+                    :name="row.dqe ? 'i-lucide-check' : 'i-lucide-x'"
+                    :class="['w-4 h-4', row.dqe ? 'text-success-400' : 'text-error-400']"
+                  />
                 </div>
               </div>
               <div class="px-4 py-4 flex justify-center items-center">
                 <div :class="['w-8 h-8 rounded-full flex items-center justify-center', row.smarty ? 'bg-success-500/10' : 'bg-error-500/10']">
-                  <UIcon :name="row.smarty ? 'i-lucide-check' : 'i-lucide-x'" :class="['w-4 h-4', row.smarty ? 'text-success-400' : 'text-error-400']" />
+                  <UIcon
+                    :name="row.smarty ? 'i-lucide-check' : 'i-lucide-x'"
+                    :class="['w-4 h-4', row.smarty ? 'text-success-400' : 'text-error-400']"
+                  />
                 </div>
               </div>
             </div>
           </div>
 
           <div class="px-6 py-5 bg-primary-500/5 border-t border-(--ui-border) flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p class="text-sm text-(--ui-text-muted)">DQE wins on <span class="text-success-400 font-bold">4 of 6</span> features Smarty can't match.</p>
-            <UButton size="sm" class="bg-primary-500 hover:bg-primary-600 text-white font-semibold flex-shrink-0 transition-colors">
+            <p class="text-sm text-(--ui-text-muted)">
+              DQE wins on <span class="text-success-400 font-bold">4 of 6</span> features Smarty can't match.
+            </p>
+            <UButton
+              size="sm"
+              class="bg-primary-500 hover:bg-primary-600 text-white font-semibold flex-shrink-0 transition-colors"
+            >
               Switch to DQE Free
-              <UIcon name="i-lucide-arrow-right" class="w-4 h-4 ml-1.5" />
+              <UIcon
+                name="i-lucide-arrow-right"
+                class="w-4 h-4 ml-1.5"
+              />
             </UButton>
           </div>
         </div>
@@ -688,8 +928,17 @@ function onHueSlider(e: Event) {
     <section class="py-24 px-6 bg-(--ui-bg-elevated) border-y border-(--ui-border)">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
-          <UBadge color="primary" variant="soft" size="sm" class="mb-4 font-bold uppercase tracking-widest">Use cases</UBadge>
-          <h2 class="text-4xl font-black text-(--ui-text-highlighted)">Built for your industry.</h2>
+          <UBadge
+            color="primary"
+            variant="soft"
+            size="sm"
+            class="mb-4 font-bold uppercase tracking-widest"
+          >
+            Use cases
+          </UBadge>
+          <h2 class="text-4xl font-black text-(--ui-text-highlighted)">
+            Built for your industry.
+          </h2>
         </div>
 
         <div class="flex flex-wrap justify-center gap-2 mb-10">
@@ -704,36 +953,74 @@ function onHueSlider(e: Event) {
             ]"
             @click="activeIndustry = ind.id"
           >
-            <UIcon :name="ind.icon" class="w-4 h-4" />{{ ind.label }}
+            <UIcon
+              :name="ind.icon"
+              class="w-4 h-4"
+            />{{ ind.label }}
           </button>
         </div>
 
-        <template v-for="ind in industries" :key="ind.id">
-          <div v-show="activeIndustry === ind.id" class="bg-(--ui-bg) border border-(--ui-border) rounded-2xl overflow-hidden shadow-lg">
+        <template
+          v-for="ind in industries"
+          :key="ind.id"
+        >
+          <div
+            v-show="activeIndustry === ind.id"
+            class="bg-(--ui-bg) border border-(--ui-border) rounded-2xl overflow-hidden shadow-lg"
+          >
             <div class="grid md:grid-cols-2">
               <div class="p-8 lg:p-10">
-                <div class="text-5xl font-black bg-gradient-to-r from-primary-300 to-primary-600 bg-clip-text text-transparent mb-1">{{ ind.stat }}</div>
-                <div class="text-sm text-(--ui-text-muted) mb-6">{{ ind.statLabel }}</div>
-                <h3 class="text-2xl font-black text-(--ui-text-highlighted) mb-5">{{ ind.headline }}</h3>
+                <div class="text-5xl font-black bg-gradient-to-r from-primary-300 to-primary-600 bg-clip-text text-transparent mb-1">
+                  {{ ind.stat }}
+                </div>
+                <div class="text-sm text-(--ui-text-muted) mb-6">
+                  {{ ind.statLabel }}
+                </div>
+                <h3 class="text-2xl font-black text-(--ui-text-highlighted) mb-5">
+                  {{ ind.headline }}
+                </h3>
                 <ul class="space-y-3">
-                  <li v-for="bullet in ind.bullets" :key="bullet" class="flex items-start gap-3 text-sm text-(--ui-text-muted)">
-                    <UIcon name="i-lucide-check-circle-2" class="w-4 h-4 text-success-400 mt-0.5 flex-shrink-0" />
+                  <li
+                    v-for="bullet in ind.bullets"
+                    :key="bullet"
+                    class="flex items-start gap-3 text-sm text-(--ui-text-muted)"
+                  >
+                    <UIcon
+                      name="i-lucide-check-circle-2"
+                      class="w-4 h-4 text-success-400 mt-0.5 flex-shrink-0"
+                    />
                     {{ bullet }}
                   </li>
                 </ul>
-                <UButton size="sm" variant="outline" class="mt-8 border-primary-500/30 text-primary-400 hover:bg-primary-500/5">
+                <UButton
+                  size="sm"
+                  variant="outline"
+                  class="mt-8 border-primary-500/30 text-primary-400 hover:bg-primary-500/5"
+                >
                   See {{ ind.label }} case study
-                  <UIcon name="i-lucide-arrow-right" class="w-3.5 h-3.5 ml-1.5" />
+                  <UIcon
+                    name="i-lucide-arrow-right"
+                    class="w-3.5 h-3.5 ml-1.5"
+                  />
                 </UButton>
               </div>
               <div class="bg-primary-500/5 border-l border-(--ui-border) p-8 lg:p-10 flex items-center justify-center">
                 <div class="text-center">
                   <div class="w-20 h-20 rounded-2xl bg-primary-500 flex items-center justify-center mx-auto mb-5 shadow-2xl shadow-primary-500/25">
-                    <UIcon :name="ind.icon" class="w-10 h-10 text-white" />
+                    <UIcon
+                      :name="ind.icon"
+                      class="w-10 h-10 text-white"
+                    />
                   </div>
-                  <div class="text-xs font-bold text-(--ui-text-dimmed) uppercase tracking-widest">Key metric</div>
-                  <div class="text-4xl font-black text-(--ui-text-highlighted) mt-2">{{ ind.stat }}</div>
-                  <div class="text-sm text-(--ui-text-dimmed) mt-1 max-w-[160px] mx-auto leading-snug">{{ ind.statLabel }}</div>
+                  <div class="text-xs font-bold text-(--ui-text-dimmed) uppercase tracking-widest">
+                    Key metric
+                  </div>
+                  <div class="text-4xl font-black text-(--ui-text-highlighted) mt-2">
+                    {{ ind.stat }}
+                  </div>
+                  <div class="text-sm text-(--ui-text-dimmed) mt-1 max-w-[160px] mx-auto leading-snug">
+                    {{ ind.statLabel }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -742,12 +1029,26 @@ function onHueSlider(e: Event) {
       </div>
     </section>
 
-    <section id="pricing" class="py-24 px-6">
+    <section
+      id="pricing"
+      class="py-24 px-6"
+    >
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
-          <UBadge color="primary" variant="soft" size="sm" class="mb-4 font-bold uppercase tracking-widest">Pricing</UBadge>
-          <h2 class="text-4xl font-black text-(--ui-text-highlighted) mb-4">Simple. Self-serve. No sales call.</h2>
-          <p class="text-lg text-(--ui-text-muted)">Start free. Pay as you grow. No SFTP, no contracts under $500K.</p>
+          <UBadge
+            color="primary"
+            variant="soft"
+            size="sm"
+            class="mb-4 font-bold uppercase tracking-widest"
+          >
+            Pricing
+          </UBadge>
+          <h2 class="text-4xl font-black text-(--ui-text-highlighted) mb-4">
+            Simple. Self-serve. No sales call.
+          </h2>
+          <p class="text-lg text-(--ui-text-muted)">
+            Start free. Pay as you grow. No SFTP, no contracts under $500K.
+          </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 items-start">
@@ -759,29 +1060,55 @@ function onHueSlider(e: Event) {
               plan.highlight ? 'border-primary-500/40 shadow-2xl shadow-primary-500/15 md:scale-[1.03] md:-mt-2' : 'border-(--ui-border) hover:border-primary-500/20',
             ]"
           >
-            <div v-if="plan.highlight" class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-              <div class="bg-primary-500 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">Most Popular</div>
+            <div
+              v-if="plan.highlight"
+              class="absolute -top-3.5 left-1/2 -translate-x-1/2"
+            >
+              <div class="bg-primary-500 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                Most Popular
+              </div>
             </div>
 
             <div class="mb-6">
               <div class="flex items-center gap-3 mb-4">
                 <div :class="['w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0', plan.highlight ? 'bg-primary-500' : 'bg-(--ui-bg-accented)']">
-                  <UIcon :name="plan.icon" :class="['w-5 h-5', plan.highlight ? 'text-white' : 'text-(--ui-text-muted)']" />
+                  <UIcon
+                    :name="plan.icon"
+                    :class="['w-5 h-5', plan.highlight ? 'text-white' : 'text-(--ui-text-muted)']"
+                  />
                 </div>
                 <div>
-                  <div class="font-black text-(--ui-text-highlighted)">{{ plan.name }}</div>
-                  <UBadge size="xs" :color="plan.highlight ? 'primary' : 'neutral'" variant="soft" class="font-semibold">{{ plan.tag }}</UBadge>
+                  <div class="font-black text-(--ui-text-highlighted)">
+                    {{ plan.name }}
+                  </div>
+                  <UBadge
+                    size="xs"
+                    :color="plan.highlight ? 'primary' : 'neutral'"
+                    variant="soft"
+                    class="font-semibold"
+                  >
+                    {{ plan.tag }}
+                  </UBadge>
                 </div>
               </div>
               <div class="text-3xl font-black text-(--ui-text-highlighted)">
                 {{ plan.price }}<span class="text-base font-normal text-(--ui-text-dimmed)">{{ plan.period }}</span>
               </div>
-              <p class="text-sm text-(--ui-text-muted) mt-2 leading-relaxed">{{ plan.description }}</p>
+              <p class="text-sm text-(--ui-text-muted) mt-2 leading-relaxed">
+                {{ plan.description }}
+              </p>
             </div>
 
             <ul class="space-y-3 mb-8 flex-1">
-              <li v-for="f in plan.features" :key="f" class="flex items-center gap-2.5 text-sm text-(--ui-text-muted)">
-                <UIcon name="i-lucide-check" :class="['w-4 h-4 flex-shrink-0', plan.highlight ? 'text-primary-400' : 'text-success-400']" />
+              <li
+                v-for="f in plan.features"
+                :key="f"
+                class="flex items-center gap-2.5 text-sm text-(--ui-text-muted)"
+              >
+                <UIcon
+                  name="i-lucide-check"
+                  :class="['w-4 h-4 flex-shrink-0', plan.highlight ? 'text-primary-400' : 'text-success-400']"
+                />
                 {{ f }}
               </li>
             </ul>
@@ -794,12 +1121,17 @@ function onHueSlider(e: Event) {
                   ? 'bg-primary-500 hover:bg-primary-600 text-white shadow-lg shadow-primary-500/25 transition-colors'
                   : 'border border-(--ui-border) text-(--ui-text-muted) hover:border-primary-500/30 hover:text-primary-400 bg-transparent transition-all',
               ]"
-            >{{ plan.cta }}</UButton>
+            >
+              {{ plan.cta }}
+            </UButton>
           </div>
         </div>
 
         <p class="text-center text-sm text-(--ui-text-dimmed) mt-8 flex items-center justify-center gap-2">
-          <UIcon name="i-lucide-credit-card" class="w-4 h-4" />
+          <UIcon
+            name="i-lucide-credit-card"
+            class="w-4 h-4"
+          />
           No credit card required for free tier · Stripe-powered payments · Cancel anytime
         </p>
       </div>
@@ -808,42 +1140,81 @@ function onHueSlider(e: Event) {
     <section class="py-24 px-6 bg-(--ui-bg-elevated) border-y border-(--ui-border)">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-14">
-          <UBadge color="primary" variant="soft" size="sm" class="mb-4 font-bold uppercase tracking-widest">Testimonials</UBadge>
-          <h2 class="text-4xl font-black text-(--ui-text-highlighted)">What US teams are saying.</h2>
+          <UBadge
+            color="primary"
+            variant="soft"
+            size="sm"
+            class="mb-4 font-bold uppercase tracking-widest"
+          >
+            Testimonials
+          </UBadge>
+          <h2 class="text-4xl font-black text-(--ui-text-highlighted)">
+            What US teams are saying.
+          </h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
           <div
             v-for="t in testimonials"
             :key="t.name"
-            v-motion :initial="{ opacity: 0, y: 20 }" :visible-once="{ opacity: 1, y: 0, transition: { duration: 500 } }"
+            v-motion
+            :initial="{ opacity: 0, y: 20 }"
+            :visible-once="{ opacity: 1, y: 0, transition: { duration: 500 } }"
             class="bg-(--ui-bg) border border-(--ui-border) rounded-2xl p-6 flex flex-col hover:border-primary-500/25 hover:shadow-lg hover:shadow-primary-500/5 transition-all duration-300"
           >
             <div class="flex gap-1 mb-4">
-              <UIcon v-for="i in 5" :key="i" name="i-lucide-star" class="w-4 h-4 text-warning-400 fill-warning-400" />
+              <UIcon
+                v-for="i in 5"
+                :key="i"
+                name="i-lucide-star"
+                class="w-4 h-4 text-warning-400 fill-warning-400"
+              />
             </div>
-            <p class="text-sm text-(--ui-text-muted) leading-relaxed mb-6 flex-1">"{{ t.quote }}"</p>
+            <p class="text-sm text-(--ui-text-muted) leading-relaxed mb-6 flex-1">
+              "{{ t.quote }}"
+            </p>
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                 {{ t.initials }}
               </div>
               <div class="min-w-0">
-                <div class="text-sm font-bold text-(--ui-text-highlighted) truncate">{{ t.name }}</div>
-                <div class="text-xs text-(--ui-text-dimmed) truncate">{{ t.role }} · {{ t.company }}</div>
+                <div class="text-sm font-bold text-(--ui-text-highlighted) truncate">
+                  {{ t.name }}
+                </div>
+                <div class="text-xs text-(--ui-text-dimmed) truncate">
+                  {{ t.role }} · {{ t.company }}
+                </div>
               </div>
-              <UBadge size="xs" color="neutral" variant="soft" class="ml-auto flex-shrink-0 font-semibold text-xs">{{ t.industry }}</UBadge>
+              <UBadge
+                size="xs"
+                color="neutral"
+                variant="soft"
+                class="ml-auto flex-shrink-0 font-semibold text-xs"
+              >
+                {{ t.industry }}
+              </UBadge>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="developers" class="py-24 px-6">
+    <section
+      id="developers"
+      class="py-24 px-6"
+    >
       <div class="max-w-5xl mx-auto">
         <div class="bg-(--ui-bg-elevated) border border-(--ui-border) rounded-3xl overflow-hidden shadow-2xl">
           <div class="grid lg:grid-cols-2">
             <div class="p-10 lg:p-12 flex flex-col justify-center">
-              <UBadge color="primary" variant="soft" size="sm" class="mb-5 font-bold uppercase tracking-widest w-fit">Developers</UBadge>
+              <UBadge
+                color="primary"
+                variant="soft"
+                size="sm"
+                class="mb-5 font-bold uppercase tracking-widest w-fit"
+              >
+                Developers
+              </UBadge>
               <h2 class="text-3xl font-black text-(--ui-text-highlighted) mb-4 leading-tight">
                 Built API-first.<br>Documented for humans.
               </h2>
@@ -851,16 +1222,36 @@ function onHueSlider(e: Event) {
                 One REST API call validates address, email, and phone simultaneously. Under 150ms. 10B+ queries/year capacity.
               </p>
               <ul class="space-y-3 mb-8">
-                <li v-for="item in ['Clear docs with code examples in 5 languages', 'Sandbox environment — no production data needed', 'Pay-as-you-go credit packs, no sales call', 'LLM integration guides (Claude, ChatGPT, Perplexity)']" :key="item" class="flex items-center gap-2.5 text-sm text-(--ui-text-muted)">
-                  <UIcon name="i-lucide-check-circle-2" class="w-4 h-4 text-success-400 flex-shrink-0" />{{ item }}
+                <li
+                  v-for="item in ['Clear docs with code examples in 5 languages', 'Sandbox environment — no production data needed', 'Pay-as-you-go credit packs, no sales call', 'LLM integration guides (Claude, ChatGPT, Perplexity)']"
+                  :key="item"
+                  class="flex items-center gap-2.5 text-sm text-(--ui-text-muted)"
+                >
+                  <UIcon
+                    name="i-lucide-check-circle-2"
+                    class="w-4 h-4 text-success-400 flex-shrink-0"
+                  />{{ item }}
                 </li>
               </ul>
               <div class="flex flex-wrap gap-3">
-                <UButton size="sm" class="bg-primary-500 hover:bg-primary-600 text-white font-semibold transition-colors">
-                  Read the Docs<UIcon name="i-lucide-external-link" class="w-3.5 h-3.5 ml-1.5" />
+                <UButton
+                  size="sm"
+                  class="bg-primary-500 hover:bg-primary-600 text-white font-semibold transition-colors"
+                >
+                  Read the Docs<UIcon
+                    name="i-lucide-external-link"
+                    class="w-3.5 h-3.5 ml-1.5"
+                  />
                 </UButton>
-                <UButton size="sm" variant="ghost" class="text-(--ui-text-muted) hover:text-(--ui-text-highlighted)">
-                  GitHub<UIcon name="i-lucide-github" class="w-3.5 h-3.5 ml-1.5" />
+                <UButton
+                  size="sm"
+                  variant="ghost"
+                  class="text-(--ui-text-muted) hover:text-(--ui-text-highlighted)"
+                >
+                  GitHub<UIcon
+                    name="i-lucide-github"
+                    class="w-3.5 h-3.5 ml-1.5"
+                  />
                 </UButton>
               </div>
             </div>
@@ -902,7 +1293,10 @@ function onHueSlider(e: Event) {
 
       <div class="relative max-w-3xl mx-auto text-center">
         <div class="w-16 h-16 rounded-2xl bg-primary-500 flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-primary-500/30">
-          <UIcon name="i-lucide-shield-check" class="w-8 h-8 text-white" />
+          <UIcon
+            name="i-lucide-shield-check"
+            class="w-8 h-8 text-white"
+          />
         </div>
         <h2 class="text-5xl font-black text-(--ui-text-highlighted) mb-6 leading-tight">
           Start validating in<br>
@@ -912,17 +1306,36 @@ function onHueSlider(e: Event) {
           100 free validations. No credit card. No SFTP. No sales call.<br>Just clean data — in minutes.
         </p>
         <div class="flex flex-wrap gap-4 justify-center">
-          <UButton size="xl" class="bg-primary-500 hover:bg-primary-600 text-white font-black shadow-2xl shadow-primary-500/30 transition-colors px-10 text-lg">
-            <UIcon name="i-lucide-zap" class="w-5 h-5 mr-2" />Validate 100 Records Free
+          <UButton
+            size="xl"
+            class="bg-primary-500 hover:bg-primary-600 text-white font-black shadow-2xl shadow-primary-500/30 transition-colors px-10 text-lg"
+          >
+            <UIcon
+              name="i-lucide-zap"
+              class="w-5 h-5 mr-2"
+            />Validate 100 Records Free
           </UButton>
-          <UButton size="xl" variant="outline" class="border-(--ui-border) text-(--ui-text-muted) hover:border-primary-500/40 hover:text-primary-400 transition-all px-8">
+          <UButton
+            size="xl"
+            variant="outline"
+            class="border-(--ui-border) text-(--ui-text-muted) hover:border-primary-500/40 hover:text-primary-400 transition-all px-8"
+          >
             Compare DQE vs Smarty
           </UButton>
         </div>
         <p class="text-sm text-(--ui-text-dimmed) mt-7 flex items-center justify-center gap-4">
-          <span class="flex items-center gap-1.5"><UIcon name="i-lucide-shield-check" class="w-4 h-4 text-success-400" />USPS CASS Certified</span>
-          <span class="flex items-center gap-1.5"><UIcon name="i-lucide-lock" class="w-4 h-4 text-success-400" />SOC 2 Type II</span>
-          <span class="flex items-center gap-1.5"><UIcon name="i-lucide-users" class="w-4 h-4 text-success-400" />800+ companies</span>
+          <span class="flex items-center gap-1.5"><UIcon
+            name="i-lucide-shield-check"
+            class="w-4 h-4 text-success-400"
+          />USPS CASS Certified</span>
+          <span class="flex items-center gap-1.5"><UIcon
+            name="i-lucide-lock"
+            class="w-4 h-4 text-success-400"
+          />SOC 2 Type II</span>
+          <span class="flex items-center gap-1.5"><UIcon
+            name="i-lucide-users"
+            class="w-4 h-4 text-success-400"
+          />800+ companies</span>
         </p>
       </div>
     </section>
@@ -933,7 +1346,10 @@ function onHueSlider(e: Event) {
           <div class="md:col-span-2">
             <div class="flex items-center gap-2.5 mb-4">
               <div class="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center">
-                <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-white" />
+                <UIcon
+                  name="i-lucide-shield-check"
+                  class="w-4 h-4 text-white"
+                />
               </div>
               <span class="font-extrabold text-lg text-(--ui-text-highlighted)">DQE Validate</span>
             </div>
@@ -947,23 +1363,77 @@ function onHueSlider(e: Event) {
             </div>
           </div>
           <div>
-            <div class="text-sm font-bold text-(--ui-text-highlighted) mb-4">Product</div>
+            <div class="text-sm font-bold text-(--ui-text-highlighted) mb-4">
+              Product
+            </div>
             <ul class="space-y-2.5 text-sm text-(--ui-text-muted)">
-              <li><a href="#" class="hover:text-primary-400 transition-colors">Address Validation</a></li>
-              <li><a href="#" class="hover:text-primary-400 transition-colors">Email Validation</a></li>
-              <li><a href="#" class="hover:text-primary-400 transition-colors">Phone Validation</a></li>
-              <li><a href="#" class="hover:text-primary-400 transition-colors">API Documentation</a></li>
-              <li><a href="#pricing" class="hover:text-primary-400 transition-colors">Pricing</a></li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary-400 transition-colors"
+                >Address Validation</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary-400 transition-colors"
+                >Email Validation</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary-400 transition-colors"
+                >Phone Validation</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary-400 transition-colors"
+                >API Documentation</a>
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  class="hover:text-primary-400 transition-colors"
+                >Pricing</a>
+              </li>
             </ul>
           </div>
           <div>
-            <div class="text-sm font-bold text-(--ui-text-highlighted) mb-4">Company</div>
+            <div class="text-sm font-bold text-(--ui-text-highlighted) mb-4">
+              Company
+            </div>
             <ul class="space-y-2.5 text-sm text-(--ui-text-muted)">
-              <li><a href="#compare" class="hover:text-primary-400 transition-colors">DQE vs Smarty</a></li>
-              <li><a href="#" class="hover:text-primary-400 transition-colors">Case Studies</a></li>
-              <li><a href="#" class="hover:text-primary-400 transition-colors">Contact US Team</a></li>
-              <li><a href="#" class="hover:text-primary-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" class="hover:text-primary-400 transition-colors">Terms of Service</a></li>
+              <li>
+                <a
+                  href="#compare"
+                  class="hover:text-primary-400 transition-colors"
+                >DQE vs Smarty</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary-400 transition-colors"
+                >Case Studies</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary-400 transition-colors"
+                >Contact US Team</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary-400 transition-colors"
+                >Privacy Policy</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary-400 transition-colors"
+                >Terms of Service</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -982,11 +1452,20 @@ function onHueSlider(e: Event) {
         >
           <div class="flex items-center justify-between px-4 pt-4 pb-3 border-b border-(--ui-border)">
             <div class="flex items-center gap-2">
-              <UIcon name="i-lucide-palette" class="w-4 h-4 text-primary-400" />
+              <UIcon
+                name="i-lucide-palette"
+                class="w-4 h-4 text-primary-400"
+              />
               <span class="text-sm font-bold text-(--ui-text-highlighted)">Color Theme</span>
             </div>
-            <button class="text-(--ui-text-dimmed) hover:text-(--ui-text-highlighted) transition-colors" @click="themeOpen = false">
-              <UIcon name="i-lucide-x" class="w-4 h-4" />
+            <button
+              class="text-(--ui-text-dimmed) hover:text-(--ui-text-highlighted) transition-colors"
+              @click="themeOpen = false"
+            >
+              <UIcon
+                name="i-lucide-x"
+                class="w-4 h-4"
+              />
             </button>
           </div>
 
@@ -1010,7 +1489,10 @@ function onHueSlider(e: Event) {
             </button>
           </div>
 
-          <div v-if="themeTab === 'plates'" class="p-3">
+          <div
+            v-if="themeTab === 'plates'"
+            class="p-3"
+          >
             <div class="grid grid-cols-3 gap-2">
               <button
                 v-for="p in plates"
@@ -1023,20 +1505,38 @@ function onHueSlider(e: Event) {
                 ]"
                 @click="applyPlate(p)"
               >
-                <div v-if="activePlate?.name === p.name" class="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full bg-primary-500 flex items-center justify-center">
-                  <UIcon name="i-lucide-check" class="w-2 h-2 text-white" />
+                <div
+                  v-if="activePlate?.name === p.name"
+                  class="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full bg-primary-500 flex items-center justify-center"
+                >
+                  <UIcon
+                    name="i-lucide-check"
+                    class="w-2 h-2 text-white"
+                  />
                 </div>
                 <div class="flex items-center gap-1">
-                  <div class="w-5 h-5 rounded-full shadow-sm ring-1 ring-(--ui-border)" :style="{ backgroundColor: colorVar(p.primary) }" />
-                  <div class="w-3 h-3 rounded-full ring-1 ring-(--ui-border)" :style="{ backgroundColor: colorVar(p.neutral) }" />
+                  <div
+                    class="w-5 h-5 rounded-full shadow-sm ring-1 ring-(--ui-border)"
+                    :style="{ backgroundColor: colorVar(p.primary) }"
+                  />
+                  <div
+                    class="w-3 h-3 rounded-full ring-1 ring-(--ui-border)"
+                    :style="{ backgroundColor: colorVar(p.neutral) }"
+                  />
                 </div>
                 <span class="text-[11px] font-semibold text-(--ui-text-muted) leading-none">{{ p.name }}</span>
               </button>
             </div>
           </div>
 
-          <div v-else-if="themeTab === 'colors'" class="p-3 space-y-3 max-h-72 overflow-y-auto">
-            <div v-for="role in colorRoles" :key="role.key">
+          <div
+            v-else-if="themeTab === 'colors'"
+            class="p-3 space-y-3 max-h-72 overflow-y-auto"
+          >
+            <div
+              v-for="role in colorRoles"
+              :key="role.key"
+            >
               <div class="flex items-center gap-2 mb-1.5">
                 <span class="text-xs font-bold text-(--ui-text-highlighted)">{{ role.label }}</span>
                 <span
@@ -1058,7 +1558,11 @@ function onHueSlider(e: Event) {
                   :style="{ backgroundColor: colorVar(color) }"
                   @click="setColor(role.key, color)"
                 >
-                  <UIcon v-if="!customActive[role.key] && getColor(role.key) === color" name="i-lucide-check" class="w-3 h-3 text-white m-auto drop-shadow" />
+                  <UIcon
+                    v-if="!customActive[role.key] && getColor(role.key) === color"
+                    name="i-lucide-check"
+                    class="w-3 h-3 text-white m-auto drop-shadow"
+                  />
                 </button>
 
                 <UPopover :ui="{ content: 'p-0 overflow-hidden' }">
@@ -1072,8 +1576,16 @@ function onHueSlider(e: Event) {
                     ]"
                     :style="customActive[role.key] ? { backgroundColor: customColors[role.key] ?? '#7c3aed' } : {}"
                   >
-                    <UIcon v-if="customActive[role.key]" name="i-lucide-check" class="w-3 h-3 text-white drop-shadow" />
-                    <UIcon v-else name="i-lucide-plus" class="w-3 h-3 text-(--ui-text-dimmed)" />
+                    <UIcon
+                      v-if="customActive[role.key]"
+                      name="i-lucide-check"
+                      class="w-3 h-3 text-white drop-shadow"
+                    />
+                    <UIcon
+                      v-else
+                      name="i-lucide-plus"
+                      class="w-3 h-3 text-(--ui-text-dimmed)"
+                    />
                   </button>
                   <template #content>
                     <div class="p-3">
@@ -1088,7 +1600,10 @@ function onHueSlider(e: Event) {
             </div>
           </div>
 
-          <div v-else-if="themeTab === 'custom'" class="p-4 space-y-4">
+          <div
+            v-else-if="themeTab === 'custom'"
+            class="p-4 space-y-4"
+          >
             <div class="text-xs text-(--ui-text-dimmed) leading-relaxed">
               Drag to pick any hue for the primary colour. Overrides the plate setting.
             </div>
@@ -1104,10 +1619,12 @@ function onHueSlider(e: Event) {
                 :value="customHue"
                 class="hue-slider w-full h-3 rounded-full appearance-none cursor-pointer"
                 @input="onHueSlider"
-              />
+              >
             </div>
             <div class="grid grid-cols-11 gap-0.5 rounded-lg overflow-hidden h-5">
-              <div v-for="[shade, l, c] in shadeTemplate" :key="shade"
+              <div
+                v-for="[shade, l, c] in shadeTemplate"
+                :key="shade"
                 :style="{ backgroundColor: `oklch(${l} ${c} ${customHue})` }"
               />
             </div>
@@ -1124,10 +1641,12 @@ function onHueSlider(e: Event) {
         ]"
         @click="themeOpen = !themeOpen"
       >
-        <UIcon name="i-lucide-palette" class="w-5 h-5" />
+        <UIcon
+          name="i-lucide-palette"
+          class="w-5 h-5"
+        />
       </button>
     </div>
-
   </div>
 </template>
 

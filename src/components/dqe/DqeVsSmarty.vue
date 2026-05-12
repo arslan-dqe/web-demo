@@ -142,8 +142,10 @@ const switchers = [
 </script>
 
 <template>
-  <section id="vs-smarty" class="py-28 px-4 relative overflow-hidden bg-(--ui-bg-muted)">
-
+  <section
+    id="vs-smarty"
+    class="py-28 px-4 relative overflow-hidden bg-(--ui-bg-muted)"
+  >
     <!-- Background -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-500/5 rounded-full blur-3xl" />
@@ -151,7 +153,6 @@ const switchers = [
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto">
-
       <!-- ── Header ───────────────────────────────────────────────────── -->
       <div
         v-motion
@@ -160,16 +161,21 @@ const switchers = [
         class="text-center mb-14"
       >
         <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary text-xs font-semibold px-4 py-1.5 rounded-full mb-5">
-          <UIcon name="i-lucide-swords" class="w-3.5 h-3.5" />
+          <UIcon
+            name="i-lucide-swords"
+            class="w-3.5 h-3.5"
+          />
           DQE vs Smarty
         </div>
         <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
-          Smarty does one thing.<br/>
+          Smarty does one thing.<br>
           <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
             DQE does everything.
           </span>
         </h2>
-        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">How does DQE compare to Smarty for US address validation?</h3>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">
+          How does DQE compare to Smarty for US address validation?
+        </h3>
         <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto">
           Same self-serve speed. Same credit card billing. But DQE adds
           email and phone validation so you can drop 2–3 vendors — including
@@ -179,7 +185,10 @@ const switchers = [
         <!-- Win counters -->
         <div class="flex items-center justify-center gap-4 mt-8">
           <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-            <UIcon name="i-lucide-shield-check" class="w-4 h-4 text-primary" />
+            <UIcon
+              name="i-lucide-shield-check"
+              class="w-4 h-4 text-primary"
+            />
             <span class="text-sm font-bold text-primary">DQE wins {{ dqeWins }} categories</span>
           </div>
           <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-(--ui-bg-elevated) border border-(--ui-border)">
@@ -195,7 +204,6 @@ const switchers = [
         :visible="{ opacity: 1, y: 0, transition: { delay: 100, duration: 600 } }"
         class="rounded-2xl border border-(--ui-border) bg-(--ui-bg) overflow-hidden shadow-xl shadow-black/5 mb-10"
       >
-
         <!-- Table header -->
         <div class="grid grid-cols-[1fr_200px_200px] border-b border-(--ui-border) bg-(--ui-bg-elevated)">
           <div class="px-6 py-4 text-sm font-bold text-(--ui-text-dimmed) uppercase tracking-wider">
@@ -205,16 +213,23 @@ const switchers = [
           <div class="px-6 py-4 border-l border-(--ui-border) bg-primary/5 text-center">
             <div class="flex items-center justify-center gap-2">
               <div class="w-6 h-6 rounded-md bg-gradient-to-br from-blue-600 to-teal-500 flex items-center justify-center">
-                <UIcon name="i-lucide-shield-check" class="w-3.5 h-3.5 text-white" />
+                <UIcon
+                  name="i-lucide-shield-check"
+                  class="w-3.5 h-3.5 text-white"
+                />
               </div>
               <span class="font-bold text-primary text-sm">DQE</span>
             </div>
-            <div class="text-[10px] text-primary/60 mt-0.5 font-medium">All-in-One</div>
+            <div class="text-[10px] text-primary/60 mt-0.5 font-medium">
+              All-in-One
+            </div>
           </div>
           <!-- Smarty column header -->
           <div class="px-6 py-4 border-l border-(--ui-border) text-center">
             <span class="font-bold text-(--ui-text-muted) text-sm">Smarty</span>
-            <div class="text-[10px] text-(--ui-text-dimmed) mt-0.5">Address only</div>
+            <div class="text-[10px] text-(--ui-text-dimmed) mt-0.5">
+              Address only
+            </div>
           </div>
         </div>
 
@@ -235,7 +250,7 @@ const switchers = [
 
           <!-- Rows -->
           <div
-            v-for="(row, ri) in cat.rows"
+            v-for="row in cat.rows"
             :key="row.feature"
             class="grid grid-cols-[1fr_200px_200px] border-t border-(--ui-border) group hover:bg-(--ui-bg-elevated) transition-colors duration-150"
           >
@@ -264,18 +279,27 @@ const switchers = [
             <div class="px-6 py-4 border-l border-(--ui-border) bg-primary/[0.02] flex flex-col items-center justify-center text-center gap-1">
               <template v-if="row.dqe.value === true">
                 <div class="w-6 h-6 rounded-full bg-success/15 flex items-center justify-center">
-                  <UIcon name="i-lucide-check" class="w-3.5 h-3.5 text-success" />
+                  <UIcon
+                    name="i-lucide-check"
+                    class="w-3.5 h-3.5 text-success"
+                  />
                 </div>
                 <span class="text-[11px] text-(--ui-text-muted) leading-tight">{{ row.dqe.note }}</span>
               </template>
               <template v-else-if="row.dqe.value === false">
                 <div class="w-6 h-6 rounded-full bg-error/10 flex items-center justify-center">
-                  <UIcon name="i-lucide-x" class="w-3.5 h-3.5 text-error" />
+                  <UIcon
+                    name="i-lucide-x"
+                    class="w-3.5 h-3.5 text-error"
+                  />
                 </div>
               </template>
               <template v-else>
                 <div class="w-6 h-6 rounded-full bg-warning/10 flex items-center justify-center">
-                  <UIcon name="i-lucide-clock" class="w-3.5 h-3.5 text-warning" />
+                  <UIcon
+                    name="i-lucide-clock"
+                    class="w-3.5 h-3.5 text-warning"
+                  />
                 </div>
                 <span class="text-[11px] text-warning leading-tight">{{ row.dqe.note }}</span>
               </template>
@@ -285,13 +309,19 @@ const switchers = [
             <div class="px-6 py-4 border-l border-(--ui-border) flex flex-col items-center justify-center text-center gap-1">
               <template v-if="row.smarty.value === true">
                 <div class="w-6 h-6 rounded-full bg-success/15 flex items-center justify-center">
-                  <UIcon name="i-lucide-check" class="w-3.5 h-3.5 text-success" />
+                  <UIcon
+                    name="i-lucide-check"
+                    class="w-3.5 h-3.5 text-success"
+                  />
                 </div>
                 <span class="text-[11px] text-(--ui-text-muted) leading-tight">{{ row.smarty.note }}</span>
               </template>
               <template v-else>
                 <div class="w-6 h-6 rounded-full bg-(--ui-bg-accented) flex items-center justify-center">
-                  <UIcon name="i-lucide-x" class="w-3.5 h-3.5 text-(--ui-text-dimmed)" />
+                  <UIcon
+                    name="i-lucide-x"
+                    class="w-3.5 h-3.5 text-(--ui-text-dimmed)"
+                  />
                 </div>
                 <span class="text-[11px] text-(--ui-text-dimmed) leading-tight">{{ row.smarty.note }}</span>
               </template>
@@ -302,14 +332,29 @@ const switchers = [
         <!-- Table footer CTA -->
         <div class="grid grid-cols-[1fr_200px_200px] border-t-2 border-(--ui-border) bg-(--ui-bg-elevated)">
           <div class="px-6 py-5">
-            <p class="text-sm font-semibold text-(--ui-text-highlighted)">Ready to switch?</p>
-            <p class="text-xs text-(--ui-text-muted)">Import your Smarty API key — we'll handle the migration.</p>
+            <p class="text-sm font-semibold text-(--ui-text-highlighted)">
+              Ready to switch?
+            </p>
+            <p class="text-xs text-(--ui-text-muted)">
+              Import your Smarty API key — we'll handle the migration.
+            </p>
           </div>
           <div class="px-4 py-5 border-l border-(--ui-border) bg-primary/5 flex items-center justify-center">
-            <UButton size="sm" label="Start free" trailing-icon="i-lucide-arrow-right" class="w-full shadow-md shadow-primary/20" />
+            <UButton
+              size="sm"
+              label="Start free"
+              trailing-icon="i-lucide-arrow-right"
+              class="w-full shadow-md shadow-primary/20"
+            />
           </div>
           <div class="px-4 py-5 border-l border-(--ui-border) flex items-center justify-center">
-            <UButton size="sm" variant="ghost" label="smarty.com" trailing-icon="i-lucide-external-link" class="w-full text-(--ui-text-dimmed)" />
+            <UButton
+              size="sm"
+              variant="ghost"
+              label="smarty.com"
+              trailing-icon="i-lucide-external-link"
+              class="w-full text-(--ui-text-dimmed)"
+            />
           </div>
         </div>
       </div>
@@ -329,7 +374,8 @@ const switchers = [
           <!-- Stars -->
           <div class="flex gap-1 mb-4">
             <UIcon
-              v-for="i in 5" :key="i"
+              v-for="i in 5"
+              :key="i"
               name="i-lucide-star"
               class="w-3.5 h-3.5 text-warning fill-warning"
             />
@@ -344,11 +390,18 @@ const switchers = [
               {{ s.avatar }}
             </div>
             <div>
-              <div class="text-sm font-bold text-(--ui-text-highlighted)">{{ s.name }}</div>
-              <div class="text-xs text-(--ui-text-muted)">{{ s.role }} · {{ s.company }}</div>
+              <div class="text-sm font-bold text-(--ui-text-highlighted)">
+                {{ s.name }}
+              </div>
+              <div class="text-xs text-(--ui-text-muted)">
+                {{ s.role }} · {{ s.company }}
+              </div>
             </div>
             <div class="ml-auto flex items-center gap-1.5 text-xs text-success bg-success/10 px-2.5 py-1 rounded-full font-semibold flex-shrink-0">
-              <UIcon name="i-lucide-arrow-right-left" class="w-3 h-3" />
+              <UIcon
+                name="i-lucide-arrow-right-left"
+                class="w-3 h-3"
+              />
               Switched from Smarty
             </div>
           </div>
@@ -363,7 +416,10 @@ const switchers = [
         class="rounded-2xl border border-primary/20 bg-primary/5 p-6 flex flex-col md:flex-row items-center gap-6"
       >
         <div class="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
-          <UIcon name="i-lucide-arrow-right-left" class="w-6 h-6 text-primary" />
+          <UIcon
+            name="i-lucide-arrow-right-left"
+            class="w-6 h-6 text-primary"
+          />
         </div>
         <div class="flex-1 text-center md:text-left">
           <h4 class="font-extrabold text-(--ui-text-highlighted) mb-1">
@@ -388,7 +444,6 @@ const switchers = [
           />
         </div>
       </div>
-
     </div>
   </section>
 </template>

@@ -21,7 +21,6 @@ const trustItems = [
       class="max-w-5xl mx-auto"
     >
       <div class="relative overflow-hidden rounded-3xl">
-
         <!-- Gradient background -->
         <div class="absolute inset-0 bg-gradient-to-br from-blue-700 via-blue-600 to-teal-500" />
 
@@ -47,15 +46,16 @@ const trustItems = [
 
         <!-- USPS badge — top right -->
         <div class="absolute top-5 right-6 hidden md:flex items-center gap-2 bg-white/10 border border-white/20 text-white/70 text-xs font-semibold px-3 py-1.5 rounded-full">
-          <UIcon name="i-lucide-award" class="w-3.5 h-3.5" />
+          <UIcon
+            name="i-lucide-award"
+            class="w-3.5 h-3.5"
+          />
           USPS CASS Certified
         </div>
 
         <div class="relative z-10 px-8 md:px-16 py-16 md:py-20">
-
           <!-- Two column layout -->
           <div class="grid md:grid-cols-2 gap-10 items-center">
-
             <!-- Left: Copy -->
             <div>
               <!-- Pill badge -->
@@ -66,7 +66,7 @@ const trustItems = [
 
               <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-5 leading-tight">
                 Clean data starts
-                <br />with one API call.
+                <br>with one API call.
               </h2>
               <p class="text-white/70 text-base md:text-lg leading-relaxed mb-8">
                 Stop losing revenue to bad addresses, bounced emails, and wrong phone numbers.
@@ -100,7 +100,10 @@ const trustItems = [
                   :key="item.label"
                   class="flex items-center gap-1.5 text-xs text-white/60"
                 >
-                  <UIcon :name="item.icon" class="w-3.5 h-3.5 text-white/40" />
+                  <UIcon
+                    :name="item.icon"
+                    class="w-3.5 h-3.5 text-white/40"
+                  />
                   {{ item.label }}
                 </div>
               </div>
@@ -114,39 +117,54 @@ const trustItems = [
 
               <div
                 v-for="item in [
-                  { icon: 'i-lucide-map-pin',  title: 'Address Validation',  desc: 'USPS CASS · ZIP+4 · DPV · County append' },
-                  { icon: 'i-lucide-mail',     title: 'Email Validation',    desc: 'SMTP · MX records · Disposable detection' },
-                  { icon: 'i-lucide-phone',    title: 'Phone Validation',    desc: 'Carrier · Line type · TCPA compliance'    },
+                  { icon: 'i-lucide-map-pin', title: 'Address Validation', desc: 'USPS CASS · ZIP+4 · DPV · County append' },
+                  { icon: 'i-lucide-mail', title: 'Email Validation', desc: 'SMTP · MX records · Disposable detection' },
+                  { icon: 'i-lucide-phone', title: 'Phone Validation', desc: 'Carrier · Line type · TCPA compliance' },
                 ]"
                 :key="item.title"
                 class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
               >
                 <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <UIcon :name="item.icon" class="w-4 h-4 text-white" />
+                  <UIcon
+                    :name="item.icon"
+                    class="w-4 h-4 text-white"
+                  />
                 </div>
                 <div>
-                  <p class="text-sm font-bold text-white">{{ item.title }}</p>
-                  <p class="text-xs text-white/50 mt-0.5">{{ item.desc }}</p>
+                  <p class="text-sm font-bold text-white">
+                    {{ item.title }}
+                  </p>
+                  <p class="text-xs text-white/50 mt-0.5">
+                    {{ item.desc }}
+                  </p>
                 </div>
                 <div class="ml-auto flex-shrink-0">
                   <div class="w-5 h-5 rounded-full bg-teal-400/20 border border-teal-400/30 flex items-center justify-center">
-                    <UIcon name="i-lucide-check" class="w-3 h-3 text-teal-300" />
+                    <UIcon
+                      name="i-lucide-check"
+                      class="w-3 h-3 text-teal-300"
+                    />
                   </div>
                 </div>
               </div>
 
               <!-- vs Smarty nudge -->
               <div class="pt-2 border-t border-white/10 flex items-center gap-2">
-                <UIcon name="i-lucide-swords" class="w-3.5 h-3.5 text-white/40" />
+                <UIcon
+                  name="i-lucide-swords"
+                  class="w-3.5 h-3.5 text-white/40"
+                />
                 <p class="text-xs text-white/40">
                   Coming from Smarty?
-                  <a href="/vs-smarty" class="text-white/70 font-semibold hover:text-white transition-colors underline">
+                  <a
+                    href="/vs-smarty"
+                    class="text-white/70 font-semibold hover:text-white transition-colors underline"
+                  >
                     Migrate in 10 minutes →
                   </a>
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </div>

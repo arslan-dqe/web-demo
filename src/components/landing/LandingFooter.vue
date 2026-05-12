@@ -80,15 +80,16 @@ withDefaults(defineProps<{
 <template>
   <footer class="border-t border-(--ui-border) bg-(--ui-bg-muted) px-6 py-12">
     <div class="max-w-6xl mx-auto">
-
       <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
-
         <!-- Brand -->
         <div class="col-span-2">
           <slot name="brand">
             <div class="flex items-center gap-2 mb-3">
               <div class="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <UIcon :name="brandIcon" class="w-4 h-4 text-white" />
+                <UIcon
+                  :name="brandIcon"
+                  class="w-4 h-4 text-white"
+                />
               </div>
               <span class="font-bold text-(--ui-text-highlighted)">{{ brandName }}</span>
             </div>
@@ -110,12 +111,18 @@ withDefaults(defineProps<{
         </div>
 
         <!-- Link columns -->
-        <div v-for="col in columns" :key="col.heading">
+        <div
+          v-for="col in columns"
+          :key="col.heading"
+        >
           <div class="text-xs font-bold text-(--ui-text-highlighted) uppercase tracking-widest mb-4">
             {{ col.heading }}
           </div>
           <ul class="space-y-2.5">
-            <li v-for="link in col.links" :key="link.label">
+            <li
+              v-for="link in col.links"
+              :key="link.label"
+            >
               <a
                 :href="link.href"
                 class="text-sm text-(--ui-text-muted) hover:text-(--ui-text-highlighted) transition-colors"
@@ -123,7 +130,6 @@ withDefaults(defineProps<{
             </li>
           </ul>
         </div>
-
       </div>
 
       <USeparator class="mb-6" />
@@ -141,7 +147,11 @@ withDefaults(defineProps<{
               :key="badge.label"
               class="flex items-center gap-1.5"
             >
-              <UIcon :name="badge.icon" class="w-3.5 h-3.5" :class="badge.color" />
+              <UIcon
+                :name="badge.icon"
+                class="w-3.5 h-3.5"
+                :class="badge.color"
+              />
               {{ badge.label }}
             </span>
             <span class="flex items-center gap-1.5">
@@ -151,7 +161,6 @@ withDefaults(defineProps<{
           </div>
         </slot>
       </div>
-
     </div>
   </footer>
 </template>

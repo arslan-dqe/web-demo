@@ -41,7 +41,6 @@ withDefaults(defineProps<{
 
 <template>
   <section class="py-16 border-y border-(--ui-border) bg-(--ui-bg-muted) overflow-hidden">
-
     <!-- Header -->
     <div
       v-motion
@@ -53,7 +52,9 @@ withDefaults(defineProps<{
         <p class="text-xs text-(--ui-text-dimmed) font-semibold uppercase tracking-widest mb-2">
           {{ title }}
         </p>
-        <p class="text-sm text-(--ui-text-muted)">{{ subtitle }}</p>
+        <p class="text-sm text-(--ui-text-muted)">
+          {{ subtitle }}
+        </p>
       </slot>
     </div>
 
@@ -74,7 +75,11 @@ withDefaults(defineProps<{
             class="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
             :class="logo.iconBg"
           >
-            <UIcon :name="logo.icon" class="w-3.5 h-3.5" :class="logo.iconColor" />
+            <UIcon
+              :name="logo.icon"
+              class="w-3.5 h-3.5"
+              :class="logo.iconColor"
+            />
           </div>
           {{ logo.name }}
         </div>
@@ -91,7 +96,11 @@ withDefaults(defineProps<{
             class="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
             :class="logo.iconBg"
           >
-            <UIcon :name="logo.icon" class="w-3.5 h-3.5" :class="logo.iconColor" />
+            <UIcon
+              :name="logo.icon"
+              class="w-3.5 h-3.5"
+              :class="logo.iconColor"
+            />
           </div>
           {{ logo.name }}
         </div>
@@ -111,12 +120,14 @@ withDefaults(defineProps<{
           :key="item.label"
           class="flex items-center gap-1.5 text-xs text-(--ui-text-dimmed)"
         >
-          <UIcon :name="item.icon" class="w-3.5 h-3.5 text-primary" />
+          <UIcon
+            :name="item.icon"
+            class="w-3.5 h-3.5 text-primary"
+          />
           <span>{{ item.label }}</span>
         </div>
       </slot>
     </div>
-
   </section>
 </template>
 

@@ -184,8 +184,10 @@ const colorActiveTab: Record<string, string> = {
 </script>
 
 <template>
-  <section id="use-cases" class="py-28 px-4 relative overflow-hidden bg-(--ui-bg)">
-
+  <section
+    id="use-cases"
+    class="py-28 px-4 relative overflow-hidden bg-(--ui-bg)"
+  >
     <!-- Soft background -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-0 right-0 w-[600px] h-[400px] bg-blue-500/5 rounded-full blur-3xl" />
@@ -193,7 +195,6 @@ const colorActiveTab: Record<string, string> = {
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto">
-
       <!-- ── Header ───────────────────────────────────────────────────── -->
       <div
         v-motion
@@ -201,11 +202,19 @@ const colorActiveTab: Record<string, string> = {
         :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
         class="text-center mb-12"
       >
-        <UBadge color="primary" variant="soft" label="Use cases" size="md" class="mb-4" />
+        <UBadge
+          color="primary"
+          variant="soft"
+          label="Use cases"
+          size="md"
+          class="mb-4"
+        />
         <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Built for your industry.
         </h2>
-        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">Which industries use DQE for contact data quality?</h3>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">
+          Which industries use DQE for contact data quality?
+        </h3>
         <p class="text-(--ui-text-muted) text-lg max-w-xl mx-auto">
           DQE solves different problems for different teams.
           Pick your industry to see exactly how it works for you.
@@ -245,9 +254,14 @@ const colorActiveTab: Record<string, string> = {
       </div>
 
       <!-- ── Active case content ────────────────────────────────────────── -->
-      <Transition name="case-slide" mode="out-in">
-        <div :key="active" class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-
+      <Transition
+        name="case-slide"
+        mode="out-in"
+      >
+        <div
+          :key="active"
+          class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start"
+        >
           <!-- Left: Info ─────────────────────────────────────────────── -->
           <div
             v-motion
@@ -259,7 +273,10 @@ const colorActiveTab: Record<string, string> = {
               class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full border mb-5"
               :class="[colorBgMap[activeCase.color], colorMap[activeCase.color], colorBorderMap[activeCase.color]]"
             >
-              <UIcon name="i-lucide-user" class="w-3.5 h-3.5" />
+              <UIcon
+                name="i-lucide-user"
+                class="w-3.5 h-3.5"
+              />
               {{ activeCase.persona }}
             </div>
 
@@ -280,8 +297,12 @@ const colorActiveTab: Record<string, string> = {
                 <div
                   class="text-xl font-extrabold mb-1"
                   :class="colorMap[activeCase.color]"
-                >{{ stat.value }}</div>
-                <div class="text-[10px] text-(--ui-text-dimmed) leading-snug">{{ stat.label }}</div>
+                >
+                  {{ stat.value }}
+                </div>
+                <div class="text-[10px] text-(--ui-text-dimmed) leading-snug">
+                  {{ stat.label }}
+                </div>
               </div>
             </div>
 
@@ -299,7 +320,11 @@ const colorActiveTab: Record<string, string> = {
                   class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                   :class="colorBgMap[activeCase.color]"
                 >
-                  <UIcon name="i-lucide-check" class="w-3 h-3" :class="colorMap[activeCase.color]" />
+                  <UIcon
+                    name="i-lucide-check"
+                    class="w-3 h-3"
+                    :class="colorMap[activeCase.color]"
+                  />
                 </div>
                 {{ out }}
               </li>
@@ -341,7 +366,6 @@ const colorActiveTab: Record<string, string> = {
           >
             <!-- Mockup card -->
             <div class="rounded-2xl border border-(--ui-border) bg-(--ui-bg) shadow-xl shadow-black/5 overflow-hidden">
-
               <!-- Window bar -->
               <div class="flex items-center gap-1.5 px-4 py-3 bg-(--ui-bg-elevated) border-b border-(--ui-border)">
                 <span class="w-2.5 h-2.5 rounded-full bg-rose-400/70" />
@@ -353,10 +377,11 @@ const colorActiveTab: Record<string, string> = {
               </div>
 
               <div class="p-5 space-y-4">
-
                 <!-- Input -->
                 <div>
-                  <p class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-2">Input</p>
+                  <p class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-2">
+                    Input
+                  </p>
                   <div class="font-mono text-xs text-(--ui-text-muted) bg-(--ui-bg-elevated) border border-(--ui-border) rounded-lg px-3 py-2.5 whitespace-pre-line leading-relaxed">
                     {{ activeCase.mockup.input }}
                   </div>
@@ -368,14 +393,19 @@ const colorActiveTab: Record<string, string> = {
                     class="flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-semibold"
                     :class="[activeCase.mockup.badgeColor, colorBorderMap[activeCase.color]]"
                   >
-                    <UIcon name="i-lucide-sparkles" class="w-3 h-3" />
+                    <UIcon
+                      name="i-lucide-sparkles"
+                      class="w-3 h-3"
+                    />
                     {{ activeCase.mockup.badge }}
                   </div>
                 </div>
 
                 <!-- Output -->
                 <div>
-                  <p class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-2">Output</p>
+                  <p class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-2">
+                    Output
+                  </p>
                   <div
                     class="font-mono text-xs font-semibold bg-(--ui-bg-elevated) border rounded-lg px-3 py-2.5 leading-relaxed"
                     :class="[colorBorderMap[activeCase.color], colorMap[activeCase.color]]"
@@ -386,7 +416,10 @@ const colorActiveTab: Record<string, string> = {
 
                 <!-- Saving pill -->
                 <div class="flex items-center gap-2 text-xs text-success bg-success/8 border border-success/15 px-3 py-2 rounded-lg">
-                  <UIcon name="i-lucide-piggy-bank" class="w-3.5 h-3.5 flex-shrink-0" />
+                  <UIcon
+                    name="i-lucide-piggy-bank"
+                    class="w-3.5 h-3.5 flex-shrink-0"
+                  />
                   {{ activeCase.mockup.saving }}
                 </div>
               </div>
@@ -396,7 +429,8 @@ const colorActiveTab: Record<string, string> = {
             <div class="p-5 rounded-2xl border border-(--ui-border) bg-(--ui-bg-elevated)">
               <div class="flex gap-1 mb-3">
                 <UIcon
-                  v-for="i in 5" :key="i"
+                  v-for="i in 5"
+                  :key="i"
                   name="i-lucide-star"
                   class="w-3.5 h-3.5 text-warning fill-warning"
                 />
@@ -408,18 +442,22 @@ const colorActiveTab: Record<string, string> = {
                 <div
                   class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
                   :class="[colorBgMap[activeCase.color], colorMap[activeCase.color]]"
-                >{{ activeCase.quote.avatar }}</div>
+                >
+                  {{ activeCase.quote.avatar }}
+                </div>
                 <div>
-                  <div class="text-sm font-bold text-(--ui-text-highlighted)">{{ activeCase.quote.name }}</div>
-                  <div class="text-xs text-(--ui-text-muted)">{{ activeCase.quote.role }}</div>
+                  <div class="text-sm font-bold text-(--ui-text-highlighted)">
+                    {{ activeCase.quote.name }}
+                  </div>
+                  <div class="text-xs text-(--ui-text-muted)">
+                    {{ activeCase.quote.role }}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </Transition>
-
     </div>
   </section>
 </template>

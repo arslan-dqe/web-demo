@@ -30,7 +30,6 @@ const trustItems = [
 
 <template>
   <section class="py-16 border-y border-(--ui-border) bg-(--ui-bg-muted) overflow-hidden">
-
     <!-- Header -->
     <div
       v-motion
@@ -48,7 +47,6 @@ const trustItems = [
 
     <!-- Marquee rows -->
     <div class="relative">
-
       <!-- Edge fades -->
       <div class="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-r from-(--ui-bg-muted) to-transparent" />
       <div class="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-l from-(--ui-bg-muted) to-transparent" />
@@ -64,7 +62,11 @@ const trustItems = [
             class="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
             :class="logo.iconBg"
           >
-            <UIcon :name="logo.icon" class="w-3.5 h-3.5" :class="logo.iconColor" />
+            <UIcon
+              :name="logo.icon"
+              class="w-3.5 h-3.5"
+              :class="logo.iconColor"
+            />
           </div>
           {{ logo.name }}
         </div>
@@ -81,12 +83,15 @@ const trustItems = [
             class="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
             :class="logo.iconBg"
           >
-            <UIcon :name="logo.icon" class="w-3.5 h-3.5" :class="logo.iconColor" />
+            <UIcon
+              :name="logo.icon"
+              class="w-3.5 h-3.5"
+              :class="logo.iconColor"
+            />
           </div>
           {{ logo.name }}
         </div>
       </div>
-
     </div>
 
     <!-- Trust strip -->
@@ -101,11 +106,13 @@ const trustItems = [
         :key="item.label"
         class="flex items-center gap-1.5 text-xs text-(--ui-text-dimmed)"
       >
-        <UIcon :name="item.icon" class="w-3.5 h-3.5 text-primary" />
+        <UIcon
+          :name="item.icon"
+          class="w-3.5 h-3.5 text-primary"
+        />
         <span class="font-medium">{{ item.label }}</span>
       </div>
     </div>
-
   </section>
 </template>
 

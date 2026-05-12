@@ -170,14 +170,15 @@ const emit = defineEmits<{ cta: [plan: string] }>()
 </script>
 
 <template>
-  <section id="pricing" class="py-28 px-4 relative overflow-hidden bg-(--ui-bg)">
-
+  <section
+    id="pricing"
+    class="py-28 px-4 relative overflow-hidden bg-(--ui-bg)"
+  >
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-500/5 rounded-full blur-3xl" />
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto">
-
       <!-- ── Header ───────────────────────────────────────────────────── -->
       <div
         v-motion
@@ -185,11 +186,19 @@ const emit = defineEmits<{ cta: [plan: string] }>()
         :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
         class="text-center mb-12"
       >
-        <UBadge color="primary" variant="soft" label="Pricing" size="md" class="mb-4" />
+        <UBadge
+          color="primary"
+          variant="soft"
+          label="Pricing"
+          size="md"
+          class="mb-4"
+        />
         <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
-          Start free. Buy credits.<br/>Scale when ready.
+          Start free. Buy credits.<br>Scale when ready.
         </h2>
-        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">How much does address, email, and phone validation cost?</h3>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">
+          How much does address, email, and phone validation cost?
+        </h3>
         <p class="text-(--ui-text-muted) text-lg max-w-lg mx-auto mb-8">
           No monthly commitment for validation.
           Buy credits when you need them — they never expire.
@@ -203,7 +212,9 @@ const emit = defineEmits<{ cta: [plan: string] }>()
               class="px-3 py-1.5 rounded-md text-xs font-semibold transition-all"
               :class="!annual ? 'bg-(--ui-bg) shadow-sm text-(--ui-text-highlighted)' : 'text-(--ui-text-muted)'"
               @click="annual = false"
-            >Monthly</button>
+            >
+              Monthly
+            </button>
             <button
               class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition-all"
               :class="annual ? 'bg-(--ui-bg) shadow-sm text-(--ui-text-highlighted)' : 'text-(--ui-text-muted)'"
@@ -230,12 +241,19 @@ const emit = defineEmits<{ cta: [plan: string] }>()
             : 'border-(--ui-border) bg-(--ui-bg) hover:border-primary/20 hover:shadow-lg'"
         >
           <!-- Popular badge -->
-          <div v-if="plan.popular" class="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap">
-            <UBadge color="primary" label="Most popular" size="sm" class="shadow-lg shadow-primary/25 px-4" />
+          <div
+            v-if="plan.popular"
+            class="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap"
+          >
+            <UBadge
+              color="primary"
+              label="Most popular"
+              size="sm"
+              class="shadow-lg shadow-primary/25 px-4"
+            />
           </div>
 
           <div class="p-5 flex-1 flex flex-col">
-
             <!-- Header -->
             <div class="mb-5">
               <div class="flex items-center justify-between mb-3">
@@ -259,7 +277,9 @@ const emit = defineEmits<{ cta: [plan: string] }>()
                 >{{ plan.tag }}</span>
               </div>
 
-              <p class="text-xs text-(--ui-text-muted) leading-relaxed mb-4">{{ plan.desc }}</p>
+              <p class="text-xs text-(--ui-text-muted) leading-relaxed mb-4">
+                {{ plan.desc }}
+              </p>
 
               <!-- Price -->
               <div class="mb-3">
@@ -267,7 +287,10 @@ const emit = defineEmits<{ cta: [plan: string] }>()
                   <span class="text-2xl font-extrabold text-(--ui-text-highlighted) leading-none">
                     {{ plan.price }}
                   </span>
-                  <span v-if="plan.priceSub" class="text-xs text-(--ui-text-muted) mb-0.5">
+                  <span
+                    v-if="plan.priceSub"
+                    class="text-xs text-(--ui-text-muted) mb-0.5"
+                  >
                     {{ plan.priceSub }}
                   </span>
                 </div>
@@ -275,12 +298,17 @@ const emit = defineEmits<{ cta: [plan: string] }>()
                   <p
                     v-if="(plan as any).saving"
                     class="text-[11px] text-success font-semibold mt-0.5"
-                  >{{ (plan as any).saving }}</p>
+                  >
+                    {{ (plan as any).saving }}
+                  </p>
                 </Transition>
               </div>
 
               <!-- Credit pack picker — Verify only -->
-              <div v-if="plan.id === 'verify'" class="space-y-1.5 mb-3">
+              <div
+                v-if="plan.id === 'verify'"
+                class="space-y-1.5 mb-3"
+              >
                 <p class="text-[10px] font-bold text-(--ui-text-dimmed) uppercase tracking-wider">
                   Choose a credit pack
                 </p>
@@ -300,7 +328,10 @@ const emit = defineEmits<{ cta: [plan: string] }>()
                         ? 'border-primary bg-primary'
                         : 'border-(--ui-border)'"
                     >
-                      <div v-if="selectedPack.credits === pack.credits" class="w-1.5 h-1.5 rounded-full bg-white" />
+                      <div
+                        v-if="selectedPack.credits === pack.credits"
+                        class="w-1.5 h-1.5 rounded-full bg-white"
+                      />
                     </div>
                     <span class="text-xs font-semibold text-(--ui-text-highlighted)">
                       {{ pack.credits.toLocaleString() }} credits
@@ -314,8 +345,12 @@ const emit = defineEmits<{ cta: [plan: string] }>()
                     />
                   </div>
                   <div class="text-right">
-                    <div class="text-xs font-extrabold text-(--ui-text-highlighted)">${{ pack.price }}</div>
-                    <div class="text-[10px] text-(--ui-text-dimmed)">${{ pack.perK.toFixed(2) }}/K</div>
+                    <div class="text-xs font-extrabold text-(--ui-text-highlighted)">
+                      ${{ pack.price }}
+                    </div>
+                    <div class="text-[10px] text-(--ui-text-dimmed)">
+                      ${{ pack.perK.toFixed(2) }}/K
+                    </div>
                   </div>
                 </div>
               </div>
@@ -325,7 +360,10 @@ const emit = defineEmits<{ cta: [plan: string] }>()
                 v-else
                 class="flex items-center gap-2 p-2.5 rounded-xl bg-(--ui-bg-elevated) border border-(--ui-border)"
               >
-                <UIcon name="i-lucide-check-circle-2" class="w-4 h-4 text-primary flex-shrink-0" />
+                <UIcon
+                  name="i-lucide-check-circle-2"
+                  class="w-4 h-4 text-primary flex-shrink-0"
+                />
                 <div>
                   <span class="text-sm font-extrabold text-(--ui-text-highlighted)">{{ plan.validations }}</span>
                   <span class="text-xs text-(--ui-text-muted) ml-1">{{ plan.valNote }}</span>
@@ -388,7 +426,6 @@ const emit = defineEmits<{ cta: [plan: string] }>()
             >
               Routes to Rafael Herrera · Director of Alliance Sales, NA
             </p>
-
           </div>
         </div>
       </div>
@@ -402,19 +439,26 @@ const emit = defineEmits<{ cta: [plan: string] }>()
       >
         <div
           v-for="point in [
-            { icon: 'i-lucide-infinity',      title: 'Credits never expire',         desc: 'Buy once, use whenever. No monthly pressure to burn through credits.' },
-            { icon: 'i-lucide-layers',         title: 'One credit = one validation',  desc: 'Address, Email, or Phone — each validation deducts one credit regardless of type.' },
-            { icon: 'i-lucide-trending-down',  title: 'Price drops with volume',      desc: 'From $19/K down to $6.99/K at 500K credits. Upgrade to Advanced for monthly volume.' },
+            { icon: 'i-lucide-infinity', title: 'Credits never expire', desc: 'Buy once, use whenever. No monthly pressure to burn through credits.' },
+            { icon: 'i-lucide-layers', title: 'One credit = one validation', desc: 'Address, Email, or Phone — each validation deducts one credit regardless of type.' },
+            { icon: 'i-lucide-trending-down', title: 'Price drops with volume', desc: 'From $19/K down to $6.99/K at 500K credits. Upgrade to Advanced for monthly volume.' },
           ]"
           :key="point.title"
           class="flex gap-3 p-4 rounded-xl border border-(--ui-border) bg-(--ui-bg-elevated)"
         >
           <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-            <UIcon :name="point.icon" class="w-4 h-4 text-primary" />
+            <UIcon
+              :name="point.icon"
+              class="w-4 h-4 text-primary"
+            />
           </div>
           <div>
-            <p class="text-sm font-bold text-(--ui-text-highlighted) mb-1">{{ point.title }}</p>
-            <p class="text-xs text-(--ui-text-muted) leading-relaxed">{{ point.desc }}</p>
+            <p class="text-sm font-bold text-(--ui-text-highlighted) mb-1">
+              {{ point.title }}
+            </p>
+            <p class="text-xs text-(--ui-text-muted) leading-relaxed">
+              {{ point.desc }}
+            </p>
           </div>
         </div>
       </div>
@@ -428,10 +472,15 @@ const emit = defineEmits<{ cta: [plan: string] }>()
       >
         <div class="px-6 py-4 border-b border-(--ui-border) flex items-center gap-3">
           <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-            <UIcon name="i-lucide-calculator" class="w-4 h-4 text-primary" />
+            <UIcon
+              name="i-lucide-calculator"
+              class="w-4 h-4 text-primary"
+            />
           </div>
           <div>
-            <p class="text-sm font-bold text-(--ui-text-highlighted)">ROI calculator</p>
+            <p class="text-sm font-bold text-(--ui-text-highlighted)">
+              ROI calculator
+            </p>
             <p class="text-xs text-(--ui-text-muted)">
               Estimate your credit volume and savings from fewer failed deliveries
             </p>
@@ -439,7 +488,6 @@ const emit = defineEmits<{ cta: [plan: string] }>()
         </div>
 
         <div class="p-6 grid md:grid-cols-2 gap-8 items-center">
-
           <!-- Slider side -->
           <div>
             <div class="flex items-center justify-between mb-3">
@@ -455,15 +503,15 @@ const emit = defineEmits<{ cta: [plan: string] }>()
               max="500000"
               step="100"
               class="w-full h-2 rounded-full appearance-none bg-(--ui-bg-accented) cursor-pointer accent-primary mb-4"
-            />
+            >
 
             <!-- Breakdown -->
             <div class="space-y-2 p-4 rounded-xl bg-(--ui-bg) border border-(--ui-border)">
               <div
                 v-for="(val, label) in {
                   'Address validations': calcResults.addr,
-                  'Email validations':   calcResults.email,
-                  'Phone validations':   calcResults.phone,
+                  'Email validations': calcResults.email,
+                  'Phone validations': calcResults.phone,
                 }"
                 :key="label"
                 class="flex justify-between text-xs"
@@ -483,7 +531,6 @@ const emit = defineEmits<{ cta: [plan: string] }>()
 
           <!-- Recommendation side -->
           <div class="space-y-3">
-
             <!-- Recommended pack -->
             <div class="p-4 rounded-xl bg-(--ui-bg) border border-primary/20 text-center">
               <p class="text-[10px] font-bold text-(--ui-text-dimmed) uppercase tracking-widest mb-2">
@@ -510,7 +557,10 @@ const emit = defineEmits<{ cta: [plan: string] }>()
 
             <!-- ROI callout -->
             <div class="p-4 rounded-xl bg-success/5 border border-success/20 flex gap-3">
-              <UIcon name="i-lucide-piggy-bank" class="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
+              <UIcon
+                name="i-lucide-piggy-bank"
+                class="w-5 h-5 text-success flex-shrink-0 mt-0.5"
+              />
               <div>
                 <p class="text-sm font-bold text-success mb-1">
                   Estimated savings: {{ calcResults.roiSaved }}
@@ -521,7 +571,6 @@ const emit = defineEmits<{ cta: [plan: string] }>()
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -551,8 +600,12 @@ const emit = defineEmits<{ cta: [plan: string] }>()
           :key="faq.q"
           class="p-4 rounded-xl border border-(--ui-border) bg-(--ui-bg-elevated)"
         >
-          <p class="text-sm font-bold text-(--ui-text-highlighted) mb-2">{{ faq.q }}</p>
-          <p class="text-xs text-(--ui-text-muted) leading-relaxed">{{ faq.a }}</p>
+          <p class="text-sm font-bold text-(--ui-text-highlighted) mb-2">
+            {{ faq.q }}
+          </p>
+          <p class="text-xs text-(--ui-text-muted) leading-relaxed">
+            {{ faq.a }}
+          </p>
         </div>
       </div>
 
@@ -563,7 +616,10 @@ const emit = defineEmits<{ cta: [plan: string] }>()
         :visible="{ opacity: 1, transition: { delay: 400, duration: 500 } }"
         class="text-center text-sm text-(--ui-text-muted) mb-4"
       >
-        <a href="/faq" class="text-primary font-semibold hover:underline">
+        <a
+          href="/faq"
+          class="text-primary font-semibold hover:underline"
+        >
           See all FAQs →
         </a>
       </div>
@@ -574,11 +630,13 @@ const emit = defineEmits<{ cta: [plan: string] }>()
         class="text-center text-sm text-(--ui-text-muted)"
       >
         $500K+ volume or need on-premise deployment?
-        <a href="/contact" class="text-primary font-semibold hover:underline ml-1">
+        <a
+          href="/contact"
+          class="text-primary font-semibold hover:underline ml-1"
+        >
           Talk to Rafael's team →
         </a>
       </div>
-
     </div>
   </section>
 </template>

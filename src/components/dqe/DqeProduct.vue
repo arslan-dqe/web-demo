@@ -11,12 +11,6 @@ const tabs = [
   { id: 'phone'   as ProductTab, label: 'Phone Validation',   icon: 'i-lucide-phone',      color: 'violet' },
 ]
 
-const tabColorMap: Record<string, string> = {
-  blue:   'bg-blue-500/10   text-blue-500   border-blue-500/20   group-hover:border-blue-500/40',
-  teal:   'bg-teal-500/10   text-teal-500   border-teal-500/20   group-hover:border-teal-500/40',
-  violet: 'bg-violet-500/10 text-violet-500 border-violet-500/20 group-hover:border-violet-500/40',
-}
-
 const activeTabColor: Record<ProductTab, string> = {
   address: 'border-blue-500   bg-blue-500/5   text-blue-600   dark:text-blue-400',
   email:   'border-teal-500   bg-teal-500/5   text-teal-600   dark:text-teal-400',
@@ -145,23 +139,19 @@ const colorBorderMap: Record<string, string> = {
   teal:   'border-teal-500/30',
   violet: 'border-violet-500/30',
 }
-const colorGradMap: Record<string, string> = {
-  blue:   'from-blue-600   to-teal-500',
-  teal:   'from-teal-500   to-emerald-400',
-  violet: 'from-violet-500 to-blue-500',
-}
 </script>
 
 <template>
-  <section id="product" class="py-28 px-4 relative overflow-hidden bg-(--ui-bg)">
-
+  <section
+    id="product"
+    class="py-28 px-4 relative overflow-hidden bg-(--ui-bg)"
+  >
     <!-- Subtle background -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-500/5 rounded-full blur-3xl" />
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto">
-
       <!-- ── Header ───────────────────────────────────────────────────── -->
       <div
         v-motion
@@ -169,12 +159,20 @@ const colorGradMap: Record<string, string> = {
         :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
         class="text-center mb-14"
       >
-        <UBadge color="primary" variant="soft" label="The Platform" size="md" class="mb-4" />
+        <UBadge
+          color="primary"
+          variant="soft"
+          label="The Platform"
+          size="md"
+          class="mb-4"
+        />
         <h2 class="text-4xl md:text-5xl font-extrabold text-(--ui-text-highlighted) mb-3 leading-tight">
           Three validations.
           <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"> One platform.</span>
         </h2>
-        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">Can I validate US addresses, emails, and phones in a single API call?</h3>
+        <h3 class="text-base font-medium text-(--ui-text-muted) mb-4">
+          Can I validate US addresses, emails, and phones in a single API call?
+        </h3>
         <p class="text-(--ui-text-muted) text-lg max-w-2xl mx-auto">
           Stop duct-taping three separate tools together.
           DQE gives you address, email, and phone validation in a single API call.
@@ -197,18 +195,23 @@ const colorGradMap: Record<string, string> = {
             : 'border-(--ui-border) text-(--ui-text-muted) hover:border-(--ui-border-accented) hover:text-(--ui-text) bg-(--ui-bg)'"
           @click="active = tab.id"
         >
-          <UIcon :name="tab.icon" class="w-4 h-4" />
+          <UIcon
+            :name="tab.icon"
+            class="w-4 h-4"
+          />
           {{ tab.label }}
         </button>
       </div>
 
       <!-- ── Main panel ────────────────────────────────────────────────── -->
-      <Transition name="product-tab" mode="out-in">
+      <Transition
+        name="product-tab"
+        mode="out-in"
+      >
         <div
           :key="active"
           class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start"
         >
-
           <!-- Left: Features ────────────────────────────────────────── -->
           <div
             v-motion
@@ -220,7 +223,10 @@ const colorGradMap: Record<string, string> = {
               class="inline-flex items-center gap-2 border text-xs font-bold px-3 py-1.5 rounded-full mb-5"
               :class="[colorBgMap[activeProduct.color], colorTextMap[activeProduct.color], colorBorderMap[activeProduct.color]]"
             >
-              <UIcon :name="activeProduct.badgeIcon" class="w-3.5 h-3.5" />
+              <UIcon
+                :name="activeProduct.badgeIcon"
+                class="w-3.5 h-3.5"
+              />
               {{ activeProduct.badge }}
             </div>
 
@@ -264,7 +270,10 @@ const colorGradMap: Record<string, string> = {
                 class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border bg-(--ui-bg-elevated)"
                 :class="[colorBorderMap[activeProduct.color], colorTextMap[activeProduct.color]]"
               >
-                <UIcon :name="cert.icon" class="w-3 h-3" />
+                <UIcon
+                  :name="cert.icon"
+                  class="w-3 h-3"
+                />
                 {{ cert.label }}
               </div>
             </div>
@@ -291,7 +300,6 @@ const colorGradMap: Record<string, string> = {
             :enter="{ opacity: 1, x: 0, transition: { duration: 500 } }"
           >
             <div class="rounded-2xl border border-(--ui-border) bg-(--ui-bg) shadow-2xl shadow-black/5 overflow-hidden">
-
               <!-- Window bar -->
               <div class="flex items-center gap-1.5 px-4 py-3 bg-(--ui-bg-elevated) border-b border-(--ui-border)">
                 <span class="w-2.5 h-2.5 rounded-full bg-rose-400/70" />
@@ -304,7 +312,9 @@ const colorGradMap: Record<string, string> = {
 
               <!-- Input row -->
               <div class="p-4 border-b border-(--ui-border) bg-(--ui-bg-elevated)">
-                <div class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-2">Input</div>
+                <div class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-2">
+                  Input
+                </div>
                 <div
                   class="flex items-center gap-2 px-3 py-2.5 rounded-lg border font-mono text-sm text-(--ui-text)"
                   :class="[colorBorderMap[activeProduct.color], colorBgMap[activeProduct.color]]"
@@ -324,19 +334,27 @@ const colorGradMap: Record<string, string> = {
                   class="flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-full border"
                   :class="activeProduct.mockup.status.color"
                 >
-                  <UIcon name="i-lucide-check-circle-2" class="w-3.5 h-3.5" />
+                  <UIcon
+                    name="i-lucide-check-circle-2"
+                    class="w-3.5 h-3.5"
+                  />
                   {{ activeProduct.mockup.status.label }}
                 </div>
                 <div class="flex-1" />
                 <div class="text-[10px] text-(--ui-text-dimmed) flex items-center gap-1">
-                  <UIcon name="i-lucide-zap" class="w-3 h-3 text-warning" />
+                  <UIcon
+                    name="i-lucide-zap"
+                    class="w-3 h-3 text-warning"
+                  />
                   &lt;150ms
                 </div>
               </div>
 
               <!-- Output fields -->
               <div class="p-4">
-                <div class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-3">Output</div>
+                <div class="text-[10px] text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-3">
+                  Output
+                </div>
                 <div class="space-y-0 rounded-xl border border-(--ui-border) overflow-hidden">
                   <div
                     v-for="([key, val], i) in Object.entries(activeProduct.mockup.output)"
@@ -357,11 +375,25 @@ const colorGradMap: Record<string, string> = {
 
               <!-- Footer actions -->
               <div class="px-4 pb-4 grid grid-cols-3 gap-2">
-                <UButton size="xs" variant="soft"  label="Copy JSON"   leading-icon="i-lucide-copy"     />
-                <UButton size="xs" variant="soft"  label="API call"    leading-icon="i-lucide-code-2"   />
-                <UButton size="xs" variant="soft"  label="Download"    leading-icon="i-lucide-download" />
+                <UButton
+                  size="xs"
+                  variant="soft"
+                  label="Copy JSON"
+                  leading-icon="i-lucide-copy"
+                />
+                <UButton
+                  size="xs"
+                  variant="soft"
+                  label="API call"
+                  leading-icon="i-lucide-code-2"
+                />
+                <UButton
+                  size="xs"
+                  variant="soft"
+                  label="Download"
+                  leading-icon="i-lucide-download"
+                />
               </div>
-
             </div>
 
             <!-- Comparison nudge -->
@@ -370,7 +402,11 @@ const colorGradMap: Record<string, string> = {
                 class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
                 :class="colorBgMap[activeProduct.color]"
               >
-                <UIcon name="i-lucide-swords" class="w-4 h-4" :class="colorTextMap[activeProduct.color]" />
+                <UIcon
+                  name="i-lucide-swords"
+                  class="w-4 h-4"
+                  :class="colorTextMap[activeProduct.color]"
+                />
               </div>
               <div class="flex-1 min-w-0">
                 <p class="text-xs text-(--ui-text-muted)">
@@ -378,12 +414,14 @@ const colorGradMap: Record<string, string> = {
                   DQE does all three in one call.
                 </p>
               </div>
-              <a href="/vs-smarty" class="text-xs text-primary font-semibold hover:underline whitespace-nowrap">
+              <a
+                href="/vs-smarty"
+                class="text-xs text-primary font-semibold hover:underline whitespace-nowrap"
+              >
                 Compare →
               </a>
             </div>
           </div>
-
         </div>
       </Transition>
 
@@ -395,14 +433,20 @@ const colorGradMap: Record<string, string> = {
         class="mt-20 rounded-2xl border border-(--ui-border) bg-(--ui-bg-elevated) p-6 md:p-8"
       >
         <div class="flex flex-col md:flex-row items-center gap-8">
-
           <!-- Left label -->
           <div class="flex-shrink-0 text-center md:text-left">
-            <p class="text-xs text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-1">Single API call</p>
-            <p class="text-2xl font-extrabold text-(--ui-text-highlighted)">3-in-1 response</p>
+            <p class="text-xs text-(--ui-text-dimmed) font-bold uppercase tracking-widest mb-1">
+              Single API call
+            </p>
+            <p class="text-2xl font-extrabold text-(--ui-text-highlighted)">
+              3-in-1 response
+            </p>
           </div>
 
-          <USeparator orientation="vertical" class="hidden md:block h-16" />
+          <USeparator
+            orientation="vertical"
+            class="hidden md:block h-16"
+          />
           <USeparator class="md:hidden w-full" />
 
           <!-- Code snippet -->
@@ -419,16 +463,22 @@ const colorGradMap: Record<string, string> = {
 <span class="text-white/20">//   in one round trip. &lt;80ms.</span></code></pre>
           </div>
 
-          <USeparator orientation="vertical" class="hidden md:block h-16" />
+          <USeparator
+            orientation="vertical"
+            class="hidden md:block h-16"
+          />
 
           <!-- Right stat -->
           <div class="flex-shrink-0 text-center">
-            <p class="text-3xl font-extrabold text-(--ui-text-highlighted)">3×</p>
-            <p class="text-xs text-(--ui-text-muted) mt-1">fewer API vendors<br/>to manage</p>
+            <p class="text-3xl font-extrabold text-(--ui-text-highlighted)">
+              3×
+            </p>
+            <p class="text-xs text-(--ui-text-muted) mt-1">
+              fewer API vendors<br>to manage
+            </p>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </template>

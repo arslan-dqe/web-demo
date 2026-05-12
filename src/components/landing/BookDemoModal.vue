@@ -104,11 +104,13 @@ const steps = [
 </script>
 
 <template>
-  <UModal v-model:open="open" :dismissible="!submitting" :ui="{ content: 'max-w-2xl' }">
-
+  <UModal
+    v-model:open="open"
+    :dismissible="!submitting"
+    :ui="{ content: 'max-w-2xl' }"
+  >
     <template #content>
       <div class="flex flex-col">
-
         <!-- ── Header ──────────────────────────────────────────────────── -->
         <div class="relative px-6 pt-6 pb-5 border-b border-(--ui-border)">
           <!-- Close -->
@@ -116,25 +118,39 @@ const steps = [
             class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-(--ui-text-muted) hover:text-(--ui-text-highlighted) hover:bg-(--ui-bg-elevated) transition-all"
             @click="closeAndReset"
           >
-            <UIcon name="i-lucide-x" class="w-4 h-4" />
+            <UIcon
+              name="i-lucide-x"
+              class="w-4 h-4"
+            />
           </button>
 
           <!-- Brand -->
           <div class="flex items-center gap-2 mb-4">
             <div class="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <UIcon name="i-lucide-git-merge" class="w-4 h-4 text-white" />
+              <UIcon
+                name="i-lucide-git-merge"
+                class="w-4 h-4 text-white"
+              />
             </div>
             <span class="font-bold text-sm text-(--ui-text-highlighted)">Deduply</span>
           </div>
 
-          <h2 class="text-xl font-extrabold text-(--ui-text-highlighted) mb-1">Book a 30-min demo</h2>
+          <h2 class="text-xl font-extrabold text-(--ui-text-highlighted) mb-1">
+            Book a 30-min demo
+          </h2>
           <p class="text-sm text-(--ui-text-muted)">
             See how Deduply cleans your CRM in real time — no prep needed.
           </p>
 
           <!-- Step indicators -->
-          <div v-if="!submitted" class="flex items-center gap-2 mt-5">
-            <template v-for="(s, i) in steps" :key="s.num">
+          <div
+            v-if="!submitted"
+            class="flex items-center gap-2 mt-5"
+          >
+            <template
+              v-for="(s, i) in steps"
+              :key="s.num"
+            >
               <div class="flex items-center gap-2">
                 <div
                   class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 flex-shrink-0"
@@ -144,7 +160,11 @@ const steps = [
                       ? 'bg-primary/15 text-primary border-2 border-primary'
                       : 'bg-(--ui-bg-elevated) text-(--ui-text-muted) border border-(--ui-border)'"
                 >
-                  <UIcon v-if="step > s.num" name="i-lucide-check" class="w-3.5 h-3.5" />
+                  <UIcon
+                    v-if="step > s.num"
+                    name="i-lucide-check"
+                    class="w-3.5 h-3.5"
+                  />
                   <span v-else>{{ s.num }}</span>
                 </div>
                 <span
@@ -164,10 +184,15 @@ const steps = [
 
         <!-- ── Body ────────────────────────────────────────────────────── -->
         <div class="px-6 py-6 min-h-[340px]">
-          <Transition name="step-slide" mode="out-in">
-
+          <Transition
+            name="step-slide"
+            mode="out-in"
+          >
             <!-- Step 1: Calendar -->
-            <div v-if="step === 1 && !submitted" key="step1">
+            <div
+              v-if="step === 1 && !submitted"
+              key="step1"
+            >
               <p class="text-sm font-semibold text-(--ui-text-highlighted) mb-4">
                 Select a date for your demo
               </p>
@@ -181,20 +206,38 @@ const steps = [
                   class="w-full"
                 />
               </div>
-              <div v-if="selectedDate" class="mt-4 flex items-center gap-2 text-sm text-primary bg-primary/10 px-4 py-2.5 rounded-xl">
-                <UIcon name="i-lucide-calendar-check" class="w-4 h-4" />
+              <div
+                v-if="selectedDate"
+                class="mt-4 flex items-center gap-2 text-sm text-primary bg-primary/10 px-4 py-2.5 rounded-xl"
+              >
+                <UIcon
+                  name="i-lucide-calendar-check"
+                  class="w-4 h-4"
+                />
                 <span><strong>{{ formattedDate }}</strong> selected</span>
               </div>
             </div>
 
             <!-- Step 2: Time slots -->
-            <div v-else-if="step === 2 && !submitted" key="step2">
+            <div
+              v-else-if="step === 2 && !submitted"
+              key="step2"
+            >
               <div class="flex items-center gap-2 mb-5">
-                <UIcon name="i-lucide-calendar" class="w-4 h-4 text-primary" />
+                <UIcon
+                  name="i-lucide-calendar"
+                  class="w-4 h-4 text-primary"
+                />
                 <p class="text-sm font-semibold text-(--ui-text-highlighted)">
                   {{ formattedDate }} — Pick a time
                 </p>
-                <UBadge size="xs" color="neutral" variant="soft" label="30 min" class="ml-auto" />
+                <UBadge
+                  size="xs"
+                  color="neutral"
+                  variant="soft"
+                  label="30 min"
+                  class="ml-auto"
+                />
               </div>
 
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -218,28 +261,53 @@ const steps = [
                 </button>
               </div>
 
-              <div v-if="selectedTime" class="mt-4 flex items-center gap-2 text-sm text-primary bg-primary/10 px-4 py-2.5 rounded-xl">
-                <UIcon name="i-lucide-clock" class="w-4 h-4" />
+              <div
+                v-if="selectedTime"
+                class="mt-4 flex items-center gap-2 text-sm text-primary bg-primary/10 px-4 py-2.5 rounded-xl"
+              >
+                <UIcon
+                  name="i-lucide-clock"
+                  class="w-4 h-4"
+                />
                 <span><strong>{{ formattedDate }}</strong> at <strong>{{ selectedTime }}</strong></span>
               </div>
             </div>
 
             <!-- Step 3: Contact form -->
-            <div v-else-if="step === 3 && !submitted" key="step3">
+            <div
+              v-else-if="step === 3 && !submitted"
+              key="step3"
+            >
               <!-- Booking summary pill -->
               <div class="flex items-center gap-3 p-3 rounded-xl bg-(--ui-bg-elevated) border border-(--ui-border) mb-6">
                 <div class="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <UIcon name="i-lucide-calendar-check" class="w-4 h-4 text-primary" />
+                  <UIcon
+                    name="i-lucide-calendar-check"
+                    class="w-4 h-4 text-primary"
+                  />
                 </div>
                 <div>
-                  <div class="text-sm font-bold text-(--ui-text-highlighted)">{{ formattedDate }} · {{ selectedTime }}</div>
-                  <div class="text-xs text-(--ui-text-muted)">30-minute product demo · Google Meet</div>
+                  <div class="text-sm font-bold text-(--ui-text-highlighted)">
+                    {{ formattedDate }} · {{ selectedTime }}
+                  </div>
+                  <div class="text-xs text-(--ui-text-muted)">
+                    30-minute product demo · Google Meet
+                  </div>
                 </div>
-                <UBadge size="xs" color="success" variant="soft" label="Confirmed" class="ml-auto" />
+                <UBadge
+                  size="xs"
+                  color="success"
+                  variant="soft"
+                  label="Confirmed"
+                  class="ml-auto"
+                />
               </div>
 
               <div class="grid grid-cols-2 gap-4">
-                <UFormField label="First name" required>
+                <UFormField
+                  label="First name"
+                  required
+                >
                   <UInput
                     v-model="form.firstName"
                     placeholder="Alicia"
@@ -248,7 +316,10 @@ const steps = [
                   />
                 </UFormField>
 
-                <UFormField label="Last name" required>
+                <UFormField
+                  label="Last name"
+                  required
+                >
                   <UInput
                     v-model="form.lastName"
                     placeholder="Torres"
@@ -256,7 +327,11 @@ const steps = [
                   />
                 </UFormField>
 
-                <UFormField label="Work email" required class="col-span-2">
+                <UFormField
+                  label="Work email"
+                  required
+                  class="col-span-2"
+                >
                   <UInput
                     v-model="form.email"
                     type="email"
@@ -266,7 +341,10 @@ const steps = [
                   />
                 </UFormField>
 
-                <UFormField label="Company" required>
+                <UFormField
+                  label="Company"
+                  required
+                >
                   <UInput
                     v-model="form.company"
                     placeholder="Meridian SaaS"
@@ -284,7 +362,10 @@ const steps = [
                   />
                 </UFormField>
 
-                <UFormField label="Anything you'd like us to know?" class="col-span-2">
+                <UFormField
+                  label="Anything you'd like us to know?"
+                  class="col-span-2"
+                >
                   <UTextarea
                     v-model="form.message"
                     placeholder="We have 80K contacts in HubSpot with a lot of duplicates from old imports…"
@@ -296,11 +377,20 @@ const steps = [
             </div>
 
             <!-- Success state -->
-            <div v-else-if="submitted" key="success" class="flex flex-col items-center justify-center text-center py-6">
+            <div
+              v-else-if="submitted"
+              key="success"
+              class="flex flex-col items-center justify-center text-center py-6"
+            >
               <div class="w-16 h-16 rounded-full bg-success/15 flex items-center justify-center mb-5">
-                <UIcon name="i-lucide-check-circle-2" class="w-8 h-8 text-success" />
+                <UIcon
+                  name="i-lucide-check-circle-2"
+                  class="w-8 h-8 text-success"
+                />
               </div>
-              <h3 class="text-xl font-extrabold text-(--ui-text-highlighted) mb-2">You're booked! 🎉</h3>
+              <h3 class="text-xl font-extrabold text-(--ui-text-highlighted) mb-2">
+                You're booked! 🎉
+              </h3>
               <p class="text-(--ui-text-muted) text-sm max-w-sm mb-6">
                 A calendar invite has been sent to <strong class="text-(--ui-text)">{{ form.email }}</strong>.
                 We'll see you on <strong class="text-(--ui-text)">{{ formattedDate }}</strong> at
@@ -310,27 +400,42 @@ const steps = [
               <!-- Confirmation card -->
               <div class="w-full max-w-sm p-4 rounded-2xl border border-(--ui-border) bg-(--ui-bg-elevated) text-left space-y-3 mb-6">
                 <div class="flex items-center gap-2 text-sm">
-                  <UIcon name="i-lucide-calendar" class="w-4 h-4 text-primary flex-shrink-0" />
+                  <UIcon
+                    name="i-lucide-calendar"
+                    class="w-4 h-4 text-primary flex-shrink-0"
+                  />
                   <span class="text-(--ui-text)">{{ formattedDate }} · {{ selectedTime }}</span>
                 </div>
                 <div class="flex items-center gap-2 text-sm">
-                  <UIcon name="i-lucide-clock" class="w-4 h-4 text-primary flex-shrink-0" />
+                  <UIcon
+                    name="i-lucide-clock"
+                    class="w-4 h-4 text-primary flex-shrink-0"
+                  />
                   <span class="text-(--ui-text)">30 minutes · Google Meet</span>
                 </div>
                 <div class="flex items-center gap-2 text-sm">
-                  <UIcon name="i-lucide-user" class="w-4 h-4 text-primary flex-shrink-0" />
+                  <UIcon
+                    name="i-lucide-user"
+                    class="w-4 h-4 text-primary flex-shrink-0"
+                  />
                   <span class="text-(--ui-text)">{{ form.firstName }} {{ form.lastName }} · {{ form.company }}</span>
                 </div>
               </div>
 
-              <UButton label="Close" variant="soft" @click="closeAndReset" />
+              <UButton
+                label="Close"
+                variant="soft"
+                @click="closeAndReset"
+              />
             </div>
-
           </Transition>
         </div>
 
         <!-- ── Footer ──────────────────────────────────────────────────── -->
-        <div v-if="!submitted" class="px-6 pb-6 flex items-center justify-between gap-3">
+        <div
+          v-if="!submitted"
+          class="px-6 pb-6 flex items-center justify-between gap-3"
+        >
           <UButton
             v-if="step > 1"
             variant="ghost"
@@ -343,7 +448,10 @@ const steps = [
           <div class="flex items-center gap-3">
             <!-- Trust micro-copy -->
             <span class="hidden sm:flex items-center gap-1.5 text-xs text-(--ui-text-dimmed)">
-              <UIcon name="i-lucide-shield-check" class="w-3.5 h-3.5 text-success" />
+              <UIcon
+                name="i-lucide-shield-check"
+                class="w-3.5 h-3.5 text-success"
+              />
               No spam, ever
             </span>
 
@@ -365,7 +473,6 @@ const steps = [
             />
           </div>
         </div>
-
       </div>
     </template>
   </UModal>
