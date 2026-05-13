@@ -2,6 +2,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
+const emit = defineEmits<{ cta: [] }>()
+
 type Industry = 'retail' | 'logistics' | 'hospitality' | 'developers'
 const active = ref<Industry>('retail')
 
@@ -348,6 +350,7 @@ const colorActiveTab: Record<string, string> = {
                 label="Start free"
                 trailing-icon="i-lucide-arrow-right"
                 class="shadow-md"
+                @click="emit('cta')"
               />
               <UButton
                 variant="ghost"

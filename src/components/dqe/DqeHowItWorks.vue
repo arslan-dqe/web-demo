@@ -2,6 +2,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const emit = defineEmits<{ cta: [] }>()
+
 type Path = 'csv' | 'api'
 const activePath = ref<Path>('csv')
 
@@ -581,6 +583,7 @@ const steps = [
             label="Start validating now"
             trailing-icon="i-lucide-arrow-right"
             class="shadow-md shadow-primary/20 w-full sm:w-auto"
+            @click="emit('cta')"
           />
         </div>
       </div>

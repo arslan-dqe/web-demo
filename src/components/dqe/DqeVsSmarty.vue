@@ -1,5 +1,7 @@
 <!-- src/components/dqe/DqeVsSmarty.vue -->
 <script setup lang="ts">
+const emit = defineEmits<{ cta: [] }>()
+
 const categories = [
   {
     label: 'Core Validation',
@@ -345,6 +347,7 @@ const switchers = [
               label="Start free"
               trailing-icon="i-lucide-arrow-right"
               class="w-full shadow-md shadow-primary/20"
+              @click="emit('cta')"
             />
           </div>
           <div class="px-4 py-5 border-l border-(--ui-border) flex items-center justify-center">
@@ -441,6 +444,7 @@ const switchers = [
             label="Start free"
             trailing-icon="i-lucide-arrow-right"
             class="shadow-md shadow-primary/20"
+            @click="emit('cta')"
           />
         </div>
       </div>

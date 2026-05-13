@@ -68,35 +68,35 @@ const demoOpen   = ref(false)
     </Suspense>
 
     <Suspense>
-      <DqeProblem />
+      <DqeProblem @cta="signupOpen = true" />
       <template #fallback>
         <div class="py-28 bg-slate-950" />
       </template>
     </Suspense>
 
     <Suspense>
-      <DqeProduct />
+      <DqeProduct @cta="signupOpen = true" />
       <template #fallback>
         <div class="py-28" />
       </template>
     </Suspense>
 
     <Suspense>
-      <DqeHowItWorks />
+      <DqeHowItWorks @cta="signupOpen = true" />
       <template #fallback>
         <div class="py-28 bg-(--ui-bg-muted)" />
       </template>
     </Suspense>
 
     <Suspense>
-      <DqeVsSmarty />
+      <DqeVsSmarty @cta="signupOpen = true" />
       <template #fallback>
         <div class="py-28 bg-(--ui-bg-muted)" />
       </template>
     </Suspense>
 
     <Suspense>
-      <DqeUseCases />
+      <DqeUseCases @cta="signupOpen = true" />
       <template #fallback>
         <div class="py-28" />
       </template>

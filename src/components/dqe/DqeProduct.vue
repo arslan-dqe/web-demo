@@ -2,6 +2,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
+const emit = defineEmits<{ cta: [] }>()
+
 type ProductTab = 'address' | 'email' | 'phone'
 const active = ref<ProductTab>('address')
 
@@ -284,6 +286,7 @@ const colorBorderMap: Record<string, string> = {
                 label="Try it free"
                 trailing-icon="i-lucide-arrow-right"
                 class="shadow-md"
+                @click="emit('cta')"
               />
               <UButton
                 variant="ghost"

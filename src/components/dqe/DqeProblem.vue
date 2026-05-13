@@ -3,6 +3,8 @@
 import { ref } from 'vue'
 import { useIntersectionObserver, useColorMode } from '@vueuse/core'
 
+const emit = defineEmits<{ cta: [] }>()
+
 const colorMode = useColorMode()
 // ── Animated cost counter ─────────────────────────────────────────────────
 const sectionRef  = ref<HTMLElement | null>(null)
@@ -317,6 +319,7 @@ const problems = [
           label="Fix your data — start free"
           trailing-icon="i-lucide-arrow-right"
           class="shadow-lg shadow-blue-500/25"
+          @click="emit('cta')"
         />
         <a
           href="/roi-calculator"
