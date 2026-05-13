@@ -38,13 +38,13 @@ const marketplaces = [
     hover: 'hover:border-[#FF9900]/60 hover:bg-[#FF9900]/15',
   },
   {
-    name: 'Snowflake Marketplace',
-    shortName: 'Snowflake',
+    name: 'Microsoft Azure Marketplace',
+    shortName: 'Azure',
     href: '#',
-    color: '#29B5E8',
-    bg: 'bg-[#29B5E8]/10',
-    border: 'border-[#29B5E8]/30',
-    hover: 'hover:border-[#29B5E8]/60 hover:bg-[#29B5E8]/15',
+    color: '#0089D6',
+    bg: 'bg-[#0089D6]/10',
+    border: 'border-[#0089D6]/30',
+    hover: 'hover:border-[#0089D6]/60 hover:bg-[#0089D6]/15',
   },
   {
     name: 'Google Cloud Marketplace',
@@ -56,13 +56,22 @@ const marketplaces = [
     hover: 'hover:border-[#4285F4]/60 hover:bg-[#4285F4]/15',
   },
   {
-    name: 'Microsoft Azure Marketplace',
-    shortName: 'Azure',
+    name: 'Salesforce AppExchange',
+    shortName: 'Salesforce',
     href: '#',
-    color: '#0089D6',
-    bg: 'bg-[#0089D6]/10',
-    border: 'border-[#0089D6]/30',
-    hover: 'hover:border-[#0089D6]/60 hover:bg-[#0089D6]/15',
+    color: '#00A1E0',
+    bg: 'bg-[#00A1E0]/10',
+    border: 'border-[#00A1E0]/30',
+    hover: 'hover:border-[#00A1E0]/60 hover:bg-[#00A1E0]/15',
+  },
+  {
+    name: 'Snowflake Marketplace',
+    shortName: 'Snowflake',
+    href: '#',
+    color: '#29B5E8',
+    bg: 'bg-[#29B5E8]/10',
+    border: 'border-[#29B5E8]/30',
+    hover: 'hover:border-[#29B5E8]/60 hover:bg-[#29B5E8]/15',
   },
 ]
 </script>
@@ -171,6 +180,10 @@ const marketplaces = [
           <!-- Azure -->
           <svg v-else-if="mp.shortName === 'Azure'" class="h-4 w-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M13.05 4.24L6.56 18.05 2 18.06l4.84-8.23 6.21-5.59zM13.89 5.4l3.97 11.16 3.47.01-7.44-11.17zm-3.01 8.31L8.5 18.06h8.5l-6.12-4.35z"/>
+          </svg>
+          <!-- Salesforce -->
+          <svg v-else-if="mp.shortName === 'Salesforce'" class="h-4 w-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M10.02 6.75a3.54 3.54 0 0 1 2.6-1.13 3.6 3.6 0 0 1 3.23 2.01 4.43 4.43 0 0 1 1.7-.34 4.47 4.47 0 0 1 4.47 4.47 4.47 4.47 0 0 1-4.47 4.47H6.52a3.52 3.52 0 0 1-3.52-3.52 3.52 3.52 0 0 1 3-3.49 2.96 2.96 0 0 1-.08-.69 2.97 2.97 0 0 1 2.97-2.97c.56 0 1.08.16 1.53.43l-.4.76z"/>
           </svg>
           {{ mp.shortName }}
           <UIcon name="i-lucide-external-link" class="w-3 h-3 opacity-60" />
