@@ -8,7 +8,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+    },
+    dedupe: ['vue', 'vue-router'],
+  },
+  optimizeDeps: {
+    include: ['vue-router'],
   },
   plugins: [
     vueRouter({

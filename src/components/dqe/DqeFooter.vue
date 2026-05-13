@@ -30,6 +30,7 @@ const columns = [
       { label: 'Careers', href: '/careers' },
       { label: 'Press',   href: '/press'   },
       { label: 'Contact', href: '/contact' },
+      { label: 'Reviews on G2', href: 'http://g2.com/fr/sellers/dqe', external: true, highlight: true },
     ],
   },
   {
@@ -51,6 +52,8 @@ const certBadges = [
   { icon: 'i-lucide-scale',        label: 'TCPA Ready',          color: 'text-violet-500 bg-violet-500/10 border-violet-500/20' },
   { icon: 'i-lucide-activity',     label: '99.99% Uptime',       color: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20' },
 ]
+
+const g2Link = 'http://g2.com/fr/sellers/dqe'
 
 const socials = [
   { icon: 'i-lucide-twitter',  href: '#', label: 'Twitter'  },
@@ -141,15 +144,22 @@ const socials = [
             >
               <a
                 :href="link.href"
+                :target="(link as any).external ? '_blank' : undefined"
+                :rel="(link as any).external ? 'noopener noreferrer' : undefined"
                 class="text-sm transition-colors flex items-center gap-1.5"
                 :class="(link as any).highlight
                   ? 'text-primary font-semibold hover:underline'
                   : 'text-(--ui-text-muted) hover:text-(--ui-text-highlighted)'"
               >
                 <UIcon
-                  v-if="(link as any).highlight"
+                  v-if="(link as any).highlight && !(link as any).external"
                   name="i-lucide-swords"
                   class="w-3 h-3"
+                />
+                <UIcon
+                  v-if="(link as any).external"
+                  name="i-lucide-star"
+                  class="w-3 h-3 text-amber-400"
                 />
                 {{ link.label }}
               </a>
@@ -159,7 +169,7 @@ const socials = [
       </div>
 
       <!-- ── Certification badges ──────────────────────────────────────── -->
-      <div class="flex flex-wrap gap-2 mb-8">
+      <div class="flex flex-wrap items-center gap-2 mb-8">
         <div
           v-for="cert in certBadges"
           :key="cert.label"
@@ -172,6 +182,17 @@ const socials = [
           />
           {{ cert.label }}
         </div>
+
+        <!-- G2 badge -->
+        <a
+          :href="g2Link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-600 dark:text-amber-400 hover:border-amber-400/60 hover:bg-amber-400/15 transition-colors"
+        >
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.09 6.26L21 9.27l-5 4.87 1.18 6.88L12 17.77l-5.18 3.25L8 14.14 3 9.27l6.91-1.01L12 2z" /></svg>
+          Rated on G2
+        </a>
       </div>
 
       <USeparator class="mb-6" />
